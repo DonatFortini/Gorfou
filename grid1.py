@@ -18,7 +18,7 @@ def build_grid():
     list_bouton=[but_data_full,button2,button3,button4,button5,button6,button7,button8,button9]
 
     for i,button in enumerate(list_bouton):
-        button.add_widget(Image(source=f"image/logoBouton1-{i}.png"))
+        button.add_widget(Image(source=f"image/grid1/logoBouton{i}.png"))
         grid_layout.add_widget(button)
     
     return grid_layout
