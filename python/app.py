@@ -4,6 +4,7 @@ from kivy.uix.button import Button
 from kivy.uix.gridlayout import GridLayout
 from kivy.core.window import Window
 
+
 from grid1 import build_grid as build_grid1
 from grid2 import build_grid as build_grid2
 from grid3 import build_grid as build_grid3
@@ -59,7 +60,7 @@ class MyApp(App):
         Window.top = 100
         Window.left = 100
 
-        
+        self.icon='image/Gorfou.png'
         main_layout = BoxLayout(orientation="vertical")
         main_layout.add_widget(Navbar())
         main_layout.add_widget(MainScreen())
