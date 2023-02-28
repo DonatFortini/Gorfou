@@ -15,4 +15,10 @@ Permet à la fin de générer un fichier jupyter.
 
 https://www.figma.com/file/Rzc1as1HDzs5Er4WJnOlxu/Maquette-IHM?node-id=0%3A1&t=K28jUpgEr9CEVaUU-0
 
+# Trello
 
+https://trello.com/invite/b/ThvwkZVK/ATTI7ac37623fe2c9096e03e96fd306d5e99D5BBF14C/preparation-expose
+
+# Slack
+
+projetdev-workspace.slack.com
