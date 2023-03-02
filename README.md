@@ -11,7 +11,7 @@ Des boutons correspondent à différentes fonctionnalités (voir cas d’utilisa
 
 Permet à la fin de générer un fichier jupyter.
 
-## maquette figma
+## maquettes figma
 
 ### liens d'invitation
 
