@@ -1,7 +1,10 @@
-# python version utilisé pour le dev : python3.10
+# python version utilisé pour le dev : python 3.10
 
 # utilisé pour gérer l'interface graphique
 kivy>=2.1.0
 
 # utilisé pour gérer les interaction avec le navigateur et le notebook Jupyter
-selenium>=4.0.0
+selenium>=4.8.2
+
+# pour lancer le notebook jupyter
+notebook>=6.5.2
