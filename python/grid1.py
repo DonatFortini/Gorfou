@@ -3,7 +3,7 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.image import Image
 
 def build_grid():
-    grid_layout = GridLayout(cols=3, padding=50, spacing=25)
+    grid_layout = GridLayout(cols=1, padding=50, spacing=25)
 
     but_data_full = Button(text="verifié le dataset", on_press=lambda _: print("Button 1 clicked"))
     button2 = Button(text="Button 1", on_press=lambda _: print("Button 3 clicked"))
