@@ -1,2 +1,2 @@
 kivy>=2.1.0
-solonium
+selenium>=4.0.0

@@ -1,14 +1,10 @@
 """ouverture d'un notebook jupyter à l'aide de selenium"""
 
 
-import os
-import subprocess
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
-driver = webdriver.Firefox(
-    executable_path=r'C:\\Program Files (x86)\\geckodriver.exe')
 
-
-url = "https://www.geeksforgeeks.org/"
-
-driver.get(url)
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+driver.get("https://www.google.com")
