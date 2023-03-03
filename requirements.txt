@@ -6,5 +6,8 @@ kivy>=2.1.0
 # utilisé pour gérer les interaction avec le navigateur et le notebook Jupyter
 selenium>=4.8.2
 
+# pour lancer un navigateur à l'aide de selenium
+webdriver_manager>=3.8.5
+
 # pour lancer le notebook jupyter
 notebook>=6.5.2
