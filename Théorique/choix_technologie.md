@@ -1,16 +1,17 @@
 # Choix des technologies
 
-Python et Kivy pour l’interface graphique
-
-<https://kivy.org/>
-
-Python et jupyter notebook pour la création de code boilerplate
-
 ## langage
+
+### python
+
+* Privilégié par les membres des l'équipe
+* langage des notebook
+* permet le développement rapide d'applications de bureau
+* la performance n'est pas une priorité pour le projet
 
 ## Partie GUI
 
-### Choix : kivy
+### kivy
 
 * Un membre de l'équipe possède de l'experience avec la librairie (Fortini Donat)
 * Le cross-plateforme est directement fonctionnelle (l'équipe peut donc développer à la fois sur Linux et Windows)
@@ -19,21 +20,21 @@ Python et jupyter notebook pour la création de code boilerplate
 
 ## Partie "backend"
 
-### Choix : selenium
+### selenium
 
 * Permet l'ouverture d'un navigateur à partir d'un programme python
 * permet la gestion de la page par ce programme
 * à la base surtout utilisé pour le test mais le changement de fonction ne semble pas problématique
 * permet la prévisualisation du notebook dans la page ouverte/gérée
 
-### Choix : jupyter notebook
+### jupyter notebook
 
 * toujours le plus populaire par rapport à jupyterLab
 * convient mieux à notre objectif (création et prévisualisation d'un notebook donc pas besoins d'un IDE en ligne)
 * le but du projet est de créer un notebook jupyter (!).
 
-### Choix : webdriver
+### webdriver
 
 * nécessaire à l’installation simple des driver servant à ouvrir les navigateur
-* nécessaire au bon fonctionnement de celenium avec les navigateurs dans sa dernière version.
+* nécessaire au bon fonctionnement de selenium avec les navigateurs dans sa dernière version.
   
