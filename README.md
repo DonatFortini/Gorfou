@@ -18,5 +18,5 @@ Permet à la fin de générer un fichier jupyter.
 maquette v0:
 <https://www.figma.com/file/Rzc1as1HDzs5Er4WJnOlxu/Maquette-IHM-garfou-v0?t=AaMtB0QnfDXjUqKp-1>
 
-maquette "rêvé":
+maquette "rêvée":
 <https://www.figma.com/file/ga2FgXCw71y35dVsRPxfg5/Maquette-IHM-garfou-reve?node-id=0%3A1&t=yvH9zEiwYLWFvtzp-1>
