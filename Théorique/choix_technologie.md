@@ -4,7 +4,7 @@
 
 ### python
 
-* Privilégié par les membres des l'équipe
+* Privilégié par les membres de l'équipe
 * langage des notebook
 * permet le développement rapide d'applications de bureau
 * la performance n'est pas une priorité pour le projet
