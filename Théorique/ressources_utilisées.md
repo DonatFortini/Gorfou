@@ -29,3 +29,9 @@ ensemble d'éléments opensources créer par google pour android
 permet de rapidement insérer des icones libre de droits
 
 <https://iconify.design/>
+
+### typographie
+
+#### aide pour le choix (temporaire)
+
+<https://www.figma.com/fr/font-types/monospace-fonts/>
