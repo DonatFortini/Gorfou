@@ -35,3 +35,8 @@ permet de rapidement insérer des icones libre de droits
 #### aide pour le choix (temporaire)
 
 <https://www.figma.com/fr/font-types/monospace-fonts/>
+
+## README
+
+exemples de "super" readme
+<https://github.com/matiassingers/awesome-readme>
