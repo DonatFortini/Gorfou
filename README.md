@@ -20,3 +20,11 @@ maquette v0:
 
 maquette "rêvée":
 <https://www.figma.com/file/ga2FgXCw71y35dVsRPxfg5/Maquette-IHM-garfou-reve?node-id=0%3A1&t=yvH9zEiwYLWFvtzp-1>
+
+## Liens partie théorique
+
+* [choix des technologies](./Théorique/choix_technologies.md)
+* [liste des fonctionnalités](./Théorique/liste_fonctionnalités)
+* [parcours de l'utilisateur](./Théorique/parcours_utilisateur.md)
+* [réflexions sur le concept de profil](./Théorique/reflexions_concept_profile.md)
+* [liste des ressources utilisées pour le projet](./Théorique/ressources_utilisées.md)
