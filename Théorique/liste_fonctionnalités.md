@@ -1,4 +1,4 @@
-# Liste fonctionnalité
+# Liste fonctionnalités
 
 ## Complétion du dataset
 
