@@ -4,16 +4,28 @@
 
 ### logo
 
+Logo trouver un peu vite mais utilisable pour un projet open source.
+
 <https://www.istockphoto.com/fr/vectoriel/pingouin-macaroni-natation-animation-cadre-mignon-dessin-animé-vecteur-gm1415176412-463639620>
 
 ### palette
 
-Catpuccin :
+#### Catpuccin
+
+Ensemble de palettes pastelles opensources créer pour les éditeurs de code mais utilisable pour notre application
 
 <https://github.com/catppuccin/catppuccin>
 
-### élements figma
+### éléments figma
 
-material3 (google)
+#### material3 (google)
+
+ensemble d'éléments opensources créer par google pour android
 
 <https://www.figma.com/community/file/1035203688168086460>
+
+#### plugin iconify pour figma
+
+permet de rapidement insérer des icones libre de droits
+
+<https://iconify.design/>
