@@ -27,3 +27,7 @@ Utilisation de seaborn pour automatiquement générer une visualisation basique 
 ## Création d’un fichier notebook Jupyter (.ipynb) boilerplate
 
 Objectif final, création d’une base de travail saine personnalisée pour l’IA.
+
+## ajout de fonctionnalités
+
+Permet à l'utilisateur de définir des macro dans son profil.
