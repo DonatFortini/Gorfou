@@ -28,6 +28,6 @@ Utilisation de seaborn pour automatiquement générer une visualisation basique 
 
 Objectif final, création d’une base de travail saine personnalisée pour l’IA.
 
-## ajout de fonctionnalités
+## ajout de fonctionnalités (objectif lointain)
 
 Permet à l'utilisateur de définir des macro dans son profil.
