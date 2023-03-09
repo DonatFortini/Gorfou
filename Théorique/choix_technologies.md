@@ -42,6 +42,7 @@
 
 ## autre
 
+a
 
 ## Possible
 
@@ -49,9 +50,6 @@
 
 pour simplifier le build, à regarder plus tard
 
-
 ### Sphinx
 
 pour la documentation, à voir plus tard
-
-  
