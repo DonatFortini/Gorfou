@@ -1,3 +1,65 @@
+[project]
+
+name = "gorfou"  # Required
+
+version = "0.0.1"
+
+description = "quickly generate good looking notebooks."
+
+readme = "README.md"
+
+requires-python = ">=3.10"
+
+license = {file = "LICENSE.txt"}
+
+keywords = ["notebook", "GUI", "macro"]
+
+authors = [
+  {name = "Donat Fortini", email = "author@example.com" }
+]
+
+classifiers = [
+    Development Status :: 1 - Planning
+    Intended Audience :: Science/Research
+    Framework :: Jupyter
+    Framework :: IPython
+    License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+    Natural Language :: French
+    Operating System :: OS Independent
+    Programming Language :: Python
+    Programming Language :: Python :: 3 :: Only
+    Programming Language :: Python :: 3.10
+    Programming Language :: Python :: Implementation :: CPython
+]
+
+
+dependencies = [ # Optional
+  "selenium"
+  "kivy"
+  "webdriver-manager"
+  "notebook"
+]
+
+
+[project.urls]  # Optional
+"Homepage" = "https://github.com/DonatFortini/Projet_developement"
+"Bug Reports" = "https://github.com/DonatFortini/Projet_developement/issues"
+"Source" = "https://github.com/DonatFortini/Projet_developement"
+
+
+
+# The following would provide a command line executable called `sample`
+# which executes the function `main` from this package when invoked.
+#[project.scripts]  # Optional
+#sample = "sample:main"
+
+# This is configuration specific to the `setuptools` build backend.
+# If you are using a different build backend, you will need to change this.
+[tool.setuptools]
+# If there are data files included in your packages that need to be
+# installed, specify them here.
+#package-data = {"sample" = ["*.dat"]}
+
 [build-system]
-requires = ["setuptools>=40.8.0", "wheel"]
+requires = ["setuptools>=43.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
