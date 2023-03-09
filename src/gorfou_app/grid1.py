@@ -7,7 +7,7 @@ def build_grid():
     grid_layout = GridLayout(cols=1, padding=50, spacing=25)
 
     but_data_full = Button(
-        text="verifié le dataset", on_press=lambda _: print("Button 1 clicked")
+        text="vérifié le dataset", on_press=lambda _: print("Button 1 clicked")
     )
     button2 = Button(text="Button 1", on_press=lambda _: print("Button 3 clicked"))
     button3 = Button(text="Button 1", on_press=lambda _: print("Button 3 clicked"))
