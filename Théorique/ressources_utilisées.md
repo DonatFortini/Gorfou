@@ -40,3 +40,17 @@ permet de rapidement insérer des icones libre de droits
 
 exemples de "super" readme
 <https://github.com/matiassingers/awesome-readme>
+
+## Bonnes pratiques python modernes
+
+### Livres
+
+Dead Simple Python
+Idiomatic Python for the Impatient Programmer
+by Jason C. McDonald
+<https://nostarch.com/dead-simple-python>
+
+Serious Python
+Black-Belt Advice on Deployment, Scalability, Testing, and More
+by Julien Danjou
+<https://nostarch.com/seriouspython>
