@@ -39,4 +39,19 @@
 * nécessaire au bon fonctionnement de selenium avec les navigateurs dans sa dernière version.
 
 * [Retour readme](../README.md)
+
+## autre
+
+
+## Possible
+
+### Poetry
+
+pour simplifier le build, à regarder plus tard
+
+
+### Sphinx
+
+pour la documentation, à voir plus tard
+
   
