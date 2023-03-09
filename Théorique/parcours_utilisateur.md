@@ -37,3 +37,5 @@
 * On indique à l'utilisateur qu'aucune autre option n'est disponible
 * il est libre de retourner dans la bonne catégorie pour modifier quelque chose
 * un résumé de ses choix sera disponible
+
+* [Retour readme](../README.md)

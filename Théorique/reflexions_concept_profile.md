@@ -10,3 +10,5 @@ Sera pris en compte dans les fondations mais l'implémentation sera tardive si e
 * option graphique (thème)
 * option navigateur prévisualisant le notebook
 * option accessibilité (contraste élevé, typographie adapté aux personnes dyslexiques, etc...) accessible en un clique
+
+* [Retour readme](../README.md)

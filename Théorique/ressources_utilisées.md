@@ -54,3 +54,5 @@ Serious Python
 Black-Belt Advice on Deployment, Scalability, Testing, and More
 by Julien Danjou
 <https://nostarch.com/seriouspython>
+
+* [Retour readme](../README.md)
