@@ -15,15 +15,15 @@ class MainApp(App):
         
         screen_manager = ScreenManager()
         
-        # acceuil
+        # accueil
         title_screen = TitleScreen(name='title')
         screen_manager.add_widget(title_screen)
         
-        # ecran principal
+        # écran principal
         main_screen = MainScreen(name='main')
         screen_manager.add_widget(main_screen)
 
-        # set la page de démarrage sur l'ecran titre
+        # set la page de démarrage sur l'écran titre
         screen_manager.current = 'title'
         
         return screen_manager

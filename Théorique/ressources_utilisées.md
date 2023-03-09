@@ -26,7 +26,7 @@ ensemble d'éléments opensources créer par google pour android
 
 #### plugin iconify pour figma
 
-permet de rapidement insérer des icones libre de droits
+permet de rapidement insérer des icônes libre de droits
 
 <https://iconify.design/>
 
@@ -56,3 +56,7 @@ by Julien Danjou
 <https://nostarch.com/seriouspython>
 
 * [Retour readme](../README.md)
+
+### projet d'example pour le packaging (PyPa)
+
+<https://github.com/pypa/sampleproject/>

@@ -1,6 +1,6 @@
 # Gorfou
 
-Le but du projet est de créer une application simplifiant le traiment , la mise en forme/valeur des données
+Le but du projet est de créer une application simplifiant le traitement , la mise en forme/valeur des données
 et datasets pour simplifier la tache a toute personne voulant s'exercer .
 
 ## description du projet
@@ -28,3 +28,15 @@ maquette "rêvée":
 * [parcours de l'utilisateur](./Théorique/parcours_utilisateur.md)
 * [réflexions sur le concept de profil](./Théorique/reflexions_concept_profile.md)
 * [liste des ressources utilisées pour le projet](./Théorique/ressources_utilisées.md)
+
+## Instruction d'installation
+
+## Technologies utilisé
+
+pour plus de précision : [choix des technologies](./Théorique/choix_technologies.md)
+
+## Instruction d'utilisation
+
+## Comment contribuer ou report une erreur
+
+## Liste des auteurs et contributeurs

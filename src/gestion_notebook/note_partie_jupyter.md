@@ -1,8 +1,4 @@
-# Note sur la partie notebook
-
-auteur : Théo Piacentini
-
-## ressources utilisées
+# Notes sur la partie notebook
 
 ## chose à faire
 

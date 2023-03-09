@@ -26,7 +26,7 @@
 * Un lien vers les docs de ses modèles sera fournis
 * Pas besoins de fichier pour générer proprement les modèles
 
-## visualition
+## visualisation
 
 * Les outils utilisé pour la visualisation seront matplotlib et seaborn
 * plusieurs options de base seront disponibles
