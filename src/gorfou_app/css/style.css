@@ -1,0 +1,66 @@
+.container {
+	display: flex;
+	height: 100vh;
+}
+
+.column {
+	flex-basis: 10%;
+	background-color: #f5f5f5;
+	padding: 20px;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	padding: 10px 20px;
+	cursor: pointer;
+	font-size: 18px;
+	color: #333;
+	transition: background-color 0.2s ease-in-out;
+}
+
+li:hover {
+	background-color: #eee;
+}
+
+
+
+
+
+.info {
+	display: none;
+}
+
+.active {
+	display: block;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 20px;
+}
+
+.main {
+	width: 100%;
+	height: 0;
+	padding-bottom: 100%;
+	background-color: #ddd;
+	cursor: pointer;
+}
+
+.square {
+	width: 200px;
+	height: 200px;
+
+	background-color: grey;
+	cursor: pointer;
+}
+
+.square:hover {
+	background-color: #aaa;
+}
