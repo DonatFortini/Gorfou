@@ -6,6 +6,7 @@ import subprocess
 import re
 import time
 import logging
+logging.basicConfig(level=logging.ERROR)
 module_logger = logging.getLogger(__name__)
 
 
@@ -18,11 +19,14 @@ def main():
 
     time.sleep(2)
 
-    print(get_token())
+    logging.info(get_token())
     driver = webdriver.Chrome(service=ChromeService(
         ChromeDriverManager().install()))
 
-    driver.get("http://localhost:8888/tree" + get_token())
+    driver.get(
+        "http://localhost:8099/tree/src/gorfou_api/notebooks/test_notebook.ipynb" + get_token())
+
+    input("input quoi que ce soit pour fermer le serveur jupyter")
 
     subprocess.run(
         [powershell, 'jupyter', 'notebook', 'stop', '8099'], stdout=subprocess.PIPE,
@@ -30,11 +34,7 @@ def main():
 
     jupyter_server.kill()
 
-    input()
-
-    # t_server.join()
-
-    print("bonjour !")
+    print("serveur bien fermé !")
 
 
 def run_server():
@@ -49,13 +49,13 @@ def get_token() -> str:
     server_launch = subprocess.run(
         [powershell, "jupyter", "notebook", "list"], capture_output=True)
 
-    module_logger.debug(f"return of powershell command {server_launch.stdout}")
+    module_logger.info(f"return of powershell command {server_launch.stdout}")
 
     command_result = server_launch.stdout.decode("ascii")
     token_search = re.search("\?token=[\w]+", command_result)
     if token_search == None:
         raise LookupError("token not found !")
-    module_logger.debug("token found !")
+    module_logger.info("token found !")
 
     return token_search.group(0)
 
