@@ -1,7 +1,7 @@
 from pathlib import Path
 import json
 import pprint
-import papermill
+import papermill as pm
 
 
 class Notebook:
@@ -21,7 +21,10 @@ class Notebook:
         self.content = content
         self.nb_cells = len(content['cells'])
 
-    def edit_cell(self, cell_index, new_content):
+        with open(self.path, 'w') as file:
+            json.dump(content, file, ensure_ascii=False)
+
+    def edit_cell(self, cell_index, new_cell_content):
         """ edit une cellule du notebook à partir de son index
 
         Args:
@@ -33,20 +36,20 @@ class Notebook:
             raise IndexError("bad cell index")
 
         with open(self.path, 'r') as file:
-            new_content = json.load(file)
+            full_content = json.load(file)
 
-            new_content['cells'][cell_index]['source'] = new_content
+            full_content['cells'][cell_index]['source'] = new_cell_content
 
         with open(self.path,  'w') as file:
-            file.dump(new_content, file, indent=2)
+            file.dump(full_content, file, indent=2, ensure_ascii=False)
 
-    def run(self, output=path):
+    def run(self):
         """ execute le notebook à l'aide de papermill
 
         Args:
             output (Path, optional): choix de l'output de l'execution du notebook. Defaults to path.
         """
-        papermill.execute(self.path, output)
+        pm.execute_notebook(self.path, self.path)
 
     def __str__(self) -> str:
         """retourne la représentation du notebook à l'aide de pretty print pour le contenu
@@ -62,3 +65,4 @@ class Notebook:
 
 mon_Notebook = Notebook()
 print(mon_Notebook)
+mon_Notebook.run()
