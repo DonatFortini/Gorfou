@@ -29,7 +29,7 @@ class JupyterServer:
         self.process = subprocess.Popen(
             [self.shell, 'jupyter', 'notebook', '--no-browser', '--port=8099'], stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT)
-        print("t1")
+        time.sleep(3)
 
     def get_token(self) -> str:
         server_launch = subprocess.run(
