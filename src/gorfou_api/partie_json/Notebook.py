@@ -32,7 +32,7 @@ class Notebook:
             new_content (string): contenu à rajouter dans la cellule
         """
 
-        if 0 <= cell_index <= self.nb_cells:
+        if not 0 <= cell_index <= self.nb_cells:
             raise IndexError("bad cell index")
 
         with open(self.path, 'r') as file:
@@ -64,5 +64,7 @@ class Notebook:
 
 
 mon_Notebook = Notebook()
+
+
 print(mon_Notebook)
 mon_Notebook.run()
