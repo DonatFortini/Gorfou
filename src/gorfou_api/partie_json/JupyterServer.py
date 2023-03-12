@@ -13,7 +13,7 @@ class JupyterServer:
 
     def __init__(self, port=8099, shell=POWERSHELL) -> None:
         self.port = port
-        self.shell
+        self.shell = shell
         self.process = None
 
     def stop_server(self):
