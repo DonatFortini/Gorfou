@@ -22,7 +22,7 @@ class Notebook:
         self.nb_cells = len(content['cells'])
 
         with open(self.path, 'w') as file:
-            json.dump(content, file, ensure_ascii=False)
+            json.dump(content, file, indent=2, ensure_ascii=False)
 
     def edit_cell(self, cell_index, new_cell_content):
         """ edit une cellule du notebook à partir de son index
@@ -37,11 +37,10 @@ class Notebook:
 
         with open(self.path, 'r') as file:
             full_content = json.load(file)
-
             full_content['cells'][cell_index]['source'] = new_cell_content
 
-        with open(self.path,  'w') as file:
-            file.dump(full_content, file, indent=2, ensure_ascii=False)
+        with open(self.path, 'w') as file:
+            json.dump(full_content, file, indent=2, ensure_ascii=False)
 
     def run(self):
         """ execute le notebook à l'aide de papermill
@@ -63,8 +62,15 @@ class Notebook:
         return f"path = {repr_path}\n\ncontent =\n\n{repr_content}\n\nnb_cells = {self.nb_cells}"
 
 
-mon_Notebook = Notebook()
+path_fichier = Path(__file__).resolve()
+path_test = path_fichier.parents[1] / Path('./notebooks/test_notebook.ipynb')
+
+mon_Notebook = Notebook(path_test)
 
 
 print(mon_Notebook)
+
+mon_Notebook.edit_cell(1, 'print("hello from a python script !")')
 mon_Notebook.run()
+
+print(mon_Notebook)
