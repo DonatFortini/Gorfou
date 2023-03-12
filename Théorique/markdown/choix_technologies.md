@@ -38,12 +38,6 @@
 * nécessaire à l’installation simple des driver servant à ouvrir les navigateur
 * nécessaire au bon fonctionnement de selenium avec les navigateurs dans sa dernière version.
 
-* [Retour readme](../README.md)
-
-## autre
-
-a
-
 ## Possible
 
 ### Poetry
@@ -53,3 +47,5 @@ pour simplifier le build, à regarder plus tard
 ### Sphinx
 
 pour la documentation, à voir plus tard
+
+* [Retour readme](../../README.md)

@@ -19,7 +19,7 @@ class Notebook:
     def __init__(self, path=DEFAULT_PATH, content=DEFAULT_CONTENT) -> None:
         self.path = path
         self.content = content
-        self.nb_cells = len(content['cells'])
+        self.cells_nb = len(content['cells'])
 
         with open(self.path, 'w') as file:
             json.dump(content, file, indent=2, ensure_ascii=False)
@@ -32,7 +32,7 @@ class Notebook:
             new_content (string): contenu à rajouter dans la cellule
         """
 
-        if not 0 <= cell_index <= self.nb_cells:
+        if not 0 <= cell_index <= self.cells_nb:
             raise IndexError("bad cell index")
 
         with open(self.path, 'r') as file:
@@ -59,7 +59,7 @@ class Notebook:
 
         repr_path = str(self.path)
         repr_content = pprint.pformat(self.content)
-        return f"path = {repr_path}\n\ncontent =\n\n{repr_content}\n\nnb_cells = {self.nb_cells}"
+        return f"path = {repr_path}\n\ncontent =\n\n{repr_content}\n\ncells_nb = {self.cells_nb}"
 
 
 path_fichier = Path(__file__).resolve()

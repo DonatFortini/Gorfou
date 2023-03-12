@@ -38,4 +38,4 @@
 * il est libre de retourner dans la bonne catégorie pour modifier quelque chose
 * un résumé de ses choix sera disponible
 
-* [Retour readme](../README.md)
+* [Retour readme](../../README.md)

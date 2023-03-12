@@ -55,8 +55,10 @@ Black-Belt Advice on Deployment, Scalability, Testing, and More
 by Julien Danjou
 <https://nostarch.com/seriouspython>
 
-* [Retour readme](../README.md)
+
 
 ### projet d'example pour le packaging (PyPa)
 
 <https://github.com/pypa/sampleproject/>
+
+* [Retour readme](../../README.md)
