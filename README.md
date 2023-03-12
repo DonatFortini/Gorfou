@@ -1,5 +1,9 @@
 # Gorfou
 
+![img|10x10](./src/resources/logo_gorfou.svg)
+![alt](./src/resources/logo_gorfou.svg){: width="10%"}
+![smiley](./src/resources/logo_gorfou.svg){:height="36px" width="36px"}
+
 Le but du projet est de créer une application simplifiant le traitement , la mise en forme/valeur des données
 et datasets pour simplifier la tache a toute personne voulant s'exercer .
 
