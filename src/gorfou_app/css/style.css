@@ -92,3 +92,8 @@ li.button:hover {
 .square:hover {
     background-color: #aaa;
 }
+
+.logo {
+    height: auto;
+    width: 20%;
+}
