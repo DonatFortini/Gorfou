@@ -97,3 +97,8 @@ li.button:hover {
     height: auto;
     width: 20%;
 }
+
+.settings{
+    height:auto;
+    width: 50%;
+}
