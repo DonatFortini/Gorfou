@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./*.{html, js}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        ubuntu: ["Ubuntu", "sans-serif"],
+      },
+    },
   },
-  plugins: [],
+  plugins: [require("@catppuccin/tailwindcss")],
 };
