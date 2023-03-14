@@ -33,7 +33,7 @@ maquette "rêvée":
 
 ## Instruction d'installation
 
-## Technologies utilisé
+## Technologies utilisées
 
 pour plus de précision : [choix des technologies](./Théorique/choix_technologies.md)
 
