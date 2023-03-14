@@ -16,52 +16,12 @@ header {
 }
 
 main {
-    height: 80vh;
+    height: 90vh;
 }
 
-footer {
-    height: 10vh;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100vw;
-}
-
-button{
-    border-radius: 20px;
-    background-color: #F38BA8;
-    margin: 5px;
-}
-
-.logo {
+.logo{
     display: block;
     margin: auto;
     width: 20%;
     height: auto;
-}
-
-.menu{
-    display: grid;
-    margin: auto;
-    width: 25%;
-    height: 30%;
-}
-
-.settings{
-    display: block;
-    width: 64px;
-    height:auto; 
-}
-
-.profil{
-    margin: auto;
-    float: right;
-}
-
-.fichier{
-    float: right;
-}
-
-.container-fichierprofil {
-    margin-left: 70vw;
 }
