@@ -26,7 +26,7 @@ maquette "rêvée":
 ## Liens partie théorique
 
 * [choix des technologies](./Théorique/markdown/choix_technologies.md)
-* [liste des fonctionnalités](./Théorique/markdown/liste_fonctionnalités)
+* [liste des fonctionnalités](./Théorique/markdown/liste_fonctionnalités.md)
 * [parcours de l'utilisateur](./Théorique/markdown/parcours_utilisateur.md)
 * [réflexions sur le concept de profil](./Théorique/markdown/reflexions_concept_profile.md)
 * [liste des ressources utilisées pour le projet](./Théorique/markdown/ressources_utilisées.md)
