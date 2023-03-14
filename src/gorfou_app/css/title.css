@@ -2,15 +2,13 @@ html,
 body {
     height: 100%;
     margin: 0;
+    font-family: 'Ubuntu', sans-serif;
+    color: #CDD6F4;
+    background: #1E1E2E;
 }
 
-.wrapper {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
 
-.header {
+header {
     height: 10%;
     background-color: #11111b;
     display: flex;
@@ -18,55 +16,17 @@ body {
     justify-content: center;
 }
 
-.content {
-    flex: 1;
-    background-color: #1E1E2E;
-    position: relative;
+main {
+    height: 80%;
 }
 
-h1 {
-    text-align: center;
-    color: white;
+footer {
+    height: 10%;
 }
 
-img {
+.logo {
     display: block;
-    margin: 50px auto 0;
-    max-width: 100%;
-    height: auto;
-    width: 20%;
-}
-
-.button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex: 3;
     margin: auto;
-    margin-top: 25%;
-}
-
-button {
-    margin-bottom: 10px;
-    background-color: #F38BA8;
-    border-radius: 20px;
-    padding: 10px 20px;
-    font-size: 18px;
-}
-
-.button-container-bottom-left {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-}
-
-.button-container-bottom-right {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-}
-
-.fa-cog {
-    font-size: 24px;
+    width: 20%;
+    height: auto;
 }
