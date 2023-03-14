@@ -11,12 +11,12 @@
 
 ## Partie GUI
 
-### kivy
+### electrons
 
 * Un membre de l'équipe possède de l'experience avec la librairie (Fortini Donat)
 * Le cross-plateforme est directement fonctionnelle (l'équipe peut donc développer à la fois sur Linux et Windows)
 * La séparation du code gérant l'IHM est possible sans trop de difficulté (consigne de l'UE)
-* Ce base sur la programmation Orienté objet, permettant donc de clarifier notre travail à l'aide de l'UML
+
 
 ## Partie "backend"
 
