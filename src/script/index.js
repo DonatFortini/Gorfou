@@ -1,5 +1,15 @@
+
 const button_import = document.getElementById('import');
-button_import.addEventListener('click',function(){window.location.assign("main.html")});
+button_import.addEventListener('click', () => {
+  remote.showOpenDialog({
+    properties: ['openDirectory'],
+    title: 'Select Folder'
+  }).then(result => {
+    console.log(result.filePaths);
+  }).catch(err => {
+    console.log(err);
+  });
+});
 
 const button_transfo = document.getElementById('transf');
 button_transfo.addEventListener('click',function(){window.location.assign("main.html")});

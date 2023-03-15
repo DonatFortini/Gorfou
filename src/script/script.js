@@ -1,17 +1,18 @@
-const items = document.querySelectorAll('li');
-const infoBoxes = document.querySelectorAll('.info');
-items.forEach((item, index) => {
-  item.addEventListener('click', () => {
-    items.forEach(item => item.classList.remove('active'));
-    infoBoxes.forEach(infoBox => infoBox.classList.remove('active'));
-    item.classList.add('active');
-    infoBoxes[index].classList.add('active');
-  });
-});
+const but_menu1 = document.getElementById('menu_1');
+const but_menu2 = document.getElementById('menu_2');
+const but_menu3 = document.getElementById('menu_3');
 
-const button = document.getElementById('run-python-script-button');
-button.addEventListener('click', async () => {
-    const response = await fetch('/run-python-script');
-    const data = await response.text();
-    console.log(data);
-});
+function change(num) {
+  let x = document.getElementsByClassName('page_active');
+  for (let i = 0; i < x.length; i++) {
+    x[i].classList.replace('page_active','page_');
+  }
+  document.getElementById(num).classList.remove('page_');
+  document.getElementById(num).classList.add('page_active');
+}
+
+but_menu1.addEventListener('click', function() {change('1')});
+but_menu2.addEventListener('click', function() {change('2')});
+but_menu3.addEventListener('click', function() {change('3')});
+
+

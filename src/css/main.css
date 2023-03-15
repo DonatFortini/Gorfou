@@ -50,14 +50,18 @@ button{
 .colonne{
     width: 20vh;
     padding: 10px;
-    background-color: #11111b;
+    background: #1E1E2E;
     margin-right: 10px;
+   
 }
 
 .settings{
     width: 64px;
     height:auto; 
+    margin: 50px;
 }
+
+
 
 /*partie fonctionalitée*/
 .content{
@@ -68,8 +72,29 @@ button{
     width: 100%;
 }
 
+.page_{
+    display: none;
+}
+
 .contenu{
     background-color: #11111b;
     width:100%;
     border-radius: 20px;
+    height: 200px;
+    margin: 20px;
+}
+
+.contenu:hover{
+    background-color: #11111b34;
+}
+
+.option,.titre-fonction{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.icon{
+    width: 64px;
+    background-color: #CDD6F4;
+    
 }
