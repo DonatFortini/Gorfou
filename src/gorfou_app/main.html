@@ -1,26 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
-    <title>Gorfou-IA</title>
+  <meta charset="UTF-8" />
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+  <link href="css/style.css" rel="stylesheet">
+  <title>Gorfou-IA</title>
 </head>
 
 <body>
-    <header>
-        <img src="../resources/logo_gorfou.svg" class="logo">
-        <h1>Gorfou-IA</h1>
-        <label class="fichier"> 
-        <button class="import">import</button>
-        <button class="preview">preview</button>
-    </header>
-
-    <main>
-
-    </main>
-
+  <div class="wrapper">
+    <div class="header">
+      <h1>Gorfou-IA</h1>
+      <img class="logo" src="../resources/logo_gorfou.svg">
+    </div>
+    <div class="content"></div>
+      <div class="container">
+        <div class="column">
+          <ul>
+            <li class="button active">Traitement de données</li>
+            <li class="button">Création de modèle</li>
+            <li class="button">Visualisation</li>
+          </ul>
+          <img class="settings" src="../resources/gear.png">
+        </div>
+        <div class="main">
+          <div class="info active">
+            <div class="grid">
+              <div class="square">
+                <h1>Verifier les données</h1>
+                <select>
+                  <option>NaN</option>
+                  <option>vide</option>
+                  <option></option>
+                </select>
+                <p>description textuelle</p>
+                <img>
+              </div>
+              <div class="square">
+                <h1>titre fonctionalite</h1>
+                <select>
+                  <option>1</option>
+                  <option>2</option>
+                </select>
+                <p>description textuelle</p>
+                <img>
+              </div>
+              <div class="square">
+                <h1>titre fonctionalite</h1>
+                <select>
+                  <option>1</option>
+                  <option>2</option>
+                </select>
+                <p>description textuelle</p>
+                <img>
+              </div>
+            </div>
+          </div>
+          <div class="info">
+            <div class="grid">
+              <div class="square" id="run-python-script-button">
+                <h1>titre fonctionalite</h1>
+                <select>
+                  <option>1</option>
+                  <option>2</option>
+                </select>
+                <p>description textuelle</p>
+                <img>
+              </div>
+              <div class="square">
+                <h1>titre fonctionalite</h1>
+                <select>
+                  <option>1</option>
+                  <option>2</option>
+                </select>
+                <p>description textuelle</p>
+                <img>
+              </div>
+              <div class="square">
+                <h1>titre fonctionalite</h1>
+                <select>
+                  <option>1</option>
+                  <option>2</option>
+                </select>
+                <p>description textuelle</p>
+                <img>
+              </div>
+            </div>
+          </div>
+          <div class="info">
+            <div class="grid">
+              <div class="square">
+                <h1>titre fonctionalite</h1>
+                <select>
+                  <option>1</option>
+                  <option>2</option>
+                </select>
+                <p>description textuelle</p>
+                <img>
+              </div>
+              <div class="square">
+                <h1>titre fonctionalite</h1>
+                <select>
+                  <option>1</option>
+                  <option>2</option>
+                </select>
+                <p>description textuelle</p>
+                <img>
+              </div>
+              <div class="square">
+                <h1>titre fonctionalite</h1>
+                <select>
+                  <option>1</option>
+                  <option>2</option>
+                </select>
+                <p>description textuelle</p>
+                <img>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script/script.js"></script>
 </body>
-<script src="script/script.js"></script>
+
 </html>
