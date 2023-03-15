@@ -1,5 +1,13 @@
 import { PythonShell } from "python-shell";
 
-PythonShell.runString("x=1+1;print(x)").then((messages) => {
-  console.log("finished");
+var python_shell_1 = require("python-shell");
+var options = {
+  mode: "text",
+  pythonOptions: ["-u"],
+};
+python_shell_1.PythonShell.run("src/gorfou_api/", options).then(function (
+  messages
+) {
+  // results is an array consisting of messages collected during execution
+  console.log("results: %j", messages);
 });
