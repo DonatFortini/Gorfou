@@ -17,11 +17,61 @@ header {
 
 main {
     height: 90vh;
+    display: flex;
 }
 
+button{
+    border-radius: 20px;
+    background-color: #F38BA8;
+    margin: 5px;
+}
+
+/*patie header */
 .logo{
     display: block;
-    margin: auto;
     width: 20%;
     height: auto;
+}
+
+.fichier{
+    float: right;
+}
+
+.preview{
+    float: right;
+}
+
+.import{
+    float: right;
+}
+
+/*partie colonne*/
+
+.colonne{
+    width: 20vh;
+    padding: 10px;
+    background-color: #11111b;
+    margin-right: 10px;
+}
+
+.settings{
+    display: block;
+    width: 64px;
+    height:auto; 
+}
+
+/*partie fonctionalitée*/
+
+.page_active{
+    width: 100%;
+}
+
+.content{
+    width: 80vh;
+}
+
+.contenu{
+    background-color: #11111b;
+    width:100%;
+    border-radius: 20px;
 }
