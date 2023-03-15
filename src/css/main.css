@@ -24,13 +24,15 @@ button{
     border-radius: 20px;
     background-color: #F38BA8;
     margin: 5px;
+    width: 150px;
+    height: 40px;
 }
 
 /*patie header */
 .logo{
     display: block;
     width: 20%;
-    height: auto;
+    height: 150px;
 }
 
 .fichier{
@@ -51,8 +53,10 @@ button{
     width: 20vh;
     padding: 10px;
     background: #1E1E2E;
-    margin-right: 10px;
-   
+    margin-right: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .settings{
@@ -60,6 +64,7 @@ button{
     height:auto; 
     margin: 50px;
 }
+
 
 
 
@@ -78,7 +83,7 @@ button{
 
 .contenu{
     background-color: #11111b;
-    width:100%;
+    width:95%;
     border-radius: 20px;
     height: 200px;
     margin: 20px;
