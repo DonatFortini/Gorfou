@@ -9,14 +9,23 @@
   </head>
 
   <body class="mocha">
-    <header class="flex justify-center bg-crust font-ubuntu  text-text content-around">
+    <header
+      class="flex justify-center bg-crust font-ubuntu text-text content-around"
+    >
       <h1>Gorfou-IA</h1>
     </header>
 
     <main class="bg-base">
-      <img src="./resources/logo_gorfou.svg" class="logo" />
+      <img src="./resources/logo_gorfou.svg" class="logo" alt="logo_penguin" />
 
-      <nav class="text-text">
+      <nav class="text-text" aria-label="menu">
+        <button>importer des données</button>
+        <button>Transformation des données</button>
+        <button>Création de modèle</button>
+        <button>Visualisation des données</button>
+      </nav>
+
+      <nav class="text-text" aria-label="menu">
         <button>importer des données</button>
         <button>Transformation des données</button>
         <button>Création de modèle</button>
@@ -24,21 +33,13 @@
       </nav>
     </main>
 
-    <nav class="text-text">
-      <button >importer des données</button>
-      <button>Transformation des données</button>
-      <button>Création de modèle</button>
-      <button>Visualisation des données</button>
-    </nav>
-  </main>
-
-  <footer>
-    <img src="./resources/gear.png">
-    <div>
-      <label>
-      <button>profil</button>
-    </div>
-  </footer>
-</body>
-<script src="script/index.js"></script>
+    <footer>
+      <img src="./resources/gear.png" alt="logo paramètres" />
+      <div>
+        <label></label>
+        <button>profil</button>
+      </div>
+    </footer>
+  </body>
+  <script src="script/index.js"></script>
 </html>
