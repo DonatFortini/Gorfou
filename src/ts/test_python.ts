@@ -1,5 +1,11 @@
 import { PythonShell } from "python-shell";
 
-PythonShell.runString("x=1+1;print(x)").then((messages) => {
-  console.log("finished");
+let options = {
+  pythonOptions: ["-u"], // get print results in real-time
+};
+
+PythonShell.run("src/gorfou_api/test.py", options).then((messages) => {
+  let results;
+  // results is an array consisting of messages collected during execution
+  console.log("results: %j", results);
 });
