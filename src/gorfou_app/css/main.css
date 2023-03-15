@@ -55,19 +55,17 @@ button{
 }
 
 .settings{
-    display: block;
     width: 64px;
     height:auto; 
 }
 
 /*partie fonctionalitée*/
+.content{
+    width: 80vh;
+}
 
 .page_active{
     width: 100%;
-}
-
-.content{
-    width: 80vh;
 }
 
 .contenu{
