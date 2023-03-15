@@ -2,10 +2,11 @@
 exports.__esModule = true;
 var python_shell_1 = require("python-shell");
 var options = {
-    pythonOptions: ["-u"]
+  mode: "text",
+  pythonOptions: ["-u"],
 };
-python_shell_1.PythonShell.run("src/gorfou_api/test.py", options).then(function (messages) {
-    var results;
-    // results is an array consisting of messages collected during execution
-    console.log("results: %j", results);
+python_shell_1.PythonShell.run("src/gorfou_api/", options).then(function (
+  messages
+) {
+  console.log("results: %j", messages);
 });
