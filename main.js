@@ -5,7 +5,8 @@ const createWindow = () => {
     width: 1400,
     height: 700,
     webPreferences: {
-      nodeIntegration:true,
+      nodeIntegration: true,
+      contextIsolation: false,
       contentSecurityPolicy:
         "default-src 'self'; style-src 'self' https://example.com",
     },
