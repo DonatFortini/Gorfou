@@ -1,13 +1,18 @@
-const dropzone = document.getElementById("dropzone");
+import { PythonShell } from "python-shell";
 
-dropzone.addEventListener("dragover", (e) => {
-  e.stopPropagation();
-  e.preventDefault();
-});
+const formFileMultiple = document.getElementById("formFileMultiple");
 
-dropzone.addEventListener("drop", (e) => {
-  e.stopPropagation();
-  e.preventDefault();
+formFileMultiple.addEventListener("change", (e) => {
+  console.log(e.target["files"][0]);
 
-  console.log(e);
+  let options: any = {
+    mode: "text",
+    pythonOptions: ["-u"],
+    args: ["lancement_preview"],
+  };
+
+  PythonShell.run("src/gorfou_api/", options).then(function (messages) {
+    // results is an array consisting of messages collected during execution
+    console.log("results: %j", messages);
+  });
 });

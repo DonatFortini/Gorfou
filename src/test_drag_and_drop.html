@@ -7,49 +7,27 @@
     <link rel="stylesheet" href="css/tailwind.css" />
     <title>Document</title>
   </head>
-  <body>
-    <div class="fixed top-0 z-10 flex h-full w-full bg-black bg-opacity-60">
-      <div
-        class="extraOutline bg-whtie m-auto w-max rounded-lg bg-white p-4"
-        id="dropzone"
-      >
-        <div
-          class="file_upload relative rounded-lg border-4 border-dotted border-gray-300 p-5"
-          style="width: 450px"
+  <body class="mocha bg-base font-ubuntu">
+    <header class="bg-crust text-center text-text">Garfou IA !!</header>
+    <div class="flex justify-center bg-base" id="dropzone">
+      <div class="mb-3 w-96">
+        <label
+          for="formFileMultiple"
+          class="mb-2 inline-block text-neutral-700 dark:text-neutral-200"
+          >import de fichier</label
         >
-          <svg
-            class="mx-auto mb-4 w-24 text-indigo-500"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-            />
-          </svg>
-          <div class="input_field mx-auto flex w-max flex-col text-center">
-            <label>
-              <input
-                class="hidden w-36 cursor-pointer text-sm"
-                type="file"
-                multiple
-              />
-              <div
-                class="text cursor-pointer rounded border border-gray-300 bg-indigo-600 p-1 px-3 font-semibold text-white hover:bg-indigo-500"
-              >
-                Select
-              </div>
-            </label>
-
-            <div class="title uppercase text-indigo-500">
-              or drop files here
-            </div>
-          </div>
-        </div>
+        <input
+          class="focus:border-primary focus:shadow-primary relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding py-[0.32rem] px-3 font-normal text-base text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[margin-inline-end:0.75rem] file:[border-inline-end-width:1px] hover:file:bg-neutral-200 focus:text-neutral-700 focus:shadow-[0_0_0_1px] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100"
+          type="file"
+          id="formFileMultiple"
+          multiple
+        />
+        <p
+          class="mt-1 text-sm text-gray-500 dark:text-gray-300"
+          id="file_input_help"
+        >
+          importer un fichier csv !
+        </p>
       </div>
     </div>
   </body>
