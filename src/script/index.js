@@ -1,9 +1,21 @@
 "use strict";
 const ipcRenderer = require('electron').ipcRenderer;
+const { dialog } = require('electron');
 const button_import = document.getElementById('import');
-if (button_import) {
+const fichier_label = document.getElementById('fichier');
+if (button_import && fichier_label) {
     button_import.addEventListener('click', function (event) {
-        ipcRenderer.send('open-folder', 'src/datasets/test.csv');
+        dialog.showOpenDialog({ properties: ['openFile'] }).then((result) => {
+            if (!result.canceled && result.filePaths.length > 0) {
+                ipcRenderer.send('selected-file', result.filePaths[0]);
+            }
+        });
+    });
+    ipcRenderer.on('selected-file', function (event, filePath) {
+        const fileName = filePath.split('/').pop() ?? 'Unknown file';
+        if (fichier_label) {
+            fichier_label.innerText = fileName;
+        }
     });
 }
 const button_transfo = document.getElementById('transf');

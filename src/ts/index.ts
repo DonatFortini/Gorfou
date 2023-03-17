@@ -1,9 +1,23 @@
-const ipcRenderer  = require ('electron').ipcRenderer;
+const ipcRenderer = require('electron').ipcRenderer;
+const { dialog } = require('electron');
 
 const button_import = document.getElementById('import');
-if (button_import) {
-  button_import.addEventListener('click', function (event) {
-    ipcRenderer.send('open-folder', 'src/datasets/test.csv');
+const fichier_label = document.getElementById('fichier');
+
+if (button_import && fichier_label) {
+  button_import.addEventListener('click', function (event: any) {
+    dialog.showOpenDialog({ properties: ['openFile'] }).then((result: { canceled: any; filePaths: string | any[]; }) => {
+      if (!result.canceled && result.filePaths.length > 0) {
+        ipcRenderer.send('selected-file', result.filePaths[0]);
+      }
+    });
+  });
+
+  ipcRenderer.on('selected-file', function (event: any, filePath: string) {
+    const fileName = filePath.split('/').pop() ?? 'Unknown file';
+    if (fichier_label) {
+      fichier_label.innerText = fileName;
+    }
   });
 }
 

@@ -35,6 +35,6 @@ if (but_menu3) {
 const butt_import = document.getElementById('import');
 if (butt_import) {
   butt_import.addEventListener('click', function (event) {
-    icp.send('open-folder', 'src/datasets/test.csv');
+    icp.send('open-folder', 'src/datasets/*');
   });
 }
