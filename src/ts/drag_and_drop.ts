@@ -1,8 +1,8 @@
-import { PythonShell } from "python-shell";
+const  PyShell  =require("python-shell");
 
-const formFileMultiple = document.getElementById("formFileMultiple");
+const formFileMultiple:any | null = document.getElementById("formFileMultiple");
 
-formFileMultiple.addEventListener("change", (e) => {
+formFileMultiple.addEventListener("change", (e: { target: { [x: string]: any[]; }; }) => {
   console.log(e.target["files"][0]);
 
   let options: any = {
@@ -11,7 +11,7 @@ formFileMultiple.addEventListener("change", (e) => {
     args: ["lancement_preview"],
   };
 
-  PythonShell.run("src/gorfou_api/", options).then(function (messages) {
+  PyShell.run("src/gorfou_api/", options).then(function (messages: any) {
     // results is an array consisting of messages collected during execution
     console.log("results: %j", messages);
   });
