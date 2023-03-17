@@ -37,7 +37,7 @@ class JupyterServer:
         print("http://localhost:8099/tree/" + self.get_token())
         driver.get(
             "http://localhost:8099/tree/src/gorfou_api/notebooks/test_notebook.ipynb" + self.get_token())
-        input()
+        time.sleep(10)
 
     def get_token(self) -> str:
         server_launch = subprocess.run(
