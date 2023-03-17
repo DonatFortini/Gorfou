@@ -10,6 +10,7 @@ if (button_import && fichier_label) {
         const fileName = filePath.split('/').pop() ?? 'Unknown file';
         if (fichier_label) {
             fichier_label.innerText = fileName;
+            sessionStorage.setItem('label_text', fileName);
         }
     });
 }

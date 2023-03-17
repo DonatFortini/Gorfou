@@ -1,4 +1,4 @@
-const icp=require('electron').ipcRenderer;
+const icp = require('electron').ipcRenderer;
 
 const but_menu1 = document.getElementById('menu_1');
 const but_menu2 = document.getElementById('menu_2');
@@ -32,11 +32,18 @@ if (but_menu3) {
   });
 }
 
-
 const butt_import = document.getElementById('import');
 const label = document.getElementById('fichier');
+
+if (label) {
+  const labelText = sessionStorage.getItem('label_text');
+  if (labelText) {
+    label.innerText = labelText;
+  }
+}
+
 if (butt_import && label) {
-  butt_import.addEventListener('click', function (event:any) {
+  butt_import.addEventListener('click', function (event: any) {
     icp.send('open-file-dialog');
   });
 
@@ -44,6 +51,7 @@ if (butt_import && label) {
     const file = filePath.split('/').pop() ?? 'Unknown file';
     if (label) {
       label.innerText = file;
+      sessionStorage.setItem('label_text', file);
     }
   });
 }
