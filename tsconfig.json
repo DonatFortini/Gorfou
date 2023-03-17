@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
-    "module": "commonjs",
-    "sourceMap": true,
-    "outDir": "src/script"
+    "target": "es2021",
+    "module": "CommonJS",
+    "strict": true,
+    "esModuleInterop": true,
+    "outDir": "src/script",
+    "moduleResolution": "node"
   }
 }
