@@ -1,41 +1,41 @@
-const { app, BrowserWindow, ipcMain, shell } = require('electron');
-const path = require('path');
+const { app, BrowserWindow, ipcMain, dialog } = require('electron')
+const path = require('path')
+
+let mainWindow: { loadFile: (arg0: any) => void; on: (arg0: string, arg1: () => void) => void; } | null;
 
 function createWindow() {
-  let win = null;
-  win = new BrowserWindow({
-    width: 1400,
-    height: 700,
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
-      webSecurity: false,
-    },
-  });
+      enableRemoteModule: true
+    }
+  })
 
-  win.loadFile('src/index.html');
+  mainWindow!.loadFile(path.join(__dirname, '../index.html'))
 
-  win.on('closed', function () {
-    win = null;
-  });
+  mainWindow!.on('closed', function () {
+    mainWindow = null
+  })
 }
 
+app.on('ready', createWindow)
 
-app.on('ready', createWindow);
+ipcMain.on('open-file-dialog', function (event: { reply: (arg0: string, arg1: any) => void; }) {
+  dialog.showOpenDialog(mainWindow, {
+    properties: ['openFile'],
+    filters: [{ name: 'CSV', extensions: ['csv'] }]
+  }).then((result: { canceled: any; filePaths: string | any[]; }) => {
+    if (!result.canceled && result.filePaths.length > 0) {
+      event.reply('selected-file', result.filePaths[0])
+    }
+  }).catch((err: any) => {
+    console.log(err)
+  })
+})
 
-app.on('window-all-closed', function () {
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
-});
-
-app.on('activate', function () {
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow();
-  }
-});
-
-ipcMain.on('open-folder', (event: any, folderName: any) => {
-  const fullPath = path.join(process.cwd(), folderName);
-  shell.showItemInFolder(fullPath);
-});
+ipcMain.on('quit-app', function () {
+  app.quit()
+})

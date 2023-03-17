@@ -1,16 +1,12 @@
 const ipcRenderer = require('electron').ipcRenderer;
-const { dialog } = require('electron');
+
 
 const button_import = document.getElementById('import');
 const fichier_label = document.getElementById('fichier');
 
 if (button_import && fichier_label) {
-  button_import.addEventListener('click', function (event: any) {
-    dialog.showOpenDialog({ properties: ['openFile'] }).then((result: { canceled: any; filePaths: string | any[]; }) => {
-      if (!result.canceled && result.filePaths.length > 0) {
-        ipcRenderer.send('selected-file', result.filePaths[0]);
-      }
-    });
+  button_import.addEventListener('click', function (event:any) {
+    ipcRenderer.send('open-file-dialog');
   });
 
   ipcRenderer.on('selected-file', function (event: any, filePath: string) {

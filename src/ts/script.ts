@@ -32,9 +32,18 @@ if (but_menu3) {
   });
 }
 
+
 const butt_import = document.getElementById('import');
-if (butt_import) {
-  butt_import.addEventListener('click', function (event) {
-    icp.send('open-folder', 'src/datasets/*');
+const label = document.getElementById('fichier');
+if (butt_import && label) {
+  butt_import.addEventListener('click', function (event:any) {
+    icp.send('open-file-dialog');
+  });
+
+  icp.on('selected-file', function (event: any, filePath: string) {
+    const file = filePath.split('/').pop() ?? 'Unknown file';
+    if (label) {
+      label.innerText = file;
+    }
   });
 }

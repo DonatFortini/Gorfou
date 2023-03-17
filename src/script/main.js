@@ -1,34 +1,35 @@
 "use strict";
-const { app, BrowserWindow, ipcMain, shell } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path');
+let mainWindow;
 function createWindow() {
-    let win = null;
-    win = new BrowserWindow({
-        width: 1400,
-        height: 700,
+    mainWindow = new BrowserWindow({
+        width: 800,
+        height: 600,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
-            webSecurity: false,
-        },
+            enableRemoteModule: true
+        }
     });
-    win.loadFile('src/index.html');
-    win.on('closed', function () {
-        win = null;
+    mainWindow.loadFile(path.join(__dirname, '../index.html'));
+    mainWindow.on('closed', function () {
+        mainWindow = null;
     });
 }
 app.on('ready', createWindow);
-app.on('window-all-closed', function () {
-    if (process.platform !== 'darwin') {
-        app.quit();
-    }
+ipcMain.on('open-file-dialog', function (event) {
+    dialog.showOpenDialog(mainWindow, {
+        properties: ['openFile'],
+        filters: [{ name: 'CSV', extensions: ['csv'] }]
+    }).then((result) => {
+        if (!result.canceled && result.filePaths.length > 0) {
+            event.reply('selected-file', result.filePaths[0]);
+        }
+    }).catch((err) => {
+        console.log(err);
+    });
 });
-app.on('activate', function () {
-    if (BrowserWindow.getAllWindows().length === 0) {
-        createWindow();
-    }
-});
-ipcMain.on('open-folder', (event, folderName) => {
-    const fullPath = path.join(process.cwd(), folderName);
-    shell.showItemInFolder(fullPath);
+ipcMain.on('quit-app', function () {
+    app.quit();
 });

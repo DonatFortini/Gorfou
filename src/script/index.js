@@ -1,15 +1,10 @@
 "use strict";
 const ipcRenderer = require('electron').ipcRenderer;
-const { dialog } = require('electron');
 const button_import = document.getElementById('import');
 const fichier_label = document.getElementById('fichier');
 if (button_import && fichier_label) {
     button_import.addEventListener('click', function (event) {
-        dialog.showOpenDialog({ properties: ['openFile'] }).then((result) => {
-            if (!result.canceled && result.filePaths.length > 0) {
-                ipcRenderer.send('selected-file', result.filePaths[0]);
-            }
-        });
+        ipcRenderer.send('open-file-dialog');
     });
     ipcRenderer.on('selected-file', function (event, filePath) {
         const fileName = filePath.split('/').pop() ?? 'Unknown file';
