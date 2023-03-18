@@ -55,7 +55,7 @@ class JupyterServer:
         return str(token_search.group(0))
 
     def __str__(self) -> str:
-        pass
+        return f"port = {self.port}\n shell = {self.shell}"
 
 
 monServer = JupyterServer()
