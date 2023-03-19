@@ -56,9 +56,3 @@ class JupyterServer:
 
     def __str__(self) -> str:
         return f"port = {self.port}\n shell = {self.shell}"
-
-
-monServer = JupyterServer()
-monServer.run_server()
-monServer.open_browser()
-monServer.stop_server()
