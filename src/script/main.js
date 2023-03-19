@@ -1,7 +1,6 @@
-"use strict";
-const { app, BrowserWindow, ipcMain, dialog } = require('electron');
-const path = require('path');
-let mainWindow;
+var _a = require("electron"), app = _a.app, BrowserWindow = _a.BrowserWindow, ipcMain = _a.ipcMain, dialog = _a.dialog;
+var path = require("path");
+var mainWindow;
 function createWindow() {
     mainWindow = new BrowserWindow({
         width: 800,
@@ -12,24 +11,27 @@ function createWindow() {
             enableRemoteModule: true
         }
     });
-    mainWindow.loadFile(path.join(__dirname, '../index.html'));
-    mainWindow.on('closed', function () {
+    mainWindow.loadFile(path.join(__dirname, "../index.html"));
+    mainWindow.on("closed", function () {
         mainWindow = null;
     });
+    mainWindow.webContents.openDevTools();
 }
-app.on('ready', createWindow);
-ipcMain.on('open-file-dialog', function (event) {
-    dialog.showOpenDialog(mainWindow, {
-        properties: ['openFile'],
-        filters: [{ name: 'CSV', extensions: ['csv'] }]
-    }).then((result) => {
+app.on("ready", createWindow);
+ipcMain.on("open-file-dialog", function (event) {
+    dialog
+        .showOpenDialog(mainWindow, {
+        properties: ["openFile"],
+        filters: [{ name: "CSV", extensions: ["csv"] }]
+    })
+        .then(function (result) {
         if (!result.canceled && result.filePaths.length > 0) {
-            event.reply('selected-file', result.filePaths[0]);
+            event.reply("selected-file", result.filePaths[0]);
         }
-    }).catch((err) => {
+    })["catch"](function (err) {
         console.log(err);
     });
 });
-ipcMain.on('quit-app', function () {
+ipcMain.on("quit-app", function () {
     app.quit();
 });
