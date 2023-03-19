@@ -28,3 +28,4 @@ testpaths = [
 pythonpath = [
   ".", "src", "gorfou_api"
 ]
+filterwarnings = ["ignore:::.*ansiwrap.core", "ignore:::.*jupyter_client.connect"]

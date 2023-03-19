@@ -3,6 +3,7 @@ import json
 import pprint
 import papermill as pm
 import shutil
+import collections.abc
 
 path = Path(__file__).resolve()
 DEFAULT_PARENT_PATH = path.parents[1] / Path('./notebooks/')
@@ -36,7 +37,7 @@ class Notebook:
 
     def import_data(self, path_to_data, name):
         if not self.path_directory.exists():
-            Path.mkdir(self.path_directory)
+            raise FileNotFoundError
 
         path = Path(path_to_data).resolve()
         shutil.copy(path, self.path_directory / name)
@@ -52,12 +53,10 @@ class Notebook:
         if not 0 <= cell_index <= len(self.content['cells']):
             raise IndexError("bad cell index")
 
-        with open(self.path_notebook, 'r') as file:
-            full_content = json.load(file)
-            full_content['cells'][cell_index]['source'] = new_cell_content
+        if type(new_cell_content) is str:
+            raise TypeError("Expected an array of strings")
 
-        with open(self.path_notebook, 'w') as file:
-            json.dump(full_content, file, indent=2, ensure_ascii=False)
+        self.content['cells'][cell_index]['source'] = new_cell_content
 
     def add_cell(self, source=[]):
         """ ajoute une nouvelle cellule au notebook
@@ -74,12 +73,7 @@ class Notebook:
             "source": source
         }
 
-        with open(self.path_notebook, 'r') as file:
-            full_content = json.load(file)
-            full_content['cells'].append(base_cell)
-
-        with open(self.path_notebook, 'w') as file:
-            json.dump(full_content, file, indent=2, ensure_ascii=False)
+        self.content['cells'].append(base_cell)
 
     def delete_cell(self, cell_index):
         """supprime une cellule du notebook
@@ -87,12 +81,7 @@ class Notebook:
         Args:
             cell_index (int): index de la cellule à supprimer
         """
-        with open(self.path_notebook, 'r') as file:
-            full_content = json.load(file)
-            full_content['cells'].pop(cell_index)
-
-        with open(self.path_notebook, 'w') as file:
-            json.dump(full_content, file, indent=2, ensure_ascii=False)
+        self.content['cells'].pop(cell_index)
 
     def delete_save(self):
         """supprime la sauvegarde du notebook"""
@@ -121,8 +110,3 @@ class Notebook:
         repr_path = str(self.path_notebook)
         repr_content = pprint.pformat(self.content)
         return f"path = {repr_path}\n\ncontent =\n\n{repr_content}\n\ncells_nb = {self.cells_nb}"
-
-
-mon_notebook = Notebook("test")
-mon_notebook.import_data(
-    "src\gorfou_api\partie_json\Penguins.csv", "penguin.csv")

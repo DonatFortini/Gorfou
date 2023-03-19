@@ -25,5 +25,3 @@ def creer_notebook(name):
 if __name__ == "__main__":
     main()
 
-
-creer_notebook("aaaaaa")
