@@ -1,4 +1,5 @@
 import math
+import gorfou_api.partie_json.Notebook
 
 
 def test_sqrt():
