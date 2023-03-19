@@ -1,7 +1,11 @@
-const { app, BrowserWindow, ipcMain, dialog } = require('electron')
-const path = require('path')
+const { app, BrowserWindow, ipcMain, dialog } = require("electron");
+const path = require("path");
 
-let mainWindow: { loadFile: (arg0: any) => void; on: (arg0: string, arg1: () => void) => void; } | null;
+let mainWindow: {
+  webContents: any;
+  loadFile: (arg0: any) => void;
+  on: (arg0: string, arg1: () => void) => void;
+} | null;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -10,32 +14,40 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
-      enableRemoteModule: true
-    }
-  })
+      enableRemoteModule: true,
+    },
+  });
 
-  mainWindow!.loadFile(path.join(__dirname, '../index.html'))
+  mainWindow!.loadFile(path.join(__dirname, "../index.html"));
 
-  mainWindow!.on('closed', function () {
-    mainWindow = null
-  })
+  mainWindow!.on("closed", function () {
+    mainWindow = null;
+  });
+
+  mainWindow!.webContents.openDevTools();
 }
 
-app.on('ready', createWindow)
+app.on("ready", createWindow);
 
-ipcMain.on('open-file-dialog', function (event: { reply: (arg0: string, arg1: any) => void; }) {
-  dialog.showOpenDialog(mainWindow, {
-    properties: ['openFile'],
-    filters: [{ name: 'CSV', extensions: ['csv'] }]
-  }).then((result: { canceled: any; filePaths: string | any[]; }) => {
-    if (!result.canceled && result.filePaths.length > 0) {
-      event.reply('selected-file', result.filePaths[0])
-    }
-  }).catch((err: any) => {
-    console.log(err)
-  })
-})
+ipcMain.on(
+  "open-file-dialog",
+  function (event: { reply: (arg0: string, arg1: any) => void }) {
+    dialog
+      .showOpenDialog(mainWindow, {
+        properties: ["openFile"],
+        filters: [{ name: "CSV", extensions: ["csv"] }],
+      })
+      .then((result: { canceled: any; filePaths: string | any[] }) => {
+        if (!result.canceled && result.filePaths.length > 0) {
+          event.reply("selected-file", result.filePaths[0]);
+        }
+      })
+      .catch((err: any) => {
+        console.log(err);
+      });
+  }
+);
 
-ipcMain.on('quit-app', function () {
-  app.quit()
-})
+ipcMain.on("quit-app", function () {
+  app.quit();
+});

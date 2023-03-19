@@ -3,7 +3,6 @@ import json
 import pprint
 import papermill as pm
 import shutil
-import collections.abc
 
 path = Path(__file__).resolve()
 DEFAULT_PARENT_PATH = path.parents[1] / Path('./notebooks/')
