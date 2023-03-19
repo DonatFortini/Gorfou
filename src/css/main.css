@@ -51,6 +51,10 @@ button{
     justify-content: space-between;
 }
 
+nav.menu button{
+    margin: 10%;
+}
+
 .settings{
     width: 64px;
     height:auto; 

@@ -32,3 +32,9 @@ if (button_visual) {
         window.location.assign('main.html');
     });
 }
+const button_settings = document.getElementById('settings');
+if (button_settings) {
+    button_settings.addEventListener('click', () => {
+        alert('ca marche');
+    });
+}

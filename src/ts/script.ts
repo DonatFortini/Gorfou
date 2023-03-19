@@ -1,5 +1,6 @@
 const icp = require('electron').ipcRenderer;
 
+
 const but_menu1 = document.getElementById('menu_1');
 const but_menu2 = document.getElementById('menu_2');
 const but_menu3 = document.getElementById('menu_3');
@@ -53,5 +54,12 @@ if (butt_import && label) {
       label.innerText = file;
       sessionStorage.setItem('label_text', file);
     }
+  });
+}
+
+const butt_settings=document.getElementById('settings');
+if(butt_settings){
+  butt_settings.addEventListener('click',()=> {
+    alert('ca marche');
   });
 }
