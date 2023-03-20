@@ -1,6 +1,7 @@
-var _a = require("electron"), app = _a.app, BrowserWindow = _a.BrowserWindow, ipcMain = _a.ipcMain, dialog = _a.dialog;
-var path = require("path");
-var mainWindow;
+"use strict";
+const { app, BrowserWindow, ipcMain, dialog } = require("electron");
+const path = require("path");
+let mainWindow;
 function createWindow() {
     mainWindow = new BrowserWindow({
         width: 800,
@@ -8,8 +9,8 @@ function createWindow() {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
-            enableRemoteModule: true
-        }
+            enableRemoteModule: true,
+        },
     });
     mainWindow.loadFile(path.join(__dirname, "../index.html"));
     mainWindow.on("closed", function () {
@@ -22,13 +23,14 @@ ipcMain.on("open-file-dialog", function (event) {
     dialog
         .showOpenDialog(mainWindow, {
         properties: ["openFile"],
-        filters: [{ name: "CSV", extensions: ["csv"] }]
+        filters: [{ name: "CSV", extensions: ["csv"] }],
     })
-        .then(function (result) {
+        .then((result) => {
         if (!result.canceled && result.filePaths.length > 0) {
             event.reply("selected-file", result.filePaths[0]);
         }
-    })["catch"](function (err) {
+    })
+        .catch((err) => {
         console.log(err);
     });
 });

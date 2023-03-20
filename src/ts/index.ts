@@ -27,14 +27,14 @@ if (button_transfo) {
 const button_creatio = document.getElementById("creati");
 if (button_creatio) {
   button_creatio.addEventListener("click", function () {
-    window.location.assign("main.html");
+    window.location.href='main.html?menu=2';
   });
 }
 
 const button_visual = document.getElementById("visual");
 if (button_visual) {
   button_visual.addEventListener("click", function () {
-    window.location.assign("main.html");
+    window.location.href='main.html?menu=3'; 
   });
 }
 

@@ -1,4 +1,4 @@
-import { PythonShell } from "python-shell";
+const { PythonShell } =require("python-shell");
 
 const formFileMultiple: any | null =
   document.getElementById("formFileMultiple");

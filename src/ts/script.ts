@@ -1,5 +1,9 @@
 const icp = require('electron').ipcRenderer;
 
+const urlParams = new URLSearchParams(window.location.search);
+const menuParam  = urlParams.get('menu');
+
+
 
 const but_menu1 = document.getElementById('menu_1');
 const but_menu2 = document.getElementById('menu_2');
@@ -15,7 +19,22 @@ function change(num: string) {
     page.classList.remove('page_');
     page.classList.add('page_active');
   }
+
+
+  let buttons = document.querySelectorAll('.menu button');
+  buttons.forEach(button => button.classList.remove('active'));
+
+  
+  let clickedButton = document.getElementById(`menu_${num}`);
+  if (clickedButton) {
+    clickedButton.classList.add('active');
+  }
 }
+
+if(menuParam!=null){
+  change(menuParam);
+} 
+  
 
 if (but_menu1) {
   but_menu1.addEventListener('click', function () {
@@ -32,6 +51,7 @@ if (but_menu3) {
     change('3');
   });
 }
+
 
 const butt_import = document.getElementById('import');
 const label = document.getElementById('fichier');
@@ -61,5 +81,12 @@ const butt_settings=document.getElementById('settings');
 if(butt_settings){
   butt_settings.addEventListener('click',()=> {
     alert('ca marche');
+  });
+}
+
+const button_preview=document.getElementById('preview');
+if(button_preview){
+  button_preview.addEventListener('click',()=> {
+    window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
   });
 }
