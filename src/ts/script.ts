@@ -87,6 +87,6 @@ if(butt_settings){
 const button_preview=document.getElementById('preview');
 if(button_preview){
   button_preview.addEventListener('click',()=> {
-    window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+    window.open('');
   });
 }
