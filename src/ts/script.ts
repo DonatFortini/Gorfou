@@ -1,4 +1,5 @@
 const icp = require('electron').ipcRenderer;
+const pyShell=require('python-shell').run;
 
 const urlParams = new URLSearchParams(window.location.search);
 const menuParam  = urlParams.get('menu');
@@ -64,16 +65,27 @@ if (label) {
 }
 
 if (butt_import && label) {
-  butt_import.addEventListener('click', function (event: any) {
-    icp.send('open-file-dialog');
+  butt_import.addEventListener("click", function (event: any) {
+    icp.send("open-file-dialog");
   });
 
-  icp.on('selected-file', function (event: any, filePath: string) {
-    const file = filePath.split('/').pop() ?? 'Unknown file';
+  icp.on("selected-file", function (event: any, filePath: string) {
+    const fileName = filePath.split("/").pop() ?? "Unknown file";
     if (label) {
-      label.innerText = file;
-      sessionStorage.setItem('label_text', file);
+      label.innerText = fileName;
+      sessionStorage.setItem("label_text", fileName);
     }
+
+    let options: object = {
+      mode: "text",
+      pythonOptions: ["-u"],
+      args: ["import_data", filePath, fileName],
+    };
+
+    pyShell.run("src/gorfou_api/", options).then(function (messages: any) {
+      // results is an array consisting of messages collected during execution
+      console.log("results: %j", messages);
+    });
   });
 }
 

@@ -1,5 +1,6 @@
 "use strict";
 const ipcRenderer = require("electron").ipcRenderer;
+const { PythonShell } = require("python-shell");
 const button_import = document.getElementById("import");
 const fichier_label = document.getElementById("fichier");
 if (button_import && fichier_label) {
@@ -12,12 +13,21 @@ if (button_import && fichier_label) {
             fichier_label.innerText = fileName;
             sessionStorage.setItem("label_text", fileName);
         }
+        let options = {
+            mode: "text",
+            pythonOptions: ["-u"],
+            args: ["import_data", filePath, fileName],
+        };
+        PythonShell.run("src/gorfou_api/", options).then(function (messages) {
+            // results is an array consisting of messages collected during execution
+            console.log("results: %j", messages);
+        });
     });
 }
 const button_transfo = document.getElementById("transf");
 if (button_transfo) {
     button_transfo.addEventListener("click", function () {
-        window.location.assign("importation_donnees.html");
+        window.location.href = 'main.html?menu=1';
     });
 }
 const button_creatio = document.getElementById("creati");
