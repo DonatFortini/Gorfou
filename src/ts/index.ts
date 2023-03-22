@@ -1,5 +1,6 @@
 const ipcRenderer = require("electron").ipcRenderer;
 const { PythonShell } =require("python-shell");
+const os = require("os"); 
 
 const button_import = document.getElementById("import");
 const fichier_label = document.getElementById("fichier");
@@ -10,7 +11,14 @@ if (button_import && fichier_label) {
   });
 
   ipcRenderer.on("selected-file", function (event: any, filePath: string) {
-    const fileName = filePath.split("/").pop() ?? "Unknown file";
+    let fileName='';
+    if (os.type() =='win32' || os.type() == 'win64'){
+      fileName = filePath.split("\\").pop() ?? "Unknown file";
+    }
+    else{
+      fileName = filePath.split("/").pop() ?? "Unknown file";
+    }
+  
     if (fichier_label) {
       fichier_label.innerText = fileName;
       sessionStorage.setItem("label_text", fileName);
