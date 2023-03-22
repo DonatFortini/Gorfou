@@ -28,7 +28,6 @@ class JupyterServer:
         self.process = subprocess.Popen(
             [self.shell, 'jupyter', 'notebook', '--no-browser', '--port=8099'], stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT)
-        time.sleep(3)
 
     def open_browser(self):
         driver = webdriver.Chrome(service=Service(

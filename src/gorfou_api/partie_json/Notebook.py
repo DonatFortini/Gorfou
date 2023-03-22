@@ -25,7 +25,7 @@ class Notebook:
         self.path_directory = parent_path / (name + "_nb_project")
         self.path_notebook = self.path_directory / self.name
         self.content = content
-        len(content['cells'])
+        
 
     def save(self):
         if not self.path_directory.exists():
