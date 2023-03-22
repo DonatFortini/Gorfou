@@ -2,6 +2,7 @@
 const ipcRenderer = require("electron").ipcRenderer;
 const { PythonShell } = require("python-shell");
 const os = require("os");
+console.log("ici -> ", os.type());
 const button_import = document.getElementById("import");
 const fichier_label = document.getElementById("fichier");
 if (button_import && fichier_label) {
