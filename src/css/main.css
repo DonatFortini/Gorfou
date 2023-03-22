@@ -107,3 +107,14 @@ nav.menu button{
     margin-right: 30px;
 }
 
+/* suite et fin */
+
+.bouton-container{
+    display:flex;
+    height:auto; 
+    margin: 50px;
+}
+
+div.bouton-container button{
+    background-color: green;
+}
