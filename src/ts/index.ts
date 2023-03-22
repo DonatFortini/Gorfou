@@ -14,7 +14,7 @@ if (button_import && fichier_label) {
 
   ipcRenderer.on("selected-file", function (event: any, filePath: string) {
     let fileName='';
-    if (os.type() =='win32' || os.type() == 'win64'){
+    if (os.type() =='Windows_NT'){
       fileName = filePath.split("\\").pop() ?? "Unknown file";
     }
     else{
