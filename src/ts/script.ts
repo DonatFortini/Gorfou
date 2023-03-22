@@ -1,64 +1,57 @@
-const icp = require('electron').ipcRenderer;
-const pyShell=require('python-shell').run;
+const icp = require("electron").ipcRenderer;
 
 const urlParams = new URLSearchParams(window.location.search);
-const menuParam  = urlParams.get('menu');
+const menuParam = urlParams.get("menu");
 
-
-
-const but_menu1 = document.getElementById('menu_1');
-const but_menu2 = document.getElementById('menu_2');
-const but_menu3 = document.getElementById('menu_3');
+const but_menu1 = document.getElementById("menu_1");
+const but_menu2 = document.getElementById("menu_2");
+const but_menu3 = document.getElementById("menu_3");
 
 function change(num: string) {
-  let x = document.getElementsByClassName('page_active');
+  let x = document.getElementsByClassName("page_active");
   for (let i = 0; i < x.length; i++) {
-    x[i].classList.replace('page_active', 'page_');
+    x[i].classList.replace("page_active", "page_");
   }
   const page = document.getElementById(num);
   if (page) {
-    page.classList.remove('page_');
-    page.classList.add('page_active');
+    page.classList.remove("page_");
+    page.classList.add("page_active");
   }
 
+  let buttons = document.querySelectorAll(".menu button");
+  buttons.forEach((button) => button.classList.remove("active"));
 
-  let buttons = document.querySelectorAll('.menu button');
-  buttons.forEach(button => button.classList.remove('active'));
-
-  
   let clickedButton = document.getElementById(`menu_${num}`);
   if (clickedButton) {
-    clickedButton.classList.add('active');
+    clickedButton.classList.add("active");
   }
 }
 
-if(menuParam!=null){
+if (menuParam != null) {
   change(menuParam);
-} 
-  
+}
 
 if (but_menu1) {
-  but_menu1.addEventListener('click', function () {
-    change('1');
+  but_menu1.addEventListener("click", function () {
+    change("1");
   });
 }
 if (but_menu2) {
-  but_menu2.addEventListener('click', function () {
-    change('2');
+  but_menu2.addEventListener("click", function () {
+    change("2");
   });
 }
 if (but_menu3) {
-  but_menu3.addEventListener('click', function () {
-    change('3');
+  but_menu3.addEventListener("click", function () {
+    change("3");
   });
 }
 
-
-const butt_import = document.getElementById('import');
-const label = document.getElementById('fichier');
+const butt_import = document.getElementById("import");
+const label = document.getElementById("fichier");
 
 if (label) {
-  const labelText = sessionStorage.getItem('label_text');
+  const labelText = sessionStorage.getItem("label_text");
   if (labelText) {
     label.innerText = labelText;
   }
@@ -82,23 +75,23 @@ if (butt_import && label) {
       args: ["import_data", filePath, fileName],
     };
 
-    pyShell.run("src/gorfou_api/", options).then(function (messages: any) {
+    PythonShell.run("src/gorfou_api/", options).then(function (messages: any) {
       // results is an array consisting of messages collected during execution
       console.log("results: %j", messages);
     });
   });
 }
 
-const butt_settings=document.getElementById('settings');
-if(butt_settings){
-  butt_settings.addEventListener('click',()=> {
-    alert('ca marche');
+const butt_settings = document.getElementById("settings");
+if (butt_settings) {
+  butt_settings.addEventListener("click", () => {
+    alert("ca marche");
   });
 }
 
-const button_preview=document.getElementById('preview');
-if(button_preview){
-  button_preview.addEventListener('click',()=> {
-    window.open('');
+const button_preview = document.getElementById("preview");
+if (button_preview) {
+  button_preview.addEventListener("click", () => {
+    window.open("");
   });
 }
