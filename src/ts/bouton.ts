@@ -1,5 +1,4 @@
 
-
 //traitement de donnée 
 
 const integrite=document.getElementById('integrite');

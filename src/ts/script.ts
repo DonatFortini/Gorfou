@@ -1,10 +1,10 @@
-const icp = require('electron').ipcRenderer;
-const pyShell=require('python-shell').run;
+var ipcRenderer =require("electron").ipcRenderer;
+var {PythonShell} = require("python-shell");
+var os = require("os");
+
 
 const urlParams = new URLSearchParams(window.location.search);
-const menuParam  = urlParams.get('menu');
-
-
+const menuParam = urlParams.get('menu');
 
 const but_menu1 = document.getElementById('menu_1');
 const but_menu2 = document.getElementById('menu_2');
@@ -66,11 +66,18 @@ if (label) {
 
 if (butt_import && label) {
   butt_import.addEventListener("click", function (event: any) {
-    icp.send("open-file-dialog");
+    ipcRenderer.send("open-file-dialog");
   });
 
-  icp.on("selected-file", function (event: any, filePath: string) {
-    const fileName = filePath.split("/").pop() ?? "Unknown file";
+  ipcRenderer.on("selected-file", function (event: any, filePath: string) {
+    let fileName='';
+    if (os.type() =='Windows_NT'){
+      fileName = filePath.split("\\").pop() ?? "Unknown file";
+    }
+    else{
+      fileName = filePath.split("/").pop() ?? "Unknown file";
+    }
+  
     if (label) {
       label.innerText = fileName;
       sessionStorage.setItem("label_text", fileName);
@@ -82,7 +89,7 @@ if (butt_import && label) {
       args: ["import_data", filePath, fileName],
     };
 
-    pyShell.run("src/gorfou_api/", options).then(function (messages: any) {
+    PythonShell.run("src/gorfou_api/", options).then(function (messages: any) {
       // results is an array consisting of messages collected during execution
       console.log("results: %j", messages);
     });
