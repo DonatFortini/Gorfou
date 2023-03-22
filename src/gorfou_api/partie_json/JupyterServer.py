@@ -55,3 +55,8 @@ class JupyterServer:
 
     def __str__(self) -> str:
         return f"port = {self.port}\n shell = {self.shell}"
+
+
+monServeur = JupyterServer(8099)
+monServeur.run_server()
+monServeur.stop_server
