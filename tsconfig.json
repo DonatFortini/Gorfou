@@ -4,9 +4,7 @@
     "module": "CommonJS",
     "strict": true,
     "esModuleInterop": true,
-    "outDir": "src/script",
+    "outDir": "src/js",
     "moduleResolution": "node"
-  },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"]
+  }
 }

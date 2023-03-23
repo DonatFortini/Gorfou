@@ -4,6 +4,7 @@ var { PythonShell } = require("python-shell");
 var os = require("os");
 const urlParams = new URLSearchParams(window.location.search);
 const menuParam = urlParams.get('menu');
+let current = menuParam;
 const but_menu1 = document.getElementById('menu_1');
 const but_menu2 = document.getElementById('menu_2');
 const but_menu3 = document.getElementById('menu_3');
@@ -29,16 +30,19 @@ if (menuParam != null) {
 }
 if (but_menu1) {
     but_menu1.addEventListener("click", function () {
+        current = '1';
         change("1");
     });
 }
 if (but_menu2) {
     but_menu2.addEventListener("click", function () {
+        current = '2';
         change("2");
     });
 }
 if (but_menu3) {
     but_menu3.addEventListener("click", function () {
+        current = '3';
         change("3");
     });
 }
@@ -72,7 +76,6 @@ if (butt_import && label) {
             args: ["import_data", filePath, fileName],
         };
         PythonShell.run("src/gorfou_api/", options).then(function (messages) {
-            // results is an array consisting of messages collected during execution
             console.log("results: %j", messages);
         });
     });
@@ -87,5 +90,26 @@ const button_preview = document.getElementById("preview");
 if (button_preview) {
     button_preview.addEventListener("click", () => {
         window.open("");
+    });
+}
+const button_suite = document.getElementById('suite');
+if (button_suite) {
+    button_suite.addEventListener("click", () => {
+        if (current == '3') {
+            finaliser();
+        }
+        else {
+            current = String(eval(current) + 1);
+            change(current);
+        }
+    });
+}
+function finaliser() {
+    alert('etes-vous sur de vouloir finaliser le notebook');
+}
+const button_final = document.getElementById('final');
+if (button_final) {
+    button_final.addEventListener('click', () => {
+        finaliser();
     });
 }

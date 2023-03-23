@@ -1,120 +1,111 @@
-html,
-body {
-    height: 100vh;
-    margin: 0;
-    font-family: 'Ubuntu', sans-serif;
-    color: #CDD6F4;
-    background: #1E1E2E;
+html,body {
+    height:100vh;
+    margin:0;
+    padding: 0;
+    font-family:'Ubuntu',sans-serif;
+    color:#CDD6F4;
+    background:#1E1E2E
 }
 
 header {
-    height: 10vh;
-    background-color: #11111b;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    height:10vh;
+    background-color:#11111b;
+    display:flex;
+    align-items:center;
+    justify-content:space-between
 }
 
 main {
-    height: 90vh;
-    display: flex;
+    height:90vh;
+    display:flex
 }
 
-button{
-    border-radius: 20px;
-    background-color: #F38BA8;
-    margin: 5px;
-    width: 150px;
-    height: 40px;
+button {
+    border-radius:20px;
+    background-color:#F38BA8;
+    margin:5px;
+    width:150px;
+    height:40px
 }
 
-/*patie header */
-.logo{
-    display: block;
-    width: 20%;
-    height: 150px;
+.logo {
+    display:block;
+    width:20%;
+    height:150px
 }
 
-.fichier, .import, .preview {
-    margin-left: 10px;
+.fichier,.import,.preview {
+    margin-left:10px
 }
 
-/*partie colonne*/
-
-.colonne{
-    width: 20vh;
-    padding: 10px;
-    background: #1E1E2E;
-    margin-right: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.colonne {
+    width:20vh;
+    padding:10px;
+    background:#1E1E2E;
+    margin-right:5px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between
 }
 
-nav.menu button{
-    margin: 10%;
+nav.menu button {
+    margin:10%
 }
 
-.settings{
-    width: 64px;
-    height:auto; 
-    margin: 50px;
+.settings {
+    width:64px;
+    height:auto;
+    margin:50px
 }
 
-
-
-
-/*partie fonctionalitée*/
-.content{
-    width: 80vh;
+.content {
+    width:80vh
 }
 
-.page_active{
-    width: 100%;
+.page_active {
+    width:100%
 }
 
-.page_{
-    display: none;
+.page_ {
+    display:none
 }
 
 .active {
-    background-color: #f76a92;
+    background-color:#f76a92
 }
-  
 
-.contenu{
-    background-color: #11111b;
+.contenu {
+    background-color:#11111b;
     width:95%;
-    border-radius: 20px;
-    height: 200px;
-    margin: 20px;
+    border-radius:20px;
+    height:200px;
+    margin:20px
 }
 
-.contenu:hover{
-    background-color: #11111b34;
+.contenu:hover {
+    background-color:#11111b34
 }
 
-.option,.titre-fonction{
-    display: inline-block;
-    vertical-align: middle;
+.option,.titre-fonction {
+    display:inline-block;
+    vertical-align:middle
 }
 
-.icon{
-    width: 100px;
-    background-color: #CDD6F4;
-    float: right;
-    margin-top: -80px;
-    margin-right: 30px;
+.icon {
+    width:100px;
+    background-color:#CDD6F4;
+    float:right;
+    margin-top:-80px;
+    margin-right:30px
 }
-
-/* suite et fin */
 
 .bouton-container{
-    display:flex;
-    height:auto; 
-    margin: 50px;
+    position: absolute;
+    bottom: 7vh;
+    left: 65vh;
+    height: 50px;
 }
 
-div.bouton-container button{
-    background-color: green;
+div.bouton-container button {
+    background-color:green
 }

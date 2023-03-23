@@ -3,7 +3,7 @@
   "productName": "Gorfou",
   "version": "1.0.0",
   "description": "app pour transformer les données",
-  "main": "src/script/main.js",
+  "main": "src/js/mainApp.js",
   "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
