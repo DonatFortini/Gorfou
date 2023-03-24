@@ -1,11 +1,11 @@
-var ipcRenderer =require("electron").ipcRenderer;
-var {PythonShell} = require("python-shell");
+var ipcRenderer = require("electron").ipcRenderer;
+var { PythonShell } = require("python-shell");
 var os = require("os");
 
 
 const urlParams = new URLSearchParams(window.location.search);
 const menuParam = urlParams.get('menu');
-let current=menuParam;
+let current = menuParam;
 
 const but_menu1 = document.getElementById('menu_1');
 const but_menu2 = document.getElementById('menu_2');
@@ -37,19 +37,19 @@ if (menuParam != null) {
 
 if (but_menu1) {
   but_menu1.addEventListener("click", function () {
-    current='1';
+    current = '1';
     change("1");
   });
 }
 if (but_menu2) {
   but_menu2.addEventListener("click", function () {
-    current='2';
+    current = '2';
     change("2");
   });
 }
 if (but_menu3) {
   but_menu3.addEventListener("click", function () {
-    current='3';
+    current = '3';
     change("3");
   });
 }
@@ -70,14 +70,14 @@ if (butt_import && label) {
   });
 
   ipcRenderer.on("selected-file", function (event: any, filePath: string) {
-    let fileName='';
-    if (os.type() =='Windows_NT'){
+    let fileName = '';
+    if (os.type() == 'Windows_NT') {
       fileName = filePath.split("\\").pop() ?? "Unknown file";
     }
-    else{
+    else {
       fileName = filePath.split("/").pop() ?? "Unknown file";
     }
-  
+
     if (label) {
       label.innerText = fileName;
       sessionStorage.setItem("label_text", fileName);
@@ -109,26 +109,30 @@ if (button_preview) {
   });
 }
 
-const button_suite=document.getElementById('suite');
-if(button_suite){
-  button_suite.addEventListener("click", ()=>{
-    if(current=='3'){
+const button_suite = document.getElementById('suite');
+if (button_suite) {
+  button_suite.addEventListener("click", () => {
+    if (current == '3') {
       finaliser();
+     
     }
-    else{
-      current=String(eval(current!)+1);
+    else {
+      current = String(eval(current!) + 1);
       change(current);
     }
   });
 }
 
 function finaliser(){
-  alert('etes-vous sur de vouloir finaliser le notebook');
+  ipcRenderer.send('show-message-box');
+  ipcRenderer.on('yes',()=>{
+    window.location.assign('./final.html');
+  });
 }
 
-const button_final=document.getElementById('final');
-if(button_final){
-  button_final.addEventListener('click',()=>{
+const button_final = document.getElementById('final');
+if (button_final) {
+  button_final.addEventListener('click', () => {
     finaliser();
   });
 }

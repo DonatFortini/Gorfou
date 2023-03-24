@@ -49,6 +49,24 @@ ipcMain.on(
   }
 );
 
+ipcMain.on('show-message-box', (event: { sender: { send: (arg0: string, arg1: any) => void; }; }, arg: any) => {
+  const options = {
+    type: 'question',
+    buttons: ['Oui', 'Non'],
+    message: 'êtes-vous sûr de vouloir finaliser le notebook?',
+    defaultId: 0,
+    title: 'Confirmation',
+    cancelId: 1
+  };
+  dialog.showMessageBox(options).then((result: { response: any; }) => {
+    if (result.response === 0) {
+      event.sender.send('yes',result.response);
+    }
+    event.sender.send('message-box-closed', result.response);
+  });
+});
+
+
 ipcMain.on("quit-app", function () {
   app.quit();
 });

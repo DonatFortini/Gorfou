@@ -35,6 +35,22 @@ ipcMain.on("open-file-dialog", function (event) {
         console.log(err);
     });
 });
+ipcMain.on('show-message-box', (event, arg) => {
+    const options = {
+        type: 'question',
+        buttons: ['Oui', 'Non'],
+        message: 'êtes-vous sûr de vouloir finaliser le notebook?',
+        defaultId: 0,
+        title: 'Confirmation',
+        cancelId: 1
+    };
+    dialog.showMessageBox(options).then((result) => {
+        if (result.response === 0) {
+            event.sender.send('yes', result.response);
+        }
+        event.sender.send('message-box-closed', result.response);
+    });
+});
 ipcMain.on("quit-app", function () {
     app.quit();
 });
