@@ -54,3 +54,26 @@ ipcMain.on('show-message-box', (event, arg) => {
 ipcMain.on("quit-app", function () {
     app.quit();
 });
+let settingsWindow;
+function createSettingsWindow() {
+    settingsWindow = new BrowserWindow({
+        width: 400,
+        height: 300,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+        },
+    });
+    settingsWindow.loadFile(path.join(__dirname, "../settings.html"));
+    settingsWindow.on("closed", () => {
+        settingsWindow = null;
+    });
+}
+ipcMain.on("open-settings-window", () => {
+    if (settingsWindow) {
+        settingsWindow.focus();
+    }
+    else {
+        createSettingsWindow();
+    }
+});

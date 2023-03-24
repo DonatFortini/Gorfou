@@ -53,6 +53,6 @@ if (button_visual) {
 const button_settings = document.getElementById('settings');
 if (button_settings) {
     button_settings.addEventListener('click', () => {
-        alert('ca marche');
+        ipcRenderer.send("open-settings-window");
     });
 }
