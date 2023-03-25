@@ -2,14 +2,8 @@
 import sys
 import partie_json.JupyterServer as JupyterServer
 import partie_json.Notebook as Notebook
-
-
-def main():
-    argument_1 = sys.argv[1]
-    print(sys.argv)
-    match argument_1:
-        case "import_data":
-            import_data(sys.argv[2], sys.argv[3])
+from flask import Flask
+app = Flask(__name__)
 
 
 def lancement_preview():
@@ -25,5 +19,10 @@ def import_data(path, name):
     mon_notebook.import_data(path, name)
 
 
+@app.route('/test')
+def hello():
+    return "Hello World!"
+
+
 if __name__ == "__main__":
-    main()
+    app.run()

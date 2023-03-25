@@ -1,6 +1,2 @@
 node_modules
-src/gorfou_api/partie_json/__pycache__/*
-tests/unit/__pycache__/*
-tests/__pycache__/*
-src/gorfou_api/__pycache__/*
-__pycache__/*
+**/__pycache__/**

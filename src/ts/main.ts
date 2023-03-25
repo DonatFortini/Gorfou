@@ -1,5 +1,6 @@
-const {app,BrowserWindow,ipcMain,dialog}= require("electron");
+const { app, BrowserWindow, ipcMain, dialog } = require("electron");
 const path = require("path");
+var { PythonShell } = require("python-shell");
 
 let mainWindow: {
   webContents: any;
@@ -17,6 +18,18 @@ function createWindow() {
       contextIsolation: false,
       enableRemoteModule: true,
     },
+  });
+
+  console.log("aaaa");
+
+  let options: object = {
+    mode: "text",
+    pythonOptions: ["-u"],
+  };
+
+  PythonShell.run("src/gorfou_api/", options).then(function (messages: any) {
+    // results is an array consisting of messages collected during execution
+    console.log("results: %j", messages);
   });
 
   mainWindow!.loadFile(path.join(__dirname, "../index.html"));
