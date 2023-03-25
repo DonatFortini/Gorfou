@@ -81,7 +81,7 @@ ipcMain.on('menu-item', (event) => {
         }
     }));
     menu.append(new MenuItem({
-        label: "Settings",
+        label: "profil",
         click: function () {
             console.log("Settings clicked");
         }
