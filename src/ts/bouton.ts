@@ -2,10 +2,9 @@
 
 const axios = require("axios");
 
-let test = "Hello";
 async function makePostRequest(test: any) {
   axios
-    .post("http://127.0.0.1:5000/test", test)
+    .post("http://127.0.0.1:5000", test)
     .then(function (response: any) {
       console.log("It says: ", response.data);
     })
@@ -17,6 +16,6 @@ async function makePostRequest(test: any) {
 const integrite = document.getElementById("integrite");
 if (integrite) {
   integrite.addEventListener("click", () => {
-    makePostRequest(test);
+    makePostRequest("Hello");
   });
 }

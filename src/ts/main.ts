@@ -20,8 +20,6 @@ function createWindow() {
     },
   });
 
-  console.log("aaaa");
-
   let options: object = {
     mode: "text",
     pythonOptions: ["-u"],

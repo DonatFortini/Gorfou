@@ -14,7 +14,6 @@ function createWindow() {
             enableRemoteModule: true,
         },
     });
-    console.log("aaaa");
     let options = {
         mode: "text",
         pythonOptions: ["-u"],

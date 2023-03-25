@@ -19,7 +19,7 @@ def import_data(path, name):
     mon_notebook.import_data(path, name)
 
 
-@app.route('/test')
+@app.route('/', methods=['GET', 'POST'])
 def hello():
     return "Hello World!"
 
