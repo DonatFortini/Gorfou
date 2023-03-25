@@ -2,15 +2,15 @@
   "name": "gorfou",
   "productName": "Gorfou",
   "version": "1.0.0",
-  "description": "app pour transformer les données",
+  "description": "Une application facilitant la prise en main de l'Ia et des traitements de données",
   "main": "src/js/mainApp.js",
   "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron ."
   },
-  "author": "",
-  "license": "MIT",
+  "author": "Fortini Donat,Piacentini Théo,Grazietti Livia",
+  "license": "GPL",
   "devDependencies": {
     "@catppuccin/tailwindcss": "^0.1.1",
     "autoprefixer": "^10.4.14",
@@ -21,6 +21,8 @@
     "tailwindcss": "^3.2.7"
   },
   "dependencies": {
+    "electron-context-menu": "^3.6.1",
+    "electron-is-dev": "^2.0.0",
     "python-shell": "^5.0.0"
   },
   "permissions": {

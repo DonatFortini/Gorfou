@@ -1,5 +1,6 @@
-const {app,BrowserWindow,ipcMain,dialog}= require("electron");
+const {app,BrowserWindow,ipcMain,Menu,MenuItem,dialog}= require("electron");
 const path = require("path");
+
 
 let mainWindow: {
   webContents: any;
@@ -67,33 +68,41 @@ ipcMain.on('show-message-box', (event: { sender: { send: (arg0: string, arg1: an
 });
 
 
-ipcMain.on("quit-app", function () {
+ipcMain.on("quit-app",()=> {
   app.quit();
 });
 
-let settingsWindow: { loadFile: (arg0: string) => void; on: (arg0: string, arg1: () => void) => void; focus: () => void; } | null;
-
-function createSettingsWindow() {
-  settingsWindow = new BrowserWindow({
-    width: 400,
-    height: 300,
-    webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
-    },
-  });
-
-  settingsWindow!.loadFile(path.join(__dirname, "../settings.html"));
-
-  settingsWindow!.on("closed", () => {
-    settingsWindow = null;
-  });
-}
-
-ipcMain.on("open-settings-window", () => {
-  if (settingsWindow) {
-    settingsWindow.focus();
-  } else {
-    createSettingsWindow();
-  }
+ipcMain.on('menu-item', (event: any) => {
+  const menu = new Menu();
+  menu.append(new MenuItem({
+    label: "Settings",
+    click: function() {
+      console.log("Settings clicked");
+    }
+  }));
+  menu.append(new MenuItem({
+    label: "Settings",
+    click: function() {
+      console.log("Settings clicked");
+    }
+  }));
+  menu.append(new MenuItem({
+    label: "Settings",
+    click: function() {
+      console.log("Settings clicked");
+    }
+  }));
+  menu.append(new MenuItem({
+    label: "Settings",
+    click: function() {
+      console.log("Settings clicked");
+    }
+  }));
+  menu.append(new MenuItem({
+    label: "Settings",
+    click: function() {
+      console.log("Settings clicked");
+    }
+  }));
+  menu.popup(BrowserWindow.fromWebContents(event.sender));
 });

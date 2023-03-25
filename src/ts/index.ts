@@ -2,7 +2,6 @@ var ipcRenderer =require("electron").ipcRenderer;
 var {PythonShell} = require("python-shell");
 var os = require("os");
 
-
 const button_import = document.getElementById("import");
 const fichier_label = document.getElementById("fichier");
 
@@ -62,6 +61,7 @@ if (button_visual) {
 const button_settings=document.getElementById('settings');
 if(button_settings){
   button_settings.addEventListener('click',()=> {
-    ipcRenderer.send("open-settings-window");
+    ipcRenderer.send('menu-item');
   });
 }
+

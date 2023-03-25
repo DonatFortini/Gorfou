@@ -1,5 +1,5 @@
 "use strict";
-const { app, BrowserWindow, ipcMain, dialog } = require("electron");
+const { app, BrowserWindow, ipcMain, Menu, MenuItem, dialog } = require("electron");
 const path = require("path");
 let mainWindow;
 function createWindow() {
@@ -51,29 +51,40 @@ ipcMain.on('show-message-box', (event, arg) => {
         event.sender.send('message-box-closed', result.response);
     });
 });
-ipcMain.on("quit-app", function () {
+ipcMain.on("quit-app", () => {
     app.quit();
 });
-let settingsWindow;
-function createSettingsWindow() {
-    settingsWindow = new BrowserWindow({
-        width: 400,
-        height: 300,
-        webPreferences: {
-            nodeIntegration: true,
-            contextIsolation: false,
-        },
-    });
-    settingsWindow.loadFile(path.join(__dirname, "../settings.html"));
-    settingsWindow.on("closed", () => {
-        settingsWindow = null;
-    });
-}
-ipcMain.on("open-settings-window", () => {
-    if (settingsWindow) {
-        settingsWindow.focus();
-    }
-    else {
-        createSettingsWindow();
-    }
+ipcMain.on('menu-item', (event) => {
+    const menu = new Menu();
+    menu.append(new MenuItem({
+        label: "Settings",
+        click: function () {
+            console.log("Settings clicked");
+        }
+    }));
+    menu.append(new MenuItem({
+        label: "Settings",
+        click: function () {
+            console.log("Settings clicked");
+        }
+    }));
+    menu.append(new MenuItem({
+        label: "Settings",
+        click: function () {
+            console.log("Settings clicked");
+        }
+    }));
+    menu.append(new MenuItem({
+        label: "Settings",
+        click: function () {
+            console.log("Settings clicked");
+        }
+    }));
+    menu.append(new MenuItem({
+        label: "Settings",
+        click: function () {
+            console.log("Settings clicked");
+        }
+    }));
+    menu.popup(BrowserWindow.fromWebContents(event.sender));
 });

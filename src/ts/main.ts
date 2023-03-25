@@ -95,10 +95,10 @@ if (butt_import && label) {
   });
 }
 
-const butt_settings = document.getElementById("settings");
-if (butt_settings) {
-  butt_settings.addEventListener("click", () => {
-    alert("ca marche");
+const butt_settings=document.getElementById('settings');
+if(butt_settings){
+  butt_settings.addEventListener('click',()=> {
+    ipcRenderer.send('menu-item');
   });
 }
 
