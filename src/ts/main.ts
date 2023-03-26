@@ -2,6 +2,8 @@ const { app, BrowserWindow, ipcMain, dialog } = require("electron");
 const path = require("path");
 const { PythonShell } = require("python-shell");
 
+process.env["ELECTRON_DISABLE_SECURITY_WARNINGS"] = "true";
+
 let mainWindow: {
   webContents: any;
   loadFile: (arg0: any) => void;
@@ -12,11 +14,12 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
-    icon: "../resources/logo_gorfou.png",
+    icon: path.join(__dirname, "../resources/logo_gorfou.png"),
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
       enableRemoteModule: true,
+      allowEval: false,
     },
   });
 

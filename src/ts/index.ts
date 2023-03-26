@@ -1,6 +1,6 @@
-const { ipcRenderer } = require("electron");
-const { os } = require("os");
-const { axios } = require("axios");
+const ipcRenderer = require("electron").ipcRenderer;
+const os = require("os");
+const axios = require("axios");
 
 const button_import = document.getElementById("import");
 const fichier_label = document.getElementById("fichier");
