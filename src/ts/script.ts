@@ -1,19 +1,14 @@
-var ipcRenderer =require("electron").ipcRenderer;
-var {PythonShell} = require("python-shell");
-var os = require("os");
-
-
 const urlParams = new URLSearchParams(window.location.search);
-const menuParam = urlParams.get('menu');
+const menuParam = urlParams.get("menu");
 
-const but_menu1 = document.getElementById('menu_1');
-const but_menu2 = document.getElementById('menu_2');
-const but_menu3 = document.getElementById('menu_3');
+const but_menu1 = document.getElementById("menu_1");
+const but_menu2 = document.getElementById("menu_2");
+const but_menu3 = document.getElementById("menu_3");
 
 function change(num: string) {
   let x = document.getElementsByClassName("page_active");
-  for (let i = 0; i < x.length; i++) {
-    x[i].classList.replace("page_active", "page_");
+  for (const element of x) {
+    element.classList.replace("page_active", "page_");
   }
   const page = document.getElementById(num);
   if (page) {
@@ -66,18 +61,15 @@ if (butt_import && label) {
   });
 
   ipcRenderer.on("selected-file", function (event: any, filePath: string) {
-    let fileName='';
-    if (os.type() =='Windows_NT'){
+    let fileName = "";
+    if (os.type() == "Windows_NT") {
       fileName = filePath.split("\\").pop() ?? "Unknown file";
-    }
-    else{
+    } else {
       fileName = filePath.split("/").pop() ?? "Unknown file";
     }
-  
-    if (label) {
-      label.innerText = fileName;
-      sessionStorage.setItem("label_text", fileName);
-    }
+
+    label.innerText = fileName;
+    sessionStorage.setItem("label_text", fileName);
 
     let options: object = {
       mode: "text",

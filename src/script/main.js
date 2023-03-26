@@ -1,7 +1,7 @@
 "use strict";
 const { app, BrowserWindow, ipcMain, dialog } = require("electron");
 const path = require("path");
-var { PythonShell } = require("python-shell");
+const { PythonShell } = require("python-shell");
 let mainWindow;
 function createWindow() {
     mainWindow = new BrowserWindow({
