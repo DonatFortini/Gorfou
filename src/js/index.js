@@ -22,16 +22,10 @@ if (button_import && fichier_label) {
         ipcRenderer.send("open-file-dialog");
     });
     ipcRenderer.on("selected-file", function (event, filePath) {
-<<<<<<< HEAD:src/script/index.js
+        var _a, _b;
         let fileName = "";
         if (os.type() == "Windows_NT") {
-            fileName = filePath.split("\\").pop() ?? "Unknown file";
-=======
-        var _a, _b;
-        let fileName = '';
-        if (os.type() == 'Windows_NT') {
             fileName = (_a = filePath.split("\\").pop()) !== null && _a !== void 0 ? _a : "Unknown file";
->>>>>>> main:src/js/index.js
         }
         else {
             fileName = (_b = filePath.split("/").pop()) !== null && _b !== void 0 ? _b : "Unknown file";
@@ -61,12 +55,7 @@ if (button_visual) {
 }
 const button_settings = document.getElementById("settings");
 if (button_settings) {
-<<<<<<< HEAD:src/script/index.js
     button_settings.addEventListener("click", () => {
-        alert("ca marche");
-=======
-    button_settings.addEventListener('click', () => {
-        ipcRenderer.send('menu-item');
->>>>>>> main:src/js/index.js
+        ipcRenderer.send("menu-item");
     });
 }

@@ -59,10 +59,9 @@ if (button_visual) {
   });
 }
 
-const button_settings=document.getElementById('settings');
-if(button_settings){
-  button_settings.addEventListener('click',()=> {
-    ipcRenderer.send('menu-item');
+const button_settings = document.getElementById("settings");
+if (button_settings) {
+  button_settings.addEventListener("click", () => {
+    ipcRenderer.send("menu-item");
   });
 }
-
