@@ -18,11 +18,13 @@ let mainWindow: {
 } | null;
 
 function createWindow() {
-  PythonShell.run("../gorfou_api/");
+  PythonShell.run("src/gorfou_api/").then(function (messages: any) {
+    console.log("results: %j", messages);
+  });
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
-    icon: "../resources/logo_gorfou.png",
+    icon: path.join(__dirname + "../resources/logo_gorfou.png"),
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
