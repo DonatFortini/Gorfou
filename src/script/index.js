@@ -4,11 +4,11 @@ const os = require("os");
 const axios = require("axios");
 const button_import = document.getElementById("import");
 const fichier_label = document.getElementById("fichier");
-async function importer_donnees(fileName, filePath) {
+function importer_donnees(fileName, filePath) {
     axios
-        .post("http://127.0.0.1:5000/import", {
-        fileName: fileName,
-        filePath: filePath,
+        .post("http://127.0.0.1:5000/import_data", {
+        file_name: fileName,
+        file_path: filePath,
     })
         .then(function (response) {
         console.log("It says: ", response.data);
@@ -31,7 +31,7 @@ if (button_import && fichier_label) {
         }
         fichier_label.innerText = fileName;
         sessionStorage.setItem("label_text", fileName);
-        importer_donnees("test", filePath);
+        importer_donnees(fileName, filePath);
     });
 }
 const button_transfo = document.getElementById("transf");

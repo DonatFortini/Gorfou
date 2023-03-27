@@ -5,6 +5,9 @@ const { PythonShell } = require("python-shell");
 process.env["ELECTRON_DISABLE_SECURITY_WARNINGS"] = "true";
 let mainWindow;
 function createWindow() {
+    PythonShell.run("src/gorfou_api/").then(function (messages) {
+        console.log("results: %j", messages);
+    });
     mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
@@ -15,14 +18,6 @@ function createWindow() {
             enableRemoteModule: true,
             allowEval: false,
         },
-    });
-    let options = {
-        mode: "text",
-        pythonOptions: ["-u"],
-    };
-    PythonShell.run("src/gorfou_api/", options).then(function (messages) {
-        // results is an array consisting of messages collected during execution
-        console.log("results: %j", messages);
     });
     mainWindow.loadFile(path.join(__dirname, "../index.html"));
     mainWindow.on("closed", function () {
