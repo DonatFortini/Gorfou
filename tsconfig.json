@@ -1,12 +1,10 @@
 {
   "compilerOptions": {
-    "target": "ES2021",
+    "target": "ES6",
     "module": "CommonJS",
     "strict": true,
     "esModuleInterop": true,
-    "outDir": "src/script",
+    "outDir": "src/js",
     "moduleResolution": "node"
-  },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"]
+  }
 }

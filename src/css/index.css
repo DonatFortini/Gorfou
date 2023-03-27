@@ -48,6 +48,7 @@ button{
 }
 
 .settings{
+    margin-left: 5%;
     display: block;
     width: 64px;
     height:auto; 

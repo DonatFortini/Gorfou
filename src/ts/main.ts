@@ -1,61 +1,139 @@
-const { app, BrowserWindow, ipcMain, dialog } = require("electron");
-const path = require("path");
-const { PythonShell } = require("python-shell");
+var ipcRenderer = require("electron").ipcRenderer;
+var { PythonShell } = require("python-shell");
+var os = require("os");
 
-process.env["ELECTRON_DISABLE_SECURITY_WARNINGS"] = "true";
 
-let mainWindow: {
-  webContents: any;
-  loadFile: (arg0: any) => void;
-  on: (arg0: string, arg1: () => void) => void;
-} | null;
+const urlParams = new URLSearchParams(window.location.search);
+const menuParam = urlParams.get('menu');
+let current = menuParam;
 
-function createWindow() {
-  PythonShell.run("src/gorfou_api/").then(function (messages: any) {
-    console.log("results: %j", messages);
-  });
-  mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
-    icon: path.join(__dirname, "../resources/logo_gorfou.png"),
-    webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
-      enableRemoteModule: true,
-      allowEval: false,
-    },
-  });
+const but_menu1 = document.getElementById('menu_1');
+const but_menu2 = document.getElementById('menu_2');
+const but_menu3 = document.getElementById('menu_3');
 
-  mainWindow!.loadFile(path.join(__dirname, "../index.html"));
+function change(num: string) {
+  let x = document.getElementsByClassName("page_active");
+  for (let i = 0; i < x.length; i++) {
+    x[i].classList.replace("page_active", "page_");
+  }
+  const page = document.getElementById(num);
+  if (page) {
+    page.classList.remove("page_");
+    page.classList.add("page_active");
+  }
 
-  mainWindow!.on("closed", function () {
-    mainWindow = null;
-  });
+  let buttons = document.querySelectorAll(".menu button");
+  buttons.forEach((button) => button.classList.remove("active"));
 
-  mainWindow!.webContents.openDevTools();
+  let clickedButton = document.getElementById(`menu_${num}`);
+  if (clickedButton) {
+    clickedButton.classList.add("active");
+  }
 }
 
-app.on("ready", createWindow);
+if (menuParam != null) {
+  change(menuParam);
+}
 
-ipcMain.on(
-  "open-file-dialog",
-  function (event: { reply: (arg0: string, arg1: any) => void }) {
-    dialog
-      .showOpenDialog(mainWindow, {
-        properties: ["openFile"],
-        filters: [{ name: "CSV", extensions: ["csv"] }],
-      })
-      .then((result: { canceled: any; filePaths: string | any[] }) => {
-        if (!result.canceled && result.filePaths.length > 0) {
-          event.reply("selected-file", result.filePaths[0]);
-        }
-      })
-      .catch((err: any) => {
-        console.log(err);
-      });
+if (but_menu1) {
+  but_menu1.addEventListener("click", function () {
+    current = '1';
+    change("1");
+  });
+}
+if (but_menu2) {
+  but_menu2.addEventListener("click", function () {
+    current = '2';
+    change("2");
+  });
+}
+if (but_menu3) {
+  but_menu3.addEventListener("click", function () {
+    current = '3';
+    change("3");
+  });
+}
+
+const butt_import = document.getElementById("import");
+const label = document.getElementById("fichier");
+
+if (label) {
+  const labelText = sessionStorage.getItem("label_text");
+  if (labelText) {
+    label.innerText = labelText;
   }
-);
+}
 
-ipcMain.on("quit-app", function () {
-  app.quit();
-});
+if (butt_import && label) {
+  butt_import.addEventListener("click", function (event: any) {
+    ipcRenderer.send("open-file-dialog");
+  });
+
+  ipcRenderer.on("selected-file", function (event: any, filePath: string) {
+    let fileName = '';
+    if (os.type() == 'Windows_NT') {
+      fileName = filePath.split("\\").pop() ?? "Unknown file";
+    }
+    else {
+      fileName = filePath.split("/").pop() ?? "Unknown file";
+    }
+
+    if (label) {
+      label.innerText = fileName;
+      sessionStorage.setItem("label_text", fileName);
+    }
+
+    let options: object = {
+      mode: "text",
+      pythonOptions: ["-u"],
+      args: ["import_data", filePath, fileName],
+    };
+
+    PythonShell.run("src/gorfou_api/", options).then(function (messages: any) {
+      console.log("results: %j", messages);
+    });
+  });
+}
+
+const butt_settings=document.getElementById('settings');
+if(butt_settings){
+  butt_settings.addEventListener('click',()=> {
+    ipcRenderer.send('menu-item');
+  });
+}
+
+const button_preview = document.getElementById("preview");
+if (button_preview) {
+  button_preview.addEventListener("click", () => {
+    window.open("");
+  });
+}
+
+const button_suite = document.getElementById('suite');
+if (button_suite) {
+  button_suite.addEventListener("click", () => {
+    if (current == '3') {
+      finaliser();
+     
+    }
+    else {
+      current = String(eval(current!) + 1);
+      change(current);
+    }
+  });
+}
+
+function finaliser(){
+  ipcRenderer.send('show-message-box');
+  ipcRenderer.on('yes',()=>{
+    window.location.assign('./final.html');
+  });
+}
+
+const button_final = document.getElementById('final');
+if (button_final) {
+  button_final.addEventListener('click', () => {
+    finaliser();
+  });
+}
+
