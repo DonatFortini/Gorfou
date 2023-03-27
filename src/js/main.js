@@ -1,4 +1,5 @@
 "use strict";
+const ipcRenderer = require("electron").ipcRenderer;
 const urlParams = new URLSearchParams(window.location.search);
 const menuParam = urlParams.get("menu");
 let current = menuParam;
@@ -112,3 +113,4 @@ if (button_final) {
         finaliser();
     });
 }
+module.exports = {};

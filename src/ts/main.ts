@@ -1,3 +1,7 @@
+export = {};
+
+const ipcRenderer = require("electron").ipcRenderer;
+
 const urlParams = new URLSearchParams(window.location.search);
 const menuParam = urlParams.get("menu");
 
