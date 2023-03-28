@@ -35,7 +35,7 @@ maquette "rêvée":
 
 ## Technologies utilisées
 
-pour plus de précision : [choix des technologies](./Théorique/choix_technologies.md)
+pour plus de précision : [choix des technologies](https://github.com/DonatFortini/Gorfou/blob/main/Th%C3%A9orique/markdown/choix_technologies.md)
 
 ## Instruction d'utilisation
 
