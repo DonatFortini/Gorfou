@@ -5,13 +5,22 @@ import subprocess
 import re
 import time
 import logging
+import os
 module_logger = logging.getLogger(__name__)
 
+os_shell=r''
+POWERSHELL = r'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe'
+BASH=r'/usr/bin/bash'
+
+if(os.name=='nt'):
+    os_shell=POWERSHELL
+else:
+    os_shell=BASH
 
 class JupyterServer:
-    POWERSHELL = r'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe'
+    
 
-    def __init__(self, port=8099, shell=POWERSHELL) -> None:
+    def __init__(self, port=8099, shell=os_shell) -> None:
         self.port = port
         self.shell = shell
         self.process = None

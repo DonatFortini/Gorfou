@@ -1,18 +1,20 @@
-html,body {
-    height:100vh;
+body {
     margin:0;
     padding: 0;
     font-family:'Ubuntu',sans-serif;
     color:#CDD6F4;
-    background:#1E1E2E;
 }
 
 header {
-    height:10vh;
-    background-color:#11111b;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+    height: 10vh;
+    width: 100%;
+    background-color: #11111b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    padding: 0 10px;
 }
 
 main {
@@ -30,31 +32,54 @@ button {
 
 /* header */
 .logo {
-    display:block;
-    width:20%;
-    height:150px;
+    height: 100%;
 }
 
-.fichier,.import,.preview {
-    margin-left:10px;
+.fichier{
+    margin-right: 10px;
+}
+
+.import{
+    margin-right: 5px;
+}
+
+.preview{
+    margin-left: 5px;
+}
+
+header h1{
+    margin: 0;
+    flex: 1;
+    text-align: center;
+}
+
+header button{
+    border-radius: 20px;
+    background-color: #f38ba8;
+    margin-left: 5px;
+    height: 40px;
+    
+    max-width: 125px;
 }
 
 /* colonne */
 .colonne {
-    width:20vh;
-    padding:10px;
+    width:20%;
     background:#1E1E2E;
-    margin-right:5px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
+    align-items: center;
+    justify-content: center;
 }
 
 nav.menu button {
     margin:10%;
+    width: auto;
+    max-width: 125px;
+    display: block;
 }
 
 .settings {
+    position: relative;
+    top: 40%;
     width:64px;
     height:auto;
     margin:50px;
@@ -62,12 +87,13 @@ nav.menu button {
 
 /* contenu*/
 .content {
-    width:80vh;
-    padding-left: 10%;
+    width:80%;
+    background-color: #1E1E2E;
+    overflow: auto;
 }
 
 .page_active {
-    width:100%;
+    width:100%; 
 }
 
 .page_ {
@@ -80,7 +106,7 @@ nav.menu button {
 
 .contenu {
     background-color:#11111b;
-    width: 600px;
+    width: 95%;
     border-radius:20px;
     height:200px;
     margin:20px;
@@ -96,22 +122,24 @@ nav.menu button {
     margin: 10px;
 }
 
+p{
+    margin: 10px;
+}
+
 .icon {
     width:100px;
     background-color:#CDD6F4;
     float:right;
-    margin-top:-80px;
+    margin-top:-50px;
     margin-right:30px;
 }
 
-/*conatiner*/
+/*container*/
 
 .bouton-container{
-    position: relative;
-    top: 80vh;
-    right: 35vh;
-    height: 50px;
-    display: inline-flex;
+    position: fixed;
+    top: 80%;
+    left: 60%;
 }
 
 div.bouton-container button {

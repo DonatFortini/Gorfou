@@ -1,134 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/main.css" />
-    <title>Gorfou-IA</title>
-  </head>
 
-  <body>
-    <header>
-      <img
-        src="./resources/logo_gorfou.svg"
-        class="logo"
-        alt="logo logo_penguin"
-      />
-      <h1>Gorfou-IA</h1>
-      <label class="fichier" id="fichier"></label>
-      <button class="import" id="import">import</button>
-      <button class="preview" id="preview">preview</button>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/main.css" />
+  <title>Gorfou-IA</title>
+</head>
 
-    <main>
-      <div class="colonne">
-        <nav class="menu">
-          <button id="menu_1" class="active">Transformation des données</button>
-          <button id="menu_2">Création de modèle</button>
-          <button id="menu_3">Visualisation des données</button>
-        </nav>
-        <img
-          src="./resources/icon/gear.png"
-          id="settings"
-          class="settings"
-          alt="logo paramètre"
-        />
+<body>
+  <header>
+    <img src="./resources/logo_gorfou.svg" class="logo" alt="logo logo_penguin" />
+    <h1>Gorfou-IA</h1>
+    <label class="fichier" id="fichier"></label>
+    <button class="import" id="import">import</button>
+    <button class="preview" id="preview">preview</button>
+  </header>
+
+  <main>
+    <div class="colonne">
+      <nav class="menu">
+        <button id="menu_1" class="active">Transformation des données</button>
+        <button id="menu_2">Création de modèle</button>
+        <button id="menu_3">Visualisation des données</button>
+      </nav>
+      <img src="./resources/icon/gear.png" id="settings" class="settings" alt="logo paramètre" />
+    </div>
+
+    <div class="content">
+      <div class="page_active" id="1">
+        <div class="contenu">
+          <h1 class="titre-fonction">Intégrités des données</h1>
+          <select name="option" class="option">
+            <option>NaN</option>
+            <option>vide</option>
+          </select>
+          <p>description de la fonctionalitée</p>
+          <img src="./resources/traitement/integrite.svg" class="icon" id="integrite" />
+        </div>
+
+        <div class="contenu">
+          <h1 class="titre-fonction">Titre fonctionalitée</h1>
+          <select name="option" class="option">
+            <option></option>
+            <option></option>
+            <option></option>
+          </select>
+          <p>description de la fonctionalitée</p>
+          <img src="./resources/traitement/integrite.svg" class="icon" id="integrite" />
+        </div>
+
+        <div class="contenu">
+          <h1 class="titre-fonction">Titre fonctionalitée</h1>
+          <select name="option" class="option">
+            <option></option>
+            <option></option>
+            <option></option>
+          </select>
+          <p>description de la fonctionalitée</p>
+          <img src="./resources/traitement/integrite.svg" class="icon" id="integrite" />
+        </div>
+
+        <div class="contenu">
+          <h1 class="titre-fonction">Titre fonctionalitée</h1>
+          <select name="option" class="option">
+            <option></option>
+            <option></option>
+            <option></option>
+          </select>
+          <p>description de la fonctionalitée</p>
+          <img src="./resources/icon.png" alt="" class="icon" />
+        </div>
+
+        <div class="contenu">
+          <h1 class="titre-fonction">Titre fonctionalitée</h1>
+          <select name="option" class="option">
+            <option></option>
+            <option></option>
+            <option></option>
+          </select>
+          <p>description de la fonctionalitée</p>
+          <img src="./resources/icon.png" alt="" class="icon" />
+        </div>
+
+        <div class="contenu">
+          <h1 class="titre-fonction">Titre fonctionalitée</h1>
+          <select name="option" class="option">
+            <option></option>
+            <option></option>
+            <option></option>
+          </select>
+          <p>description de la fonctionalitée</p>
+          <img src="./resources/icon.png" alt="" class="icon" />
+        </div>
+
       </div>
 
-      <div class="content">
-        <div class="page_active" id="1">
-          <div class="contenu">
-            <h1 class="titre-fonction">Intégrités des données</h1>
-            <select name="option" class="option">
-              <option>NaN</option>
-              <option>vide</option>
-            </select>
-            <p>description de la fonctionalitée</p>
-            <img
-              src="./resources/traitement/integrite.svg"
-              class="icon"
-              id="integrite"
-            />
-          </div>
-
-          <div class="contenu">
-            <h1 class="titre-fonction">Titre fonctionalitée</h1>
-            <select name="option" class="option">
-              <option></option>
-              <option></option>
-              <option></option>
-            </select>
-            <p>description de la fonctionalitée</p>
-            <img src="./resources/icon.png" alt="" class="icon" />
-          </div>
+      <div class="page_" id="2">
+        <div class="contenu">
+          <h1 class="titre-fonction">Random Forest</h1>
+          <select name="option" class="option">
+            <option></option>
+            <option></option>
+            <option></option>
+          </select>
+          <p>description de la fonctionalitée</p>
+          <img src="./resources/modele/randomForest.svg" alt="" class="icon" />
         </div>
 
-        <div class="page_" id="2">
-          <div class="contenu">
-            <h1 class="titre-fonction">Random Forest</h1>
-            <select name="option" class="option">
-              <option></option>
-              <option></option>
-              <option></option>
-            </select>
-            <p>description de la fonctionalitée</p>
-            <img
-              src="./resources/modele/randomForest.svg"
-              alt=""
-              class="icon"
-            />
-          </div>
-
-          <div class="contenu">
-            <h1 class="titre-fonction">Titre fonctionalitée</h1>
-            <select name="option" class="option">
-              <option></option>
-              <option></option>
-              <option></option>
-            </select>
-            <p>description de la fonctionalitée</p>
-            <img src="./resources/icon.png" alt="" class="icon" />
-          </div>
-        </div>
-
-        <div class="page_" id="3">
-          <div class="contenu">
-            <h1 class="titre-fonction">Courbe</h1>
-            <select name="option" class="option">
-              <option></option>
-              <option></option>
-              <option></option>
-            </select>
-            <p>description de la fonctionalitée</p>
-            <img
-              src="./resources/visualisation/courbe.svg"
-              alt=""
-              class="icon"
-            />
-          </div>
-
-          <div class="contenu">
-            <h1 class="titre-fonction">Histogramme</h1>
-            <select name="option" class="option">
-              <option></option>
-              <option></option>
-              <option></option>
-            </select>
-            <p>description de la fonctionalitée</p>
-            <img
-              src="./resources/visualisation/histograme.svg"
-              alt=""
-              class="icon"
-            />
-          </div>
+        <div class="contenu">
+          <h1 class="titre-fonction">Titre fonctionalitée</h1>
+          <select name="option" class="option">
+            <option></option>
+            <option></option>
+            <option></option>
+          </select>
+          <p>description de la fonctionalitée</p>
+          <img src="./resources/icon.png" alt="" class="icon" />
         </div>
       </div>
+
+      <div class="page_" id="3">
+        <div class="contenu">
+          <h1 class="titre-fonction">Courbe</h1>
+          <select name="option" class="option">
+            <option></option>
+            <option></option>
+            <option></option>
+          </select>
+          <p>description de la fonctionalitée</p>
+          <img src="./resources/visualisation/courbe.svg" alt="" class="icon" />
+        </div>
+
+        <div class="contenu">
+          <h1 class="titre-fonction">Histogramme</h1>
+          <select name="option" class="option">
+            <option></option>
+            <option></option>
+            <option></option>
+          </select>
+          <p>description de la fonctionalitée</p>
+          <img src="./resources/visualisation/histograme.svg" alt="" class="icon" />
+        </div>
+      </div>
+
       <div class="bouton-container">
         <button class="suite" id="suite">suite</button>
         <button class="final" id="final">finaliser</button>
       </div>
-    </main>
-  </body>
-  <script src="./js/fonctionalite.js"></script>
-  <script src="./js/main.js"></script>
+
+    </div>
+  </main>
+</body>
+<script src="./js/fonctionalite.js"></script>
+<script src="./js/main.js"></script>
+
 </html>
