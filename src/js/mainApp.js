@@ -25,21 +25,23 @@ function createWindow() {
     mainWindow.webContents.openDevTools();
 }
 app.on("ready", createWindow);
+//on attend le signal de main.ts
 ipcMain.on("open-file-dialog", function (event) {
-    dialog
+    dialog //avec le module dialog on ouvre une fenetre 
         .showOpenDialog(mainWindow, {
         properties: ["openFile"],
-        filters: [{ name: "CSV", extensions: ["csv"] }],
+        filters: [{ name: "CSV", extensions: ["csv"] }], //on filtre pour les csv
     })
         .then((result) => {
         if (!result.canceled && result.filePaths.length > 0) {
-            event.reply("selected-file", result.filePaths[0]);
-        }
+            event.reply("selected-file", result.filePaths[0]); //si l'user a choisis un fichier on repond a main.ts
+        } //et on lui envoit le nom du fichier
     })
         .catch((err) => {
         console.log(err);
     });
 });
+//on attend le signal de main.ts
 ipcMain.on("show-message-box", (event, arg) => {
     const options = {
         type: "question",
@@ -47,11 +49,11 @@ ipcMain.on("show-message-box", (event, arg) => {
         message: "êtes-vous sûr de vouloir finaliser le notebook?",
         defaultId: 0,
         title: "Confirmation",
-        cancelId: 1,
+        cancelId: 1, //non
     };
     dialog.showMessageBox(options).then((result) => {
         if (result.response === 0) {
-            event.sender.send("yes", result.response);
+            event.sender.send("yes", result.response); //si on clique sur oui on envoit la reponse a main.ts
         }
         event.sender.send("message-box-closed", result.response);
     });
@@ -59,8 +61,9 @@ ipcMain.on("show-message-box", (event, arg) => {
 ipcMain.on("quit-app", () => {
     app.quit();
 });
+//on cree un menu sur l'appel de main.ts
 ipcMain.on("menu-item", (event) => {
-    const menu = new Menu();
+    const menu = new Menu(); // on crée menu et on ajoute des item pour chaque options desirées
     menu.append(new MenuItem({
         label: "Settings",
         click: function () {

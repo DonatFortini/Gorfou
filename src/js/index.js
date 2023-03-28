@@ -17,24 +17,30 @@ function importer_donnees(fileName, filePath) {
         console.log(error);
     });
 }
+// on verifie si les boutton ne sont pas null bien on envoi un signal a Mainapp.ts avec ipcRenderer
 if (button_import && fichier_label) {
     button_import.addEventListener("click", function (event) {
         ipcRenderer.send("open-file-dialog");
     });
+    //on reçoit le signal de retour de Mainapp.ts
     ipcRenderer.on("selected-file", function (event, filePath) {
         var _a, _b;
         let fileName = "";
+        // choix os
         if (os.type() == "Windows_NT") {
             fileName = (_a = filePath.split("\\").pop()) !== null && _a !== void 0 ? _a : "Unknown file";
         }
         else {
             fileName = (_b = filePath.split("/").pop()) !== null && _b !== void 0 ? _b : "Unknown file";
         }
+        //on stock le nom pour pour l'envoyer a main.ts
         fichier_label.innerText = fileName;
         sessionStorage.setItem("label_text", fileName);
+        //on envoit les données au notebook 
         importer_donnees(fileName, filePath);
     });
 }
+//on envoi le numero de la page dans l'url et on le recupere dans main.ts
 const button_transfo = document.getElementById("transf");
 if (button_transfo) {
     button_transfo.addEventListener("click", function () {
@@ -53,6 +59,7 @@ if (button_visual) {
         window.location.href = "main.html?menu=3";
     });
 }
+//on envoi le signal a mainApp.ts
 const button_settings = document.getElementById("settings");
 if (button_settings) {
     button_settings.addEventListener("click", () => {

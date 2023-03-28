@@ -43,18 +43,20 @@ function createWindow() {
 
 app.on("ready", createWindow);
 
+
+//on attend le signal de main.ts
 ipcMain.on(
   "open-file-dialog",
   function (event: { reply: (arg0: string, arg1: any) => void }) {
-    dialog
+    dialog//avec le module dialog on ouvre une fenetre 
       .showOpenDialog(mainWindow, {
-        properties: ["openFile"],
-        filters: [{ name: "CSV", extensions: ["csv"] }],
+        properties: ["openFile"],//on choisit que la fenetre est un explorateur de fichier
+        filters: [{ name: "CSV", extensions: ["csv"] }],//on filtre pour les csv
       })
       .then((result: { canceled: any; filePaths: string | any[] }) => {
         if (!result.canceled && result.filePaths.length > 0) {
-          event.reply("selected-file", result.filePaths[0]);
-        }
+          event.reply("selected-file", result.filePaths[0]);//si l'user a choisis un fichier on repond a main.ts
+        }//et on lui envoit le nom du fichier
       })
       .catch((err: any) => {
         console.log(err);
@@ -62,23 +64,24 @@ ipcMain.on(
   }
 );
 
+//on attend le signal de main.ts
 ipcMain.on(
   "show-message-box",
   (
     event: { sender: { send: (arg0: string, arg1: any) => void } },
     arg: any
   ) => {
-    const options = {
+    const options = {//on crée les options de la fenetre
       type: "question",
       buttons: ["Oui", "Non"],
       message: "êtes-vous sûr de vouloir finaliser le notebook?",
-      defaultId: 0,
+      defaultId: 0,//oui
       title: "Confirmation",
-      cancelId: 1,
+      cancelId: 1,//non
     };
-    dialog.showMessageBox(options).then((result: { response: any }) => {
+    dialog.showMessageBox(options).then((result: { response: any }) => {//avec dialog on crée la fenetre
       if (result.response === 0) {
-        event.sender.send("yes", result.response);
+        event.sender.send("yes", result.response);//si on clique sur oui on envoit la reponse a main.ts
       }
       event.sender.send("message-box-closed", result.response);
     });
@@ -89,8 +92,9 @@ ipcMain.on("quit-app", () => {
   app.quit();
 });
 
+//on cree un menu sur l'appel de main.ts
 ipcMain.on("menu-item", (event: any) => {
-  const menu = new Menu();
+  const menu = new Menu();// on crée menu et on ajoute des item pour chaque options desirées
   menu.append(
     new MenuItem({
       label: "Settings",
