@@ -31,7 +31,7 @@ function change(num: string) {
   }
 }
 
-if (menuParam != null) {
+if (menuParam) {
   change(menuParam);
 }
 

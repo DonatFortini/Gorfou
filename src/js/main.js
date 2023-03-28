@@ -23,7 +23,7 @@ function change(num) {
         clickedButton.classList.add("active");
     }
 }
-if (menuParam != null) {
+if (menuParam) {
     change(menuParam);
 }
 if (but_menu1) {
