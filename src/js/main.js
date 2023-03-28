@@ -1,4 +1,6 @@
 "use strict";
+const axios = require("axios");
+const os = require("os");
 const ipcRenderer = require("electron").ipcRenderer;
 //on recupere la page désirée dans l'url
 const urlParams = new URLSearchParams(window.location.search);
@@ -66,28 +68,35 @@ if (butt_import && label) {
     butt_import.addEventListener("click", function (event) {
         ipcRenderer.send("open-file-dialog");
     });
-    //on reçoit le signal de retour 
+    //on reçoit le signal de retour de Mainapp.ts
     ipcRenderer.on("selected-file", function (event, filePath) {
         var _a, _b;
         let fileName = "";
-        //choix os
+        // choix os
         if (os.type() == "Windows_NT") {
             fileName = (_a = filePath.split("\\").pop()) !== null && _a !== void 0 ? _a : "Unknown file";
         }
         else {
             fileName = (_b = filePath.split("/").pop()) !== null && _b !== void 0 ? _b : "Unknown file";
         }
-        //on stock le nom du fichier
+        //on stock le nom pour pour l'envoyer a main.ts
         label.innerText = fileName;
         sessionStorage.setItem("label_text", fileName);
-        let options = {
-            mode: "text",
-            pythonOptions: ["-u"],
-            args: ["import_data", filePath, fileName],
-        };
-        PythonShell.run("src/gorfou_api/", options).then(function (messages) {
-            console.log("results: %j", messages);
-        });
+        //on envoit les données au notebook 
+        importer_donnees(fileName, filePath);
+    });
+}
+function importer_donnees(fileName, filePath) {
+    axios
+        .post("http://127.0.0.1:5000/import_data", {
+        file_name: fileName,
+        file_path: filePath,
+    })
+        .then(function (response) {
+        console.log("It says: ", response.data);
+    })
+        .catch(function (error) {
+        console.log(error);
     });
 }
 const butt_settings = document.getElementById("settings");
@@ -99,7 +108,17 @@ if (butt_settings) {
 const button_preview = document.getElementById("preview");
 if (button_preview) {
     button_preview.addEventListener("click", () => {
-        window.open("");
+        launch_preview();
+    });
+}
+function launch_preview() {
+    axios
+        .post("http://127.0.0.1:5000/preview", {})
+        .then(function (response) {
+        console.log("It says: ", response.data);
+    })
+        .catch(function (error) {
+        console.log(error);
     });
 }
 const button_suite = document.getElementById("suite");

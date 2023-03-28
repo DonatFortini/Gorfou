@@ -1,5 +1,7 @@
 export = {};
 
+const axios = require("axios");
+const os = require("os");
 const ipcRenderer = require("electron").ipcRenderer;
 
 //on recupere la page désirée dans l'url
@@ -26,7 +28,7 @@ function change(num: string) {
     page.classList.remove("page_");
     page.classList.add("page_active");
   }
-  
+
   let buttons = document.querySelectorAll(".menu button");
   buttons.forEach((button) => button.classList.remove("active"));
   // et on fais la même chose pour le menu associé à la page pour changer la couleur du bouton 
@@ -77,30 +79,35 @@ if (butt_import && label) {
   butt_import.addEventListener("click", function (event: any) {
     ipcRenderer.send("open-file-dialog");
   });
-  //on reçoit le signal de retour 
+  //on reçoit le signal de retour de Mainapp.ts
   ipcRenderer.on("selected-file", function (event: any, filePath: string) {
     let fileName = "";
-    //choix os
+    // choix os
     if (os.type() == "Windows_NT") {
       fileName = filePath.split("\\").pop() ?? "Unknown file";
     } else {
       fileName = filePath.split("/").pop() ?? "Unknown file";
     }
-
-    //on stock le nom du fichier
+    //on stock le nom pour pour l'envoyer a main.ts
     label.innerText = fileName;
     sessionStorage.setItem("label_text", fileName);
-
-    let options: object = {//on créer les options de la fenetre 
-      mode: "text",
-      pythonOptions: ["-u"],
-      args: ["import_data", filePath, fileName],
-    };
-
-    PythonShell.run("src/gorfou_api/", options).then(function (messages: any) {
-      console.log("results: %j", messages);
-    });
+    //on envoit les données au notebook 
+    importer_donnees(fileName, filePath);
   });
+}
+
+function importer_donnees(fileName: string, filePath: string) {
+  axios
+    .post("http://127.0.0.1:5000/import_data", {
+      file_name: fileName,
+      file_path: filePath,
+    })
+    .then(function (response: any) {
+      console.log("It says: ", response.data);
+    })
+    .catch(function (error: any) {
+      console.log(error);
+    });
 }
 
 const butt_settings = document.getElementById("settings");
@@ -113,9 +120,21 @@ if (butt_settings) {
 const button_preview = document.getElementById("preview");
 if (button_preview) {
   button_preview.addEventListener("click", () => {
-    window.open("");
+    launch_preview()
   });
 }
+
+function launch_preview() {
+  axios
+    .post("http://127.0.0.1:5000/preview", {})
+    .then(function (response: any) {
+      console.log("It says: ", response.data);
+    })
+    .catch(function (error: any) {
+      console.log(error);
+    });
+}
+
 
 const button_suite = document.getElementById("suite");
 if (button_suite) {
