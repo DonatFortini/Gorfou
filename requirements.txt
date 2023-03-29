@@ -1,8 +1,5 @@
 # python version utilisé pour le dev : python 3.10
 
-# utilisé pour gérer l'interface graphique
-electron >=1.0.0
-
 # utilisé pour gérer les interaction avec le navigateur et le notebook Jupyter
 selenium>=4.8.2
 
