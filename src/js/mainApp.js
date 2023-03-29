@@ -8,7 +8,7 @@ function createWindow() {
     let options = {
         mode: "text",
     };
-    let pyshell = new PythonShell("src/gorfou_api/", options);
+    let pyshell = new PythonShell("src/gorfou_api/server.py", options);
     pyshell.on("message", function (message) {
         // received a message sent from the Python script (a simple "print" statement)
         console.log("from flask : " + message);
@@ -25,6 +25,11 @@ function createWindow() {
     });
     mainWindow.loadFile(path.join(__dirname, "../index.html"));
     mainWindow.on("closed", function () {
+        pyshell.end(function (err) {
+            if (err)
+                throw err;
+            console.log("finished");
+        });
         mainWindow = null;
     });
     mainWindow.webContents.openDevTools();
