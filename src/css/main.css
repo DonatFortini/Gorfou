@@ -77,13 +77,23 @@ nav.menu button {
     display: block;
 }
 
+@media screen and (max-width:952px){
+    .settings {
+        position: relative;
+        width:1000px;
+        height:auto;
+        margin:50px;
+    }
+}
+
 .settings {
     position: relative;
-    top: 40%;
+    top: 50%;
     width:64px;
     height:auto;
     margin:50px;
 }
+
 
 /* contenu*/
 .content {
