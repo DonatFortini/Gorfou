@@ -1,3 +1,5 @@
+/* script lançant l'application gorfou*/
+
 const {
   app,
   BrowserWindow,
@@ -7,10 +9,12 @@ const {
   dialog,
 } = require("electron");
 const path = require("path");
-const { PythonShell } = require("python-shell");
+const PythonShell = require("python-shell");
 
+/* permet de désactiver les warning de sécurité, à supprimer et étudier avant l'éventuelle mise en production*/
 process.env["ELECTRON_DISABLE_SECURITY_WARNINGS"] = "true";
 
+// on crée la fenêtre principale
 let mainWindow: {
   webContents: any;
   loadFile: (arg0: any) => void;
@@ -18,16 +22,24 @@ let mainWindow: {
 } | null;
 
 function createWindow() {
+  /**
+   * fonction de création de la fenêtre principale
+   */
+
+  // création de l'objet contenant les options pour le shell python
   let options: any = {
     mode: "text",
   };
+
+  // on créer l'objet shell python et on récupère les messages envoyés par le script python qui lance le serveur local flask
   let pyshell: any = new PythonShell("src/gorfou_api/server.py", options);
 
   pyshell.on("message", function (message: string) {
-    // received a message sent from the Python script (a simple "print" statement)
+    // les messages reçus sont printés dans la console par flask
     console.log("from flask : " + message);
   });
 
+  // on crée la fenêtre
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
@@ -105,6 +117,7 @@ ipcMain.on("quit-app", () => {
 });
 
 //on crée un menu sur l'appel de main.ts
+// refactorisable
 ipcMain.on("menu-item", (event: any) => {
   const menu = new Menu(); // on crée menu et on ajoute des item pour chaque options désirées
   menu.append(
