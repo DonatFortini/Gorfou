@@ -119,7 +119,7 @@ if (button_preview) {
         if (!active) {
             button_preview.style.backgroundColor = "red";
             active = true;
-            launch_preview();
+            lancement_preview();
         }
         else {
             button_preview.style.backgroundColor = "#f38ba8";
@@ -131,9 +131,9 @@ if (button_preview) {
 /**
  *
  */
-function launch_preview() {
+function lancement_preview() {
     axios
-        .post("http://127.0.0.1:5000/preview", {})
+        .post("http://127.0.0.1:5000/lancement_preview", {})
         .then(function (response) {
         console.log("It says: ", response.data);
     })

@@ -92,7 +92,7 @@ if (butt_import && label) {
     //on stock le nom pour pour l'envoyer a main.ts
     label.innerText = fileName;
     sessionStorage.setItem("label_text", fileName);
-    //on envoit les données au notebook
+    //on envoie les données au notebook
     importer_donnees(fileName, filePath);
   });
 }
@@ -133,7 +133,7 @@ if (button_preview) {
     if (!active) {
       button_preview.style.backgroundColor = "red";
       active = true;
-      launch_preview();
+      lancement_preview();
     } else {
       button_preview.style.backgroundColor = "#f38ba8";
       active = false;
@@ -145,9 +145,9 @@ if (button_preview) {
 /**
  *
  */
-function launch_preview() {
+function lancement_preview() {
   axios
-    .post("http://127.0.0.1:5000/preview", {})
+    .post("http://127.0.0.1:5000/lancement_preview", {})
     .then(function (response: any) {
       console.log("It says: ", response.data);
     })
@@ -160,7 +160,7 @@ const button_suite = document.getElementById("suite");
 if (button_suite) {
   button_suite.addEventListener("click", () => {
     if (current == "3") {
-      //si on est sur la derniere page on finalise le notebook
+      //si on est sur la dernière page on finalise le notebook
       finaliser();
     } else {
       current = String(eval(current!) + 1);
