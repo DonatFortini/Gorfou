@@ -1,13 +1,18 @@
 
 import partie_json.JupyterServer as JupyterServer
 import partie_json.Notebook as Notebook
-from flask import Flask, request
+from flask import Flask, request, session
+from flask_session import Session
 import sys
 import logging
+
 
 app = Flask(__name__)
 handler = logging.StreamHandler(sys.stdout)
 app.logger.addHandler(handler)
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
 
 
 def main():
@@ -24,6 +29,7 @@ def lancement_preview():
     mon_serveur.run_server()
     mon_serveur.open_browser()
     mon_serveur.stop_server()
+    return "preview lancé !"
 
 
 @app.route('/import_data', methods=['GET', 'POST'])
