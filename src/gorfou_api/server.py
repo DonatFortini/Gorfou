@@ -1,6 +1,6 @@
 
-import partie_json.JupyterServer as JupyterServer
-import partie_json.Notebook as Notebook
+import jupyter_interaction.JupyterServer as JupyterServer
+import jupyter_interaction.Notebook as Notebook
 from flask import Flask, request, session
 from flask_session import Session
 import sys

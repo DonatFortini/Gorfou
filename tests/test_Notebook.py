@@ -1,5 +1,5 @@
 
-import gorfou_api.partie_json.Notebook as Notebook
+import gorfou_api.jupyter_interaction.Notebook as Notebook
 import pytest
 
 

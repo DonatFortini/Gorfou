@@ -83,7 +83,7 @@ ipcMain.on("quit-app", () => {
     app.quit();
 });
 //on crée un menu sur l'appel de main.ts
-// refactorisable
+// améliorable
 ipcMain.on("menu-item", (event) => {
     const menu = new Menu(); // on crée menu et on ajoute des item pour chaque options désirées
     menu.append(new MenuItem({
