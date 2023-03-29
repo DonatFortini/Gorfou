@@ -105,10 +105,20 @@ if (butt_settings) {
         ipcRenderer.send("menu-item");
     });
 }
+let active = false;
 const button_preview = document.getElementById("preview");
 if (button_preview) {
     button_preview.addEventListener("click", () => {
-        launch_preview();
+        if (!active) {
+            button_preview.style.backgroundColor = 'red';
+            active = true;
+            launch_preview();
+        }
+        else {
+            button_preview.style.backgroundColor = '#f38ba8';
+            active = false;
+            close_preview();
+        }
     });
 }
 function launch_preview() {
@@ -121,6 +131,7 @@ function launch_preview() {
         console.log(error);
     });
 }
+function close_preview() { }
 const button_suite = document.getElementById("suite");
 if (button_suite) {
     button_suite.addEventListener("click", () => {
