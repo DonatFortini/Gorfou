@@ -26,8 +26,8 @@ button {
     border-radius:20px;
     background-color:#F38BA8;
     margin:5px;
-    width:150px;
     height:40px;
+    font-size: large;
 }
 
 /* header */
@@ -58,8 +58,7 @@ header button{
     background-color: #f38ba8;
     margin-left: 5px;
     height: 40px;
-    
-    max-width: 125px;
+    width: 100px;
 }
 
 /* colonne */
@@ -73,16 +72,15 @@ header button{
 nav.menu button {
     margin:10%;
     width: auto;
-    max-width: 125px;
+    height: 50px;
     display: block;
 }
 
 .settings {
     position: relative;
-    top: 40%;
-    width:64px;
-    height:auto;
-    margin:50px;
+    width: 64px;
+    margin: 50px;
+    top: 55%;
 }
 
 /* contenu*/
@@ -138,10 +136,56 @@ p{
 
 .bouton-container{
     position: fixed;
-    top: 80%;
-    left: 60%;
+    top: 90%;
+    left: 75%;
+    display: flex;
 }
 
 div.bouton-container button {
     background-color:green;
+    width: 100px;
+}
+
+/* tout les reglage précedant s'applique quand l'ecran est a moitié*/
+
+/*responsive -> plein ecran */
+@media screen and (min-width: 952px) { 
+    .settings {
+        position: relative;
+        top: 50%;
+        width: 64px;
+        height: auto;
+        left: 10%;
+    }
+
+    .bouton-container{
+        position: fixed;
+        top: 90%;
+        left: 85%;
+    }
+
+    div.bouton-container button {
+        background-color:green;
+        width: 100px;   
+    }
+
+    nav.menu button {
+        margin:10%;
+        width: 200px;
+        height: 50px;
+        display: block;
+    }
+
+    .colonne {
+        width:15%;
+        background:#1E1E2E;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .content {
+        width:85%;
+        background-color: #1E1E2E;
+        overflow: auto;
+    }
 }

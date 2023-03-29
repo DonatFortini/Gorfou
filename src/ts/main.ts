@@ -125,10 +125,21 @@ if (butt_settings) {
 }
 
 // event listener pour le bouton prévisualisation
+let active:boolean=false;
+
 const button_preview = document.getElementById("preview");
 if (button_preview) {
   button_preview.addEventListener("click", () => {
-    launch_preview();
+    if(!active){
+      button_preview.style.backgroundColor='red';
+      active=true;
+      launch_preview();
+    }
+    else{
+      button_preview.style.backgroundColor='#f38ba8';
+      active=false;
+      close_preview();
+    }
   });
 }
 
@@ -146,7 +157,7 @@ function launch_preview() {
     });
 }
 
-// event listener pour le bouton suite
+
 const button_suite = document.getElementById("suite");
 if (button_suite) {
   button_suite.addEventListener("click", () => {
