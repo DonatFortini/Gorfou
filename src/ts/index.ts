@@ -7,9 +7,9 @@ const button_import = document.getElementById("import");
 const fichier_label = document.getElementById("fichier");
 
 /**
- *
- * @param fileName
- * @param filePath
+ * fonction envoyant les données au notebook par le biais de l'api gorfou
+ * @param {string} fileName - nom du fichier
+ * @param {string} filePath - chemin du fichier
  */
 function importer_donnees(fileName: string, filePath: string) {
   axios

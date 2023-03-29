@@ -21,10 +21,10 @@ let mainWindow: {
   on: (arg0: string, arg1: () => void) => void;
 } | null;
 
+/**
+ * fonction permettant de créer la fenêtre principale
+ */
 function createWindow() {
-  /**
-   * fonction de création de la fenêtre principale
-   */
 
   // création de l'objet contenant les options pour le shell python
   let options: any = {

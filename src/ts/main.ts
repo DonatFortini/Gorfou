@@ -1,3 +1,5 @@
+/* module gérant les bouton du header et du navigateur */
+
 // permet d'indiquer que le fichier est un module
 export = {};
 
@@ -98,9 +100,9 @@ if (butt_import && label) {
 }
 
 /**
- *
- * @param fileName
- * @param filePath
+ * fonction envoyant les données au notebook par le biais de l'api gorfou
+ * @param {string} fileName - nom du fichier
+ * @param {string} filePath - chemin du fichier
  */
 function importer_donnees(fileName: string, filePath: string) {
   axios
@@ -124,9 +126,9 @@ if (butt_settings) {
   });
 }
 
-// event listener pour le bouton prévisualisation
 let active: boolean = false;
 
+// event listener pour le bouton prévisualisation
 const button_preview = document.getElementById("preview");
 if (button_preview) {
   button_preview.addEventListener("click", () => {
@@ -137,13 +139,12 @@ if (button_preview) {
     } else {
       button_preview.style.backgroundColor = "#f38ba8";
       active = false;
-      //close_preview();
     }
   });
 }
 
 /**
- *
+ *  Fonction qui envoie au notebook le signal de lancement de la prévisualisation
  */
 function lancement_preview() {
   axios

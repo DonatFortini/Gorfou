@@ -7,10 +7,10 @@ const { PythonShell } = require("python-shell");
 process.env["ELECTRON_DISABLE_SECURITY_WARNINGS"] = "true";
 // on crée la fenêtre principale
 let mainWindow;
+/**
+ * fonction permettant de créer la fenêtre principale
+ */
 function createWindow() {
-    /**
-     * fonction de création de la fenêtre principale
-     */
     // création de l'objet contenant les options pour le shell python
     let options = {
         mode: "text",

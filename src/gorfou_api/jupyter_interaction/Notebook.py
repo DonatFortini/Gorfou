@@ -4,22 +4,24 @@ import pprint
 import papermill as pm
 import shutil
 
+
+# définition du chemin par défaut du dossier contenant les notebooks
 path = Path(__file__).resolve()
 DEFAULT_PARENT_PATH = path.parents[1] / Path('./notebooks/')
 
 
 class Notebook:
-    """ Classe représentant un notebook jupyter
-    """
+    """ Classe représentant un notebook jupyter """
 
+    # récupération du contenu par défaut d'un notebook
     path = Path(__file__).resolve()
-
     path_default_content = path.parents[1] / \
         Path('./notebooks/default_content.ipynb')
     with open(path_default_content, 'r') as file:
         DEFAULT_CONTENT = json.load(file)
 
     def __init__(self, name, parent_path=DEFAULT_PARENT_PATH, content=DEFAULT_CONTENT) -> None:
+        """ constructeur de la classe notebook"""
 
         self.name = name + ".ipynb"
         self.path_directory = parent_path / (name + "_nb_project")
@@ -27,6 +29,7 @@ class Notebook:
         self.content = content
 
     def save(self):
+        """ sauvegarde le notebook dans le dossier parent_path"""
         if not self.path_directory.exists():
             Path.mkdir(self.path_directory)
 

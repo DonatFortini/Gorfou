@@ -7,9 +7,16 @@ import sys
 import logging
 
 
+# création de l'application flask
 app = Flask(__name__)
+
+# création du logger gérant les logs de l'application
 handler = logging.StreamHandler(sys.stdout)
+
+# ajout du logger à l'application
 app.logger.addHandler(handler)
+
+# configuration de la session flask
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)

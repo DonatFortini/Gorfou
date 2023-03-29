@@ -1,4 +1,5 @@
 "use strict";
+/* module gérant les bouton du header et du navigateur */
 const axios = require("axios");
 const os = require("os");
 const ipcRenderer = require("electron").ipcRenderer;
@@ -87,9 +88,9 @@ if (butt_import && label) {
     });
 }
 /**
- *
- * @param fileName
- * @param filePath
+ * fonction envoyant les données au notebook par le biais de l'api gorfou
+ * @param {string} fileName - nom du fichier
+ * @param {string} filePath - chemin du fichier
  */
 function importer_donnees(fileName, filePath) {
     axios
@@ -111,8 +112,8 @@ if (butt_settings) {
         ipcRenderer.send("menu-item");
     });
 }
-// event listener pour le bouton prévisualisation
 let active = false;
+// event listener pour le bouton prévisualisation
 const button_preview = document.getElementById("preview");
 if (button_preview) {
     button_preview.addEventListener("click", () => {
@@ -124,12 +125,11 @@ if (button_preview) {
         else {
             button_preview.style.backgroundColor = "#f38ba8";
             active = false;
-            //close_preview();
         }
     });
 }
 /**
- *
+ *  Fonction qui envoie au notebook le signal de lancement de la prévisualisation
  */
 function lancement_preview() {
     axios
