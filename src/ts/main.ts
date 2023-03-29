@@ -98,9 +98,9 @@ if (butt_import && label) {
 }
 
 /**
- * 
- * @param fileName 
- * @param filePath 
+ *
+ * @param fileName
+ * @param filePath
  */
 function importer_donnees(fileName: string, filePath: string) {
   axios
@@ -125,26 +125,25 @@ if (butt_settings) {
 }
 
 // event listener pour le bouton prévisualisation
-let active:boolean=false;
+let active: boolean = false;
 
 const button_preview = document.getElementById("preview");
 if (button_preview) {
   button_preview.addEventListener("click", () => {
-    if(!active){
-      button_preview.style.backgroundColor='red';
-      active=true;
+    if (!active) {
+      button_preview.style.backgroundColor = "red";
+      active = true;
       launch_preview();
-    }
-    else{
-      button_preview.style.backgroundColor='#f38ba8';
-      active=false;
-      close_preview();
+    } else {
+      button_preview.style.backgroundColor = "#f38ba8";
+      active = false;
+      //close_preview();
     }
   });
 }
 
 /**
- * 
+ *
  */
 function launch_preview() {
   axios
@@ -156,7 +155,6 @@ function launch_preview() {
       console.log(error);
     });
 }
-
 
 const button_suite = document.getElementById("suite");
 if (button_suite) {
@@ -172,10 +170,9 @@ if (button_suite) {
 }
 
 /**
- * 
+ *
  */
 function finaliser() {
-
   ipcRenderer.send("show-message-box");
   ipcRenderer.on("yes", () => {
     window.location.assign("./final.html");

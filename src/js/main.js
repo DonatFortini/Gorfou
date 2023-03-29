@@ -2,10 +2,10 @@
 const axios = require("axios");
 const os = require("os");
 const ipcRenderer = require("electron").ipcRenderer;
-//on recupere la page désirée dans l'url
+//on récupère la page désirée dans l'url
 const urlParams = new URLSearchParams(window.location.search);
 const menuParam = urlParams.get("menu");
-//permet de garder trace de la page active 
+//permet de garder trace de la page active
 let current = menuParam;
 const but_menu1 = document.getElementById("menu_1");
 const but_menu2 = document.getElementById("menu_2");
@@ -25,7 +25,7 @@ function change(num) {
     }
     let buttons = document.querySelectorAll(".menu button");
     buttons.forEach((button) => button.classList.remove("active"));
-    // et on fais la même chose pour le menu associé à la page pour changer la couleur du bouton 
+    // et on fais la même chose pour le menu associé à la page pour changer la couleur du bouton
     let clickedButton = document.getElementById(`menu_${num}`);
     if (clickedButton) {
         clickedButton.classList.add("active");
@@ -56,14 +56,14 @@ if (but_menu3) {
 }
 const butt_import = document.getElementById("import");
 const label = document.getElementById("fichier");
-//si un fichier a été importé dans la page index.ts on recupere son nom stocké precedement et l'affiche
+//si un fichier a été importé dans la page index.ts on récupère son nom stocké précédemment et l'affiche
 if (label) {
     const labelText = sessionStorage.getItem("label_text");
     if (labelText) {
         label.innerText = labelText;
     }
 }
-//on envoit a mainApp.ts le signal
+//on envoie a mainApp.ts le signal
 if (butt_import && label) {
     butt_import.addEventListener("click", function (event) {
         ipcRenderer.send("open-file-dialog");
@@ -82,10 +82,15 @@ if (butt_import && label) {
         //on stock le nom pour pour l'envoyer a main.ts
         label.innerText = fileName;
         sessionStorage.setItem("label_text", fileName);
-        //on envoit les données au notebook 
+        //on envoit les données au notebook
         importer_donnees(fileName, filePath);
     });
 }
+/**
+ *
+ * @param fileName
+ * @param filePath
+ */
 function importer_donnees(fileName, filePath) {
     axios
         .post("http://127.0.0.1:5000/import_data", {
@@ -99,28 +104,33 @@ function importer_donnees(fileName, filePath) {
         console.log(error);
     });
 }
+// event listener pour le bouton paramètres
 const butt_settings = document.getElementById("settings");
 if (butt_settings) {
     butt_settings.addEventListener("click", () => {
         ipcRenderer.send("menu-item");
     });
 }
+// event listener pour le bouton prévisualisation
 let active = false;
 const button_preview = document.getElementById("preview");
 if (button_preview) {
     button_preview.addEventListener("click", () => {
         if (!active) {
-            button_preview.style.backgroundColor = 'red';
+            button_preview.style.backgroundColor = "red";
             active = true;
             launch_preview();
         }
         else {
-            button_preview.style.backgroundColor = '#f38ba8';
+            button_preview.style.backgroundColor = "#f38ba8";
             active = false;
-            close_preview();
+            //close_preview();
         }
     });
 }
+/**
+ *
+ */
 function launch_preview() {
     axios
         .post("http://127.0.0.1:5000/preview", {})
@@ -131,11 +141,11 @@ function launch_preview() {
         console.log(error);
     });
 }
-function close_preview() { }
 const button_suite = document.getElementById("suite");
 if (button_suite) {
     button_suite.addEventListener("click", () => {
-        if (current == "3") { //si on est sur la derniere page on finalise le notebook
+        if (current == "3") {
+            //si on est sur la derniere page on finalise le notebook
             finaliser();
         }
         else {
@@ -144,12 +154,16 @@ if (button_suite) {
         }
     });
 }
+/**
+ *
+ */
 function finaliser() {
     ipcRenderer.send("show-message-box");
     ipcRenderer.on("yes", () => {
         window.location.assign("./final.html");
     });
 }
+// event listener pour le bouton finaliser
 const button_final = document.getElementById("final");
 if (button_final) {
     button_final.addEventListener("click", () => {

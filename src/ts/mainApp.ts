@@ -9,7 +9,7 @@ const {
   dialog,
 } = require("electron");
 const path = require("path");
-const PythonShell = require("python-shell");
+const { PythonShell } = require("python-shell");
 
 /* permet de désactiver les warning de sécurité, à supprimer et étudier avant l'éventuelle mise en production*/
 process.env["ELECTRON_DISABLE_SECURITY_WARNINGS"] = "true";
