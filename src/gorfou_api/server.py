@@ -39,15 +39,6 @@ def lancement_preview():
     return "preview lancé !"
 
 
-def lancement_preview():
-    """fonction permettant de lancer le serveur jupyter et d'ouvrir un notebook
-    """
-    mon_serveur = JupyterServer.JupyterServer()
-    mon_serveur.run_server()
-    mon_serveur.open_browser()
-    return "preview lancé !"
-
-
 @app.route('/import_data', methods=['GET', 'POST'])
 def import_data():
     """ fonction permettant d'importer des données dans un notebook"""
