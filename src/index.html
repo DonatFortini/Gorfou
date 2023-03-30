@@ -9,35 +9,46 @@
       href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
       rel="stylesheet"
     />
+    <link href="css/tailwind.css" rel="stylesheet" />
 
-    <link href="css/index.css" rel="stylesheet" />
     <title>Gorfou-IA</title>
   </head>
 
-  <body>
-    <header>
-      <h1>Gorfou-IA</h1>
+  <body class="mocha min-h-screen font-ubuntu text-text">
+    <header class="border-4 border-crust border-b-text bg-crust">
+      <h1 class="grid place-items-center">Gorfou-IA</h1>
     </header>
 
-    <main>
-      <img src="./resources/logo_gorfou.svg" class="logo" alt="logo_penguin" />
+    <main class="grid place-items-center bg-base">
+      <img
+        src="./resources/logo_gorfou.svg"
+        class="h-48 w-96 object-scale-down"
+        alt="logo_penguin"
+      />
 
-      <nav class="menu">
-        <button id="import">importer des données</button>
-        <button id="transf">Transformation des données</button>
-        <button id="creati">Création de modèle</button>
-        <button id="visual">Visualisation des données</button>
+      <nav class="m-8 grid grid-flow-row-dense gap-2">
+        <button class="rounded-md bg-pink text-white opacity-75" id="import">
+          importer des données
+        </button>
+        <button class="rounded-md bg-pink text-white opacity-75" id="transf">
+          Transformation des données
+        </button>
+        <button class="rounded-md bg-pink text-white opacity-75" id="creati">
+          Création de modèle
+        </button>
+        <button class="rounded-md bg-pink text-white opacity-75" id="visual">
+          Visualisation des données
+        </button>
       </nav>
     </main>
 
-    <footer>
+    <footer class="grid grid-flow-col bg-base">
       <img
-        class="settings"
         id="settings"
-        src="./resources/icon/gear.png"
+        src="./resources/icon/logo_reglage.svg"
         alt="logo paramètre"
       />
-      <div class="container-fichierprofil">
+      <div>
         <label class="fichier" id="fichier"></label>
         <button class="profil">profil</button>
       </div>
