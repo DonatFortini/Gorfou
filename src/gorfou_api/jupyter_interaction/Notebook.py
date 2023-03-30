@@ -51,7 +51,7 @@ class Notebook:
             new_content (list[str]): contenu à rajouter dans la cellule
         """
 
-        if not 0 <= cell_index <= len(self.content['cells']):
+        if not 0 <= cell_index < len(self.content['cells']):
             raise IndexError("bad cell index")
 
         if type(new_cell_content) is str:
@@ -110,4 +110,4 @@ class Notebook:
 
         repr_path = str(self.path_notebook)
         repr_content = pprint.pformat(self.content)
-        return f"path = {repr_path}\n\ncontent =\n\n{repr_content}\n\ncells_nb = {self.cells_nb}"
+        return f"path = {repr_path}\n\ncontent =\n\n{repr_content}\n\n"
