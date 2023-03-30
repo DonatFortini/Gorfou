@@ -36,7 +36,7 @@ def lancement_preview():
     mon_serveur.run_server()
     try:
         mon_serveur.open_browser()
-    except:
+    except (LookupError):
         return "erreur lors de l'ouverture du navigateur"
     return "preview lancé !"
 
