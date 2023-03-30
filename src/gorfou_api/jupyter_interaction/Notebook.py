@@ -51,7 +51,7 @@ class Notebook:
             new_content (list[str]): contenu à rajouter dans la cellule
         """
 
-        if not 0 <= cell_index <= len(self.content['cells']):
+        if not 0 <= cell_index < len(self.content['cells']):
             raise IndexError("bad cell index")
 
         if type(new_cell_content) is str:
@@ -75,6 +75,34 @@ class Notebook:
         }
 
         self.content['cells'].append(base_cell)
+
+    def check_doublon(self, content: list[str], new_content: list[str]) -> list[str]:
+        """compare deux liste,si la liste new_content contient un 
+        doublon une nouvelle version de cette derniere est renvoyée
+        ,sinon elle renvoit l'originale"""
+        doublon = False
+        liste_suppression = []
+        for elem in new_content:
+            if elem in content:
+                doublon = True
+                liste_suppression.append(elem)
+        if not doublon:
+            return new_content
+        else:
+            for elem in liste_suppression:
+                if elem in new_content:
+                    new_content.remove(elem)
+            return new_content
+
+    def append_cell(self, cell_index: int, content: list[str]):
+        """permet d'ajouter du code sans ecraser le contenu de la cellule"""
+        if not 0 <= cell_index < len(self.content['cells']):
+            raise IndexError("bad cell index")
+
+        if type(content) is str:
+            raise TypeError("Expected an array of strings")
+
+        self.content['cells'][cell_index]['source'].extend(self.check_doublon(self.content['cells'][cell_index]['source'],content))
 
     def delete_cell(self, cell_index):
         """supprime une cellule du notebook
@@ -110,4 +138,4 @@ class Notebook:
 
         repr_path = str(self.path_notebook)
         repr_content = pprint.pformat(self.content)
-        return f"path = {repr_path}\n\ncontent =\n\n{repr_content}\n\ncells_nb = {self.cells_nb}"
+        return f"path = {repr_path}\n\ncontent =\n\n{repr_content}"
