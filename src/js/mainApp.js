@@ -81,11 +81,6 @@ ipcMain.on("show-message-box", (event, arg) => {
     });
 });
 ipcMain.on("quit-app", () => {
-    pyshell.end(function (err) {
-        if (err)
-            throw err;
-        console.log("finished");
-    });
     app.quit();
 });
 //on crée un menu sur l'appel de main.ts

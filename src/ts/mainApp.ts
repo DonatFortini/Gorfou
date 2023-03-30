@@ -114,6 +114,10 @@ ipcMain.on(
 );
 
 ipcMain.on("quit-app", () => {
+  pyshell.end(function (err: any) {
+    if (err) throw err;
+    console.log("finished");
+  });
   app.quit();
 });
 
