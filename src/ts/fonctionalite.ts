@@ -7,3 +7,11 @@ if (integrite) {
     alert("int");
   });
 }
+
+
+const RandForest = document.getElementById("randforest");
+if (RandForest) {
+  RandForest.addEventListener("click", () => {
+    alert("int");
+  });
+}
