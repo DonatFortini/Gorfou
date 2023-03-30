@@ -35,6 +35,16 @@ def lancement_preview():
     mon_serveur = JupyterServer.JupyterServer()
     mon_serveur.run_server()
     mon_serveur.open_browser()
+    mon_serveur.close_server()
+    return "preview lancé !"
+
+
+def lancement_preview():
+    """fonction permettant de lancer le serveur jupyter et d'ouvrir un notebook
+    """
+    mon_serveur = JupyterServer.JupyterServer()
+    mon_serveur.run_server()
+    mon_serveur.open_browser()
     return "preview lancé !"
 
 
