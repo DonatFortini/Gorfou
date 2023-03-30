@@ -35,7 +35,7 @@ def lancement_preview():
     mon_serveur = JupyterServer.JupyterServer()
     mon_serveur.run_server()
     mon_serveur.open_browser()
-    mon_serveur.close_server()
+    mon_serveur.stop_server()
     return "preview lancé !"
 
 

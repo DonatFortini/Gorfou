@@ -3,6 +3,7 @@
 const { app, BrowserWindow, ipcMain, Menu, MenuItem, dialog, } = require("electron");
 const path = require("path");
 const { PythonShell } = require("python-shell");
+let pyshell;
 /* permet de désactiver les warning de sécurité, à supprimer et étudier avant l'éventuelle mise en production*/
 process.env["ELECTRON_DISABLE_SECURITY_WARNINGS"] = "true";
 // on crée la fenêtre principale
@@ -16,7 +17,7 @@ function createWindow() {
         mode: "text",
     };
     // on créer l'objet shell python et on récupère les messages envoyés par le script python qui lance le serveur local flask
-    let pyshell = new PythonShell("src/gorfou_api/server.py", options);
+    pyshell = new PythonShell("src/gorfou_api/server.py", options);
     pyshell.on("message", function (message) {
         // les messages reçus sont printés dans la console par flask
         console.log("from flask : " + message);
@@ -80,6 +81,11 @@ ipcMain.on("show-message-box", (event, arg) => {
     });
 });
 ipcMain.on("quit-app", () => {
+    pyshell.end(function (err) {
+        if (err)
+            throw err;
+        console.log("finished");
+    });
     app.quit();
 });
 //on crée un menu sur l'appel de main.ts
