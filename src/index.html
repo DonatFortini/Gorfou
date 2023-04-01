@@ -3,54 +3,66 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
-      rel="stylesheet"
-    />
     <link href="css/tailwind.css" rel="stylesheet" />
 
     <title>Gorfou-IA</title>
   </head>
 
-  <body class="mocha min-h-screen font-ubuntu text-text">
-    <header class="border-4 border-crust border-b-text bg-crust">
-      <h1 class="grid place-items-center">Gorfou-IA</h1>
+  <body class="mocha flex h-screen flex-col bg-base font-ubuntu text-text">
+    <header
+      class="flex h-14 shrink-0 flex-row justify-evenly border-b-2 border-text bg-crust"
+    >
+      <h1 class="my-auto">Gorfou-IA</h1>
     </header>
 
-    <main class="grid place-items-center bg-base">
+    <main class="flex grow flex-col place-items-center bg-base">
       <img
         src="./resources/logo_gorfou.svg"
-        class="h-48 w-96 object-scale-down"
+        class="h-auto w-40 object-scale-down"
         alt="logo_penguin"
       />
 
-      <nav class="m-8 grid grid-flow-row-dense gap-2">
-        <button class="rounded-md bg-pink text-white opacity-75" id="import">
+      <nav class="grid grid-flow-row-dense gap-1">
+        <button
+          class="my-1 mx-1 rounded-md bg-red/70 px-2 text-white duration-100 ease-in-out hover:bg-red/75 hover:shadow-lg active:bg-red/80 active:shadow-lg"
+          id="import"
+        >
           importer des données
         </button>
-        <button class="rounded-md bg-pink text-white opacity-75" id="transf">
+        <button
+          class="my-1 mx-1 rounded-md bg-red/50 px-2 text-white duration-100 ease-in-out hover:bg-red/60 hover:shadow-lg active:bg-red/70 active:shadow-lg"
+          id="transf"
+        >
           Transformation des données
         </button>
-        <button class="rounded-md bg-pink text-white opacity-75" id="creati">
+        <button
+          class="my-1 mx-1 rounded-md bg-red/50 px-2 text-white duration-100 ease-in-out hover:bg-red/60 hover:shadow-lg active:bg-red/70 active:shadow-lg"
+          id="creati"
+        >
           Création de modèle
         </button>
-        <button class="rounded-md bg-pink text-white opacity-75" id="visual">
+        <button
+          class="my-1 mx-1 rounded-md bg-red/50 px-2 text-white duration-100 ease-in-out hover:bg-red/60 hover:shadow-lg active:bg-red/70 active:shadow-lg"
+          id="visual"
+        >
           Visualisation des données
         </button>
       </nav>
     </main>
 
-    <footer class="grid grid-flow-col bg-base">
+    <footer
+      class="flex h-24 flex-row justify-between border-t-2 border-text bg-base"
+    >
       <img
-        id="settings"
         src="./resources/icon/logo_reglage.svg"
-        alt="logo paramètre"
+        class="my-auto h-auto w-16 object-scale-down"
+        alt="logo_penguin"
       />
-      <div>
-        <label class="fichier" id="fichier"></label>
-        <button class="profil">profil</button>
+      <div
+        class="my-auto mx-2 flex flex-col justify-items-center rounded-md bg-overlay0/70 py-2 px-2"
+      >
+        <div class="mx-auto">profile :</div>
+        <div class="mx-auto">Default</div>
       </div>
     </footer>
   </body>

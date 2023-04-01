@@ -42,6 +42,8 @@ function createWindow() {
 
   // on crée la fenêtre
   mainWindow = new BrowserWindow({
+    minWidth: 700,
+    minHeight: 500,
     width: 800,
     height: 600,
     icon: path.join(__dirname, "../resources/logo_gorfou.png"),

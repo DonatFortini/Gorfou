@@ -24,6 +24,8 @@ function createWindow() {
     });
     // on crée la fenêtre
     mainWindow = new BrowserWindow({
+        minWidth: 700,
+        minHeight: 500,
         width: 800,
         height: 600,
         icon: path.join(__dirname, "../resources/logo_gorfou.png"),
@@ -81,6 +83,11 @@ ipcMain.on("show-message-box", (event, arg) => {
     });
 });
 ipcMain.on("quit-app", () => {
+    pyshell.end(function (err) {
+        if (err)
+            throw err;
+        console.log("finished");
+    });
     app.quit();
 });
 //on crée un menu sur l'appel de main.ts
