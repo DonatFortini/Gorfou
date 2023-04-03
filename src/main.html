@@ -10,9 +10,12 @@
   </head>
 
   <body class="mocha flex h-screen flex-col bg-base font-ubuntu text-text">
+    <!-- HEADER -->
     <header
       class="flex h-full max-h-16 flex-row justify-between border-b-2 border-text bg-crust"
     >
+
+      <!--bouton autres options-->
       <button
         class="rounded-md duration-100 ease-in-out hover:bg-overlay0/60 hover:shadow-lg active:bg-overlay0/70 active:shadow-lg"
       >
@@ -22,7 +25,8 @@
           alt="logo_penguin"
         />
       </button>
-
+      
+      <!--logo gorfou-->
       <div class="flex flex-col">
         <img
           src="./resources/logo_gorfou.svg"
@@ -30,13 +34,25 @@
           alt="logo_penguin"
         />
       </div>
+
+      <!--affichage dernier fichier importé-->
+      <div
+        class="mx-2 my-auto flex flex-col justify-items-center rounded-md bg-overlay0/70 px-2 py-2"
+      >
+        <div>
+          <label for="file" class="mx-auto">dernier fichier importé:</label>
+          <label class="fichier w-10" id="fichier"></label>
+        </div>
+      </div>
       <div class="flex flex-col justify-evenly">
         <button
+          id="preview"
           class="mx-1 my-1 rounded-md bg-red/50 px-2 text-white duration-100 ease-in-out hover:bg-red/60 hover:shadow-lg active:bg-red/70 active:shadow-lg"
         >
           preview
         </button>
         <button
+          id="import"
           class="mx-1 my-1 rounded-md bg-red/50 px-2 text-white duration-100 ease-in-out hover:bg-red/60 hover:shadow-lg active:bg-red/70 active:shadow-lg"
         >
           Importation données
@@ -45,6 +61,8 @@
     </header>
     <div class="flex grow flex-row border-slate-400">
       <side class="flex w-40 flex-col justify-between border-r-2 border-text">
+        <!-- Boutons de navigation -->
+
         <div class="flex flex-col">
           <button
             id="menu_1"
@@ -65,6 +83,8 @@
             Visualisation
           </button>
         </div>
+
+        <!-- choix du profile -->
         <div class="flex flex-col justify-items-end">
           <div
             class="mx-2 flex flex-col justify-items-center rounded-md bg-overlay0/70 py-4"
@@ -95,6 +115,8 @@
               </div>
             </div>
           </div>
+
+          <!-- bouton de réglage -->
           <button
             class="mx-auto w-16 rounded-lg duration-100 ease-in-out hover:bg-overlay0/60 hover:shadow-lg active:bg-overlay0/70 active:shadow-lg"
           >
@@ -108,9 +130,11 @@
       </side>
 
       <div class="flex grow flex-col">
+        <!-- MAIN -->
         <main class="overflow-y h-48 grow overflow-y-scroll">
           <div class="m mx-2 my-4 flex h-40 flex-row rounded-lg bg-overlay0/70">
-            <div class="flex grow flex-col">
+            <div id="1" class="page_active flex grow flex-col">
+              <!-- carte -->
               <div class="ml-2 mt-1 flex flex-row">
                 <h3 class="mr-2">aaaaaaaa</h3>
                 <div class="relative mx-1 inline-block rounded-md bg-surface0">
@@ -160,6 +184,7 @@
             </button>
           </div>
 
+          <!-- carte -->
           <div class="m mx-2 my-4 flex h-40 flex-row rounded-lg bg-overlay0/70">
             <div class="flex grow flex-col">
               <h1 class="ml-2 mt-1">aaaaaaaa</h1>
@@ -184,6 +209,8 @@
               />
             </button>
           </div>
+
+          <!-- carte -->
           <div class="m mx-2 my-4 flex h-40 flex-row rounded-lg bg-overlay0/70">
             <div class="flex grow flex-col">
               <h1 class="ml-2 mt-1">aaaaaaaa</h1>
@@ -205,10 +232,12 @@
               <img
                 src="./resources/icon/logo_reglage.svg"
                 class="hover; object-scale-downs h-auto w-20"
-                alt="reglages"
+                alt="logo paramètres"
               />
             </button>
           </div>
+
+          <!-- carte -->
           <div class="m mx-2 my-4 flex h-40 flex-row rounded-lg bg-overlay0/70">
             <div class="flex grow flex-col">
               <h1 class="ml-2 mt-1">aaaaaaaa</h1>
@@ -233,6 +262,65 @@
               />
             </button>
           </div>
+          <div class="page_" id="2">
+            <div class="contenu">
+              <h1 class="titre-fonction">Random Forest</h1>
+              <select name="option" class="option">
+                <option></option>
+                <option></option>
+                <option></option>
+              </select>
+              <p>description de la fonctionalitée</p>
+              <img
+                src="./resources/modele/randomForest.svg"
+                alt=""
+                class="icon"
+              />
+            </div>
+
+            <div class="contenu">
+              <h1 class="titre-fonction">Titre fonctionalitée</h1>
+              <select name="option" class="option">
+                <option></option>
+                <option></option>
+                <option></option>
+              </select>
+              <p>description de la fonctionalitée</p>
+              <img src="./resources/icon.png" alt="" class="icon" />
+            </div>
+          </div>
+
+          <div class="page_" id="3">
+            <div class="contenu">
+              <h1 class="titre-fonction">Courbe</h1>
+              <select name="option" class="option">
+                <option></option>
+                <option></option>
+                <option></option>
+              </select>
+              <p>description de la fonctionalitée</p>
+              <img
+                src="./resources/visualisation/courbe.svg"
+                alt=""
+                class="icon"
+              />
+            </div>
+
+            <div class="contenu">
+              <h1 class="titre-fonction">Histogramme</h1>
+              <select name="option" class="option">
+                <option></option>
+                <option></option>
+                <option></option>
+              </select>
+              <p>description de la fonctionalitée</p>
+              <img
+                src="./resources/visualisation/histograme.svg"
+                alt=""
+                class="icon"
+              />
+            </div>
+          </div>
         </main>
         <footer
           class="flex h-20 max-h-32 shrink-0 flex-row-reverse border-t-2 border-text"
@@ -253,7 +341,7 @@
       </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Modals -->
     <div
       data-te-modal-init
       class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
@@ -318,5 +406,7 @@
       </div>
     </div>
     <script src="../node_modules/tw-elements/dist/js/index.min.js"></script>
+    <script src="./js/fonctionalite.js"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>
