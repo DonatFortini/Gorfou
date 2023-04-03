@@ -2,41 +2,108 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/main.css" />
-    <title>Gorfou-IA</title>
+    <link rel="stylesheet" href="css/tailwind.css" />
+    <link rel="stylesheet" href="css/autre.css" />
+    <title>Document</title>
   </head>
 
-  <body>
-    <header>
+  <body class="mocha flex h-screen flex-col bg-base font-ubuntu text-text">
+    <header
+      class="flex h-16 max-h-16 flex-row justify-between border-b-2 border-text bg-crust"
+    >
       <img
-        src="./resources/logo_gorfou.svg"
-        class="logo"
-        alt="logo logo_penguin"
+        src="./resources/icon/container.svg"
+        class="h-auto w-24 object-scale-down"
+        alt="logo_penguin"
       />
-      <h1>Gorfou-IA</h1>
-      <label class="fichier" id="fichier"></label>
-      <button class="import" id="import">import</button>
-      <button class="preview" id="preview">preview</button>
-    </header>
-
-    <main>
-      <div class="colonne">
-        <nav class="menu">
-          <button id="menu_1" class="active">Transformation des données</button>
-          <button id="menu_2">Création de modèle</button>
-          <button id="menu_3">Visualisation des données</button>
-        </nav>
+      <div class="flex flex-col">
         <img
-          src="./resources/icon/gear.png"
-          id="settings"
-          class="settings"
-          alt="logo paramètre"
+          src="./resources/logo_gorfou.svg"
+          class="h-auto w-24 object-scale-down"
+          alt="logo_penguin"
         />
       </div>
+      <div class="flex flex-col justify-evenly">
+        <button
+          class="mx-1 my-1 rounded-md bg-red/50 px-2 text-white duration-100 ease-in-out hover:bg-red/60 hover:shadow-lg active:bg-red/70 active:shadow-lg"
+        >
+          preview
+        </button>
+        <button
+          class="mx-1 my-1 rounded-md bg-red/50 px-2 text-white duration-100 ease-in-out hover:bg-red/60 hover:shadow-lg active:bg-red/70 active:shadow-lg"
+        >
+          Importation données
+        </button>
+      </div>
+    </header>
+    <div class="flex grow flex-row border-slate-400">
+      <side class="flex w-40 flex-col justify-between border-r-2 border-text">
+        <div class="flex flex-col">
+          <button
+            button
+            class="mx-1 my-1 rounded-md bg-red/50 px-2 text-white duration-100 ease-in-out hover:bg-red/60 hover:shadow-lg active:bg-red/70 active:shadow-lg"
+          >
+            Traitement des données
+          </button>
+          <button
+            button
+            class="mx-1 my-1 rounded-md bg-red/50 px-2 text-white duration-100 ease-in-out hover:bg-red/60 hover:shadow-lg active:bg-red/70 active:shadow-lg"
+          >
+            Création modèle(s)
+          </button>
+          <button
+            button
+            class="my-1 mx-1 rounded-md bg-red/50 px-2 text-white duration-100 ease-in-out hover:bg-red/60 hover:shadow-lg active:bg-red/70 active:shadow-lg"
+          >
+            Visualisation
+          </button>
+        </div>
+        <div class="flex flex-col justify-items-end">
+          <div
+            class="mx-2 flex flex-col justify-items-center rounded-md bg-overlay0/70 py-4"
+          >
+            <div class="mx-auto">profile :</div>
+            <div class="mx-auto">Default</div>
+          </div>
+          <img
+            src="./resources/icon/logo_reglage.svg"
+            class="mx-auto h-auto w-16 object-scale-down"
+            alt="logo_penguin"
+          />
+        </div>
+      </side>
 
-      <div class="content"></div>
-    </main>
+      <div class="flex grow flex-col">
+        <main class="overflow-y h-48 grow content-center overflow-y-scroll">
+          <div class="mx-2 my-2 flex flex-col rounded-lg bg-overlay1/70">
+            <img
+              src="./resources/icon/Frame.svg"
+              class="mx-auto h-auto w-24 object-scale-down"
+              alt="logo_penguin"
+            />
+
+            <div>
+              Votre fichier à bien été enregistré dans le dossier download !
+            </div>
+          </div>
+        </main>
+        <footer
+          class="flex h-20 max-h-32 shrink-0 flex-row-reverse border-t-2 border-text"
+        >
+          <button
+            class="hover:bg-green/85 mx-2 my-6 rounded-md bg-green/70 px-2 text-white duration-100 ease-in-out hover:bg-green/75 hover:shadow-lg active:bg-green/80 active:shadow-lg"
+          >
+            Finaliser
+          </button>
+          <button
+            class="mx-2 my-6 rounded-md bg-green/50 px-2 text-white shadow-md transition duration-100 ease-in-out hover:bg-green/60 hover:shadow-lg active:bg-green/70 active:shadow-lg"
+          >
+            Suite
+          </button>
+        </footer>
+      </div>
+    </div>
   </body>
-  <script src="./js/main.js"></script>
 </html>
