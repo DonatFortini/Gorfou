@@ -74,7 +74,7 @@ if (button_visual) {
 }
 // event listener pour le bouton de paramètres
 //on envoi le signal a mainApp.ts
-const button_settings = document.getElementById("settings");
+const button_settings = document.querySelector("#settings");
 if (button_settings) {
   button_settings.addEventListener("click", () => {
     ipcRenderer.send("menu-item");

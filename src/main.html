@@ -47,20 +47,20 @@
       <side class="flex w-40 flex-col justify-between border-r-2 border-text">
         <div class="flex flex-col">
           <button
-            button
-            class="mx-1 my-1 rounded-md bg-red/50 px-2 text-white duration-100 ease-in-out hover:bg-red/60 hover:shadow-lg active:bg-red/70 active:shadow-lg"
+            id="menu_1"
+            class="active mx-1 my-1 rounded-md bg-red/50 px-2 text-white duration-100 ease-in-out hover:bg-red/60 hover:shadow-lg active:bg-red/70 active:shadow-lg"
           >
             Traitement des données
           </button>
           <button
-            button
+            id="menu_2"
             class="mx-1 my-1 rounded-md bg-red/50 px-2 text-white duration-100 ease-in-out hover:bg-red/60 hover:shadow-lg active:bg-red/70 active:shadow-lg"
           >
             Création modèle(s)
           </button>
           <button
-            button
-            class="my-1 mx-1 rounded-md bg-red/50 px-2 text-white duration-100 ease-in-out hover:bg-red/60 hover:shadow-lg active:bg-red/70 active:shadow-lg"
+            id="menu_3"
+            class="mx-1 my-1 rounded-md bg-red/50 px-2 text-white duration-100 ease-in-out hover:bg-red/60 hover:shadow-lg active:bg-red/70 active:shadow-lg"
           >
             Visualisation
           </button>
@@ -142,7 +142,7 @@
               <!-- Button trigger modal -->
               <button
                 type="button"
-                class="mx-auto my-1 rounded-lg bg-surface0/50 py-1 px-2 duration-100 ease-in-out hover:bg-surface0/60 hover:shadow-lg active:bg-surface0/70 active:shadow-lg"
+                class="mx-auto my-1 rounded-lg bg-surface0/50 px-2 py-1 duration-100 ease-in-out hover:bg-surface0/60 hover:shadow-lg active:bg-surface0/70 active:shadow-lg"
                 data-te-toggle="modal"
                 data-te-target="#exampleModalScrollable"
               >
@@ -167,7 +167,7 @@
               <!-- Button trigger modal -->
               <button
                 type="button"
-                class="mx-auto my-1 rounded-lg bg-surface0/50 py-1 px-2 duration-100 ease-in-out hover:bg-surface0/60 hover:shadow-lg active:bg-surface0/70 active:shadow-lg"
+                class="mx-auto my-1 rounded-lg bg-surface0/50 px-2 py-1 duration-100 ease-in-out hover:bg-surface0/60 hover:shadow-lg active:bg-surface0/70 active:shadow-lg"
                 data-te-toggle="modal"
                 data-te-target="#exampleModalScrollable"
               >
@@ -191,7 +191,7 @@
               <!-- Button trigger modal -->
               <button
                 type="button"
-                class="mx-auto my-1 rounded-lg bg-surface0/50 py-1 px-2 duration-100 ease-in-out hover:bg-surface0/60 hover:shadow-lg active:bg-surface0/70 active:shadow-lg"
+                class="mx-auto my-1 rounded-lg bg-surface0/50 px-2 py-1 duration-100 ease-in-out hover:bg-surface0/60 hover:shadow-lg active:bg-surface0/70 active:shadow-lg"
                 data-te-toggle="modal"
                 data-te-target="#exampleModalScrollable"
               >
@@ -199,12 +199,13 @@
               </button>
             </div>
             <button
+              id="settings"
               class="my-auto mr-4 rounded-lg bg-surface0/50 duration-100 ease-in-out hover:bg-surface0/60 hover:shadow-lg active:bg-surface0/70 active:shadow-lg"
             >
               <img
                 src="./resources/icon/logo_reglage.svg"
                 class="hover; object-scale-downs h-auto w-20"
-                alt="logo_penguin"
+                alt="reglages"
               />
             </button>
           </div>
@@ -215,7 +216,7 @@
               <!-- Button trigger modal -->
               <button
                 type="button"
-                class="mx-auto my-1 rounded-lg bg-surface0/50 py-1 px-2 duration-100 ease-in-out hover:bg-surface0/60 hover:shadow-lg active:bg-surface0/70 active:shadow-lg"
+                class="mx-auto my-1 rounded-lg bg-surface0/50 px-2 py-1 duration-100 ease-in-out hover:bg-surface0/60 hover:shadow-lg active:bg-surface0/70 active:shadow-lg"
                 data-te-toggle="modal"
                 data-te-target="#exampleModalScrollable"
               >
@@ -237,11 +238,13 @@
           class="flex h-20 max-h-32 shrink-0 flex-row-reverse border-t-2 border-text"
         >
           <button
+            id="finaliser"
             class="hover:bg-green/85 mx-2 my-6 rounded-md bg-green/70 px-2 text-white duration-100 ease-in-out hover:bg-green/75 hover:shadow-lg active:bg-green/80 active:shadow-lg"
           >
             Finaliser
           </button>
           <button
+            id="suite"
             class="mx-2 my-6 rounded-md bg-green/50 px-2 text-white shadow-md transition duration-100 ease-in-out hover:bg-green/60 hover:shadow-lg active:bg-green/70 active:shadow-lg"
           >
             Suite
@@ -253,7 +256,7 @@
     <!-- Modal -->
     <div
       data-te-modal-init
-      class="fixed top-0 left-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+      class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
       id="exampleModalScrollable"
       tabindex="-1"
       aria-labelledby="exampleModalScrollableLabel"
