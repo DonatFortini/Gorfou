@@ -28,17 +28,17 @@ def main():
     app.run()
 
 
-@app.route('/lancement_preview', methods=['POST'])
-def lancement_preview():
-    """fonction permettant de lancer le serveur jupyter et d'ouvrir un notebook
-    """
-    mon_serveur = JupyterServer.JupyterServer()
-    mon_serveur.run_server()
-    try:
-        mon_serveur.open_browser()
-    except (LookupError):
-        return "erreur lors de l'ouverture du navigateur"
-    return "preview lancé !"
+# @app.route('/lancement_preview', methods=['POST'])
+# def lancement_preview()
+#     """fonction permettant de lancer le serveur jupyter et d'ouvrir un notebook
+#     """
+#     mon_serveur = JupyterServer.JupyterServer()
+#     mon_serveur.run_server()
+#     try:
+#         mon_serveur.open_browser()
+#     except (LookupError):
+#         return "erreur lors de l'ouverture du navigateur"
+#     return "preview lancé !"
 
 
 @app.route('/import_data', methods=['GET', 'POST'])

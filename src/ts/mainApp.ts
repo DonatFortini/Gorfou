@@ -57,10 +57,6 @@ function createWindow() {
   mainWindow!.loadFile(path.join(__dirname, "../index.html"));
 
   mainWindow!.on("closed", function () {
-    pyshell.end(function (err: any) {
-      if (err) throw err;
-      console.log("finished");
-    });
     mainWindow = null;
   });
 
@@ -115,11 +111,14 @@ ipcMain.on(
   }
 );
 
-ipcMain.on("quit-app", () => {
+ipcMain.on("before-quit", () => {
   pyshell.end(function (err: any) {
     if (err) throw err;
     console.log("finished");
   });
+});
+
+ipcMain.on("quit-app", () => {
   app.quit();
 });
 
