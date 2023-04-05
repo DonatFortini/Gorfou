@@ -7,6 +7,7 @@ import sys
 import logging
 
 from jupyter_interaction.Notebook import Notebook
+from jupyter_interaction.Modele import random_forest
 
 instance_notebook=None
 
@@ -64,6 +65,17 @@ def hello():
     """
     return "Le serveur marche !"
 
+@app.route('/rd', methods=['GET', 'POST'])
+def import_data():
+    """ fonction permettant d'importer des données dans un notebook"""
+
+    request_data = request.get_json()
+
+    tuple = request_data['tuple']
+   
+    random_forest((tuple[0],tuple[1]))
+
+    return "import réussi !"
 
 if __name__ == "__main__":
     main()
