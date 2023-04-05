@@ -6,6 +6,9 @@ from flask_session import Session
 import sys
 import logging
 
+from jupyter_interaction.Notebook import Notebook
+
+instance_notebook=None
 
 # création de l'application flask
 app = Flask(__name__)
@@ -25,6 +28,7 @@ Session(app)
 def main():
     """ fonction principale permettant de lancer le serveur flask
     """
+    instance_notebook=Notebook.Notebook('main')
     app.run()
 
 

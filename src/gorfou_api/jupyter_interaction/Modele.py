@@ -1,10 +1,6 @@
-import Notebook
+from gorfou_api.server import instance_notebook as Nb
 
-
-Nb = Notebook.Notebook('test')
-
-
-def random_forest(jeu_donnees: tuple, hyper_param: int = 0):
+def random_forest(Nx,jeu_donnees: tuple, hyper_param: int = 0):
     Nb.append_cell(2, [
         "from sklearn.ensemble import RandomForestClassifier",
         "from sklearn.model_selection import cross_val_score"
