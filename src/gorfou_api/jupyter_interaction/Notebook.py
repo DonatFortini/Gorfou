@@ -43,6 +43,8 @@ class Notebook:
         path = Path(path_to_data).resolve()
         shutil.copy(path, self.path_directory / name)
 
+        self.append_cell(1,["import pandas as pd",f"X=pd.read_csv('{path}',sep=';')"])
+
     def edit_cell(self, cell_index, new_cell_content: list[str]):
         """ edit une cellule du notebook à partir de son index
 

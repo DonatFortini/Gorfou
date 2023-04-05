@@ -5,11 +5,13 @@ from flask import Flask, request, session
 from flask_session import Session
 import sys
 import logging
+import json
 
 from jupyter_interaction.Notebook import Notebook
 from jupyter_interaction.Modele import random_forest
 
-instance_notebook=None
+instance_notebook=Notebook('main')
+instance_notebook.save()
 
 # création de l'application flask
 app = Flask(__name__)
@@ -29,7 +31,6 @@ Session(app)
 def main():
     """ fonction principale permettant de lancer le serveur flask
     """
-    instance_notebook=Notebook.Notebook('main')
     app.run()
 
 
@@ -52,9 +53,7 @@ def import_data():
     file_path = request_data['file_path']
     file_name = request_data['file_name']
 
-    mon_notebook = Notebook.Notebook("temp")
-    mon_notebook.save()
-    mon_notebook.import_data(file_path, file_name)
+    instance_notebook.import_data(file_path, file_name)
 
     return "import réussi !"
 
@@ -66,16 +65,18 @@ def hello():
     return "Le serveur marche !"
 
 @app.route('/rd', methods=['GET', 'POST'])
-def import_data():
-    """ fonction permettant d'importer des données dans un notebook"""
+def test_forest():
+   
 
     request_data = request.get_json()
 
     tuple = request_data['tuple']
+    tuple2 = request_data['tuple2']
    
-    random_forest((tuple[0],tuple[1]))
+    random_forest(instance_notebook,(tuple,tuple2))
+    instance_notebook.save()
 
-    return "import réussi !"
+    return "insertion reussi"
 
 if __name__ == "__main__":
     main()
