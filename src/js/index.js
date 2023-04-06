@@ -1,5 +1,4 @@
 "use strict";
-/* module contenant la programmation événementielle lié à l'index*/
 const ipcRenderer = require("electron").ipcRenderer;
 const os = require("os");
 const axios = require("axios");
@@ -76,3 +75,4 @@ if (button_settings) {
         ipcRenderer.send("menu-item");
     });
 }
+module.exports = {};

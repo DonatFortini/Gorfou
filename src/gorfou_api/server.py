@@ -79,6 +79,12 @@ def test_forest():
 
     return "insertion reussi"
 
+@app.route('/suppres', methods=['GET', 'POST'])
+def suppress():
+    shutil.rmtree("src/gorfou_api/notebooks/main_nb_project", ignore_errors=True)
+    return "delete"
+    
+
 
 @app.route('/finaliser', methods=['GET', 'POST'])
 def finalise():

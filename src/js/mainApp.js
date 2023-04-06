@@ -1,6 +1,7 @@
 "use strict";
 /* script lançant l'application gorfou*/
 const { app, BrowserWindow, ipcMain, Menu, MenuItem, dialog, } = require("electron");
+const axios = require("axios");
 const path = require("path");
 const { PythonShell } = require("python-shell");
 /* permet de désactiver les warning de sécurité, à supprimer et étudier avant l'éventuelle mise en production*/
