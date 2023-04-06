@@ -161,16 +161,14 @@ function finaliser() {
     ipcRenderer.send("show-message-box");
     ipcRenderer.on("yes", () => {
         axios
-            .post("http://127.0.0.1:5000/finaliser", {
-            param: 'x'
-        })
+            .post("http://127.0.0.1:5000/finaliser", {})
             .then(function (response) {
             console.log("It says: ", response.data);
         })
             .catch(function (error) {
             console.log(error);
         });
-        //window.location.assign("./final.html");
+        window.location.assign("./final.html");
     });
 }
 // event listener pour le bouton finaliser

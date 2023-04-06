@@ -184,7 +184,7 @@ function finaliser() {
     .catch(function (error: any) {
       console.log(error);
     });
-    //window.location.assign("./final.html");
+    window.location.assign("./final.html");
   });
 }
 
