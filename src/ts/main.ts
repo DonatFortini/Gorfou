@@ -176,7 +176,15 @@ if (button_suite) {
 function finaliser() {
   ipcRenderer.send("show-message-box");
   ipcRenderer.on("yes", () => {
-    window.location.assign("./final.html");
+    axios
+    .post("http://127.0.0.1:5000/finaliser", {})
+    .then(function (response: any) {
+      console.log("It says: ", response.data);
+    })
+    .catch(function (error: any) {
+      console.log(error);
+    });
+    //window.location.assign("./final.html");
   });
 }
 

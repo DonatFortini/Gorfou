@@ -5,12 +5,13 @@ from flask import Flask, request, session
 from flask_session import Session
 import sys
 import logging
-import json
+import shutil
+import os
 
 from jupyter_interaction.Notebook import Notebook
 from jupyter_interaction.Modele import random_forest
 
-instance_notebook=Notebook('main')
+instance_notebook = Notebook('main')
 instance_notebook.save()
 
 # création de l'application flask
@@ -64,19 +65,44 @@ def hello():
     """
     return "Le serveur marche !"
 
-@app.route('/rd', methods=['GET', 'POST'])
+
+@app.route('/randForest', methods=['GET', 'POST'])
 def test_forest():
-   
 
     request_data = request.get_json()
 
     tuple = request_data['tuple']
     tuple2 = request_data['tuple2']
-   
-    random_forest(instance_notebook,(tuple,tuple2))
+
+    random_forest(instance_notebook, (tuple, tuple2))
     instance_notebook.save()
 
     return "insertion reussi"
+
+
+@app.route('/finaliser', methods=['GET', 'POST'])
+def finalise():
+    #faut internationaliser la 
+
+    source = "src/gorfou_api/notebooks/main_nb_project"
+    destination = ""
+
+    home_dir = os.path.expanduser("~")
+
+    if os.name == "nt":  # Windows
+        destination = os.path.join(home_dir, "Téléchargements")
+
+    elif os.name == "posix":  # macOS, Linux
+        destination = os.path.join(home_dir, "Téléchargements")
+
+    shutil.rmtree(destination, ignore_errors=True)  # efface si deja existant
+    # copy le ficher notebook dans le dl de l'user
+    shutil.copytree(source, destination)
+    # on supprime le dossier source pour la prochaine utilisation
+    shutil.rmtree(source, ignore_errors=True)
+
+    return "finaliser reussi"
+
 
 if __name__ == "__main__":
     main()

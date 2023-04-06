@@ -11,9 +11,8 @@ if (integrite) {
 const RandForest = document.getElementById("randforest");
 if (RandForest) {
     RandForest.addEventListener("click", () => {
-        console.log('ici');
         Axios
-            .post("http://127.0.0.1:5000/rd", {
+            .post("http://127.0.0.1:5000/randForest", {
             tuple: 4,
             tuple2: 3
         })
