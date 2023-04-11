@@ -96,10 +96,10 @@ def finalise():
     home_dir = os.path.expanduser("~")
 
     if os.name == "nt":  # Windows
-        destination = os.path.join(home_dir, "Téléchargements")
+        destination = os.path.join(home_dir, "Téléchargements/")
 
     elif os.name == "posix":  # macOS, Linux
-        destination = os.path.join(home_dir, "Téléchargements")
+        destination = os.path.join(home_dir, "Téléchargements/")
 
     shutil.rmtree(destination, ignore_errors=True)  # efface si deja existant
     # copy le ficher notebook dans le dl de l'user
