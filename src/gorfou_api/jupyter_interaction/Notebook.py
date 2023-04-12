@@ -43,7 +43,8 @@ class Notebook:
         path = Path(path_to_data).resolve()
         shutil.copy(path, self.path_directory / name)
 
-        self.append_cell(1,["import pandas as pd",f"X=pd.read_csv('{path}',sep=';')"])
+        self.append_cell(
+            1, ["import pandas as pd", f"X=pd.read_csv('{path}',sep=';')"])
 
     def edit_cell(self, cell_index, new_cell_content: list[str]):
         """ edit une cellule du notebook à partir de son index
@@ -104,7 +105,8 @@ class Notebook:
         if type(content) is str:
             raise TypeError("Expected an array of strings")
 
-        self.content['cells'][cell_index]['source'].extend(self.check_doublon(self.content['cells'][cell_index]['source'],content))
+        self.content['cells'][cell_index]['source'].extend(
+            self.check_doublon(self.content['cells'][cell_index]['source'], content))
 
     def delete_cell(self, cell_index):
         """supprime une cellule du notebook
