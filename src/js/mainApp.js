@@ -8,20 +8,23 @@ const { PythonShell } = require("python-shell");
 process.env["ELECTRON_DISABLE_SECURITY_WARNINGS"] = "true";
 // on crée la fenêtre principale
 let mainWindow;
+let pyshell = new PythonShell('src/gorfou_api/server.py');
+pyshell.on('message', function (message) {
+    console.log('from flask:', message);
+});
+function closeFlaskServer() {
+    axios
+        .post("http://127.0.0.1:5000/suppres", {})
+        .then(function (response) {
+        console.log("It says: ", response.data);
+    });
+    pyshell.childProcess.kill();
+    console.log('server shutdown..');
+}
 /**
  * fonction permettant de créer la fenêtre principale
  */
 function createWindow() {
-    // création de l'objet contenant les options pour le shell python
-    let options = {
-        mode: "text",
-    };
-    // on créer l'objet shell python et on récupère les messages envoyés par le script python qui lance le serveur local flask
-    let pyshell = new PythonShell("src/gorfou_api/server.py", options);
-    pyshell.on("message", function (message) {
-        // les messages reçus sont printés dans la console par flask
-        console.log("from flask : " + message);
-    });
     // on crée la fenêtre
     mainWindow = new BrowserWindow({
         width: 800,
@@ -45,6 +48,7 @@ function createWindow() {
     mainWindow.webContents.openDevTools();
 }
 app.on("ready", createWindow);
+app.on('will-quit', closeFlaskServer);
 //on attend le signal de main.ts
 ipcMain.on("open-file-dialog", function (event) {
     dialog //avec le module dialog on ouvre une fenêtre

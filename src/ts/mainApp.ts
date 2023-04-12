@@ -22,23 +22,28 @@ let mainWindow: {
   on: (arg0: string, arg1: () => void) => void;
 } | null;
 
+
+let pyshell = new PythonShell('src/gorfou_api/server.py');
+
+pyshell.on('message', function (message: string) {
+  console.log('from flask:', message);
+});
+
+function closeFlaskServer() {
+  axios
+    .post("http://127.0.0.1:5000/suppres", {})
+    .then(function (response: any) {
+      console.log("It says: ", response.data);
+    });
+  pyshell.childProcess.kill();
+  console.log('server shutdown..');
+}
+
+
 /**
  * fonction permettant de créer la fenêtre principale
  */
 function createWindow() {
-
-  // création de l'objet contenant les options pour le shell python
-  let options: any = {
-    mode: "text",
-  };
-
-  // on créer l'objet shell python et on récupère les messages envoyés par le script python qui lance le serveur local flask
-  let pyshell: any = new PythonShell("src/gorfou_api/server.py", options);
-
-  pyshell.on("message", function (message: string) {
-    // les messages reçus sont printés dans la console par flask
-    console.log("from flask : " + message);
-  });
 
   // on crée la fenêtre
   mainWindow = new BrowserWindow({
@@ -66,6 +71,8 @@ function createWindow() {
 }
 
 app.on("ready", createWindow);
+
+app.on('will-quit', closeFlaskServer);
 
 //on attend le signal de main.ts
 ipcMain.on(
