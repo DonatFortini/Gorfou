@@ -13,3 +13,20 @@ def test_fonction_randomforest_cell():
                                                      "random_forest_classifier=RandomForestClassifier(0)",
                                                      "random_forest_classifier.fit(X,y)",
                                                      "random_forest_classifier.score(X,y),cross_val_score(random_forest_classifier,X,y)"]
+def test_edit_cell():
+    notebook_test = Notebook.Notebook("aaaa")
+    notebook_test.edit_cell(1, ["test"])
+    assert notebook_test.content["cells"][1]["source"] == ["test"]
+
+    notebook_test.edit_cell(1, ["test", "test"])
+    assert notebook_test.content["cells"][1]["source"] == ["test", "test"]
+
+    with pytest.raises(IndexError):
+        notebook_test.edit_cell(-1, ["test"])
+
+    with pytest.raises(IndexError):
+        notebook_test.edit_cell(2, ["test"])
+
+    with pytest.raises(TypeError):
+        notebook_test.edit_cell(1, "test")
+
