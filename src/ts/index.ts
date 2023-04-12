@@ -1,5 +1,5 @@
 /* module contenant la programmation événementielle lié à l'index*/
-
+export = {};
 const ipcRenderer = require("electron").ipcRenderer;
 const os = require("os");
 const axios = require("axios");

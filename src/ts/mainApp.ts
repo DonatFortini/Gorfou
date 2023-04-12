@@ -8,6 +8,7 @@ const {
   MenuItem,
   dialog,
 } = require("electron");
+const axios = require("axios");
 const path = require("path");
 const { PythonShell } = require("python-shell");
 
