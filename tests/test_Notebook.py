@@ -19,3 +19,4 @@ def test_edit_cell():
 
     with pytest.raises(TypeError):
         notebook_test.edit_cell(1, "test")
+
