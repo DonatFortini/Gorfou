@@ -8,17 +8,17 @@ import logging
 import os
 module_logger = logging.getLogger(__name__)
 
-os_shell = r''
+os_shell=r''
 POWERSHELL = r'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe'
-BASH = r'/usr/bin/bash'
+BASH=r'/usr/bin/bash'
 
-if (os.name == 'nt'):
-    os_shell = POWERSHELL
+if(os.name=='nt'):
+    os_shell=POWERSHELL
 else:
-    os_shell = BASH
-
+    os_shell=BASH
 
 class JupyterServer:
+    
 
     def __init__(self, port=8099, shell=os_shell) -> None:
         self.port = port
@@ -45,6 +45,7 @@ class JupyterServer:
         print("http://localhost:8099/tree/" + self.get_token())
         driver.get(
             "http://localhost:8099/tree/src/gorfou_api/notebooks/test_notebook.ipynb" + self.get_token())
+        time.sleep(10)
 
     def get_token(self) -> str:
         server_launch = subprocess.run(
@@ -63,3 +64,8 @@ class JupyterServer:
 
     def __str__(self) -> str:
         return f"port = {self.port}\n shell = {self.shell}"
+
+
+monServeur = JupyterServer(8099)
+monServeur.run_server()
+monServeur.stop_server

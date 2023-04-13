@@ -48,8 +48,6 @@ function createWindow() {
 
   // on crée la fenêtre
   mainWindow = new BrowserWindow({
-    minWidth: 700,
-    minHeight: 500,
     width: 800,
     height: 600,
     icon: path.join(__dirname, "../resources/logo_gorfou.png"),
@@ -63,6 +61,10 @@ function createWindow() {
   mainWindow!.loadFile(path.join(__dirname, "../index.html"));
 
   mainWindow!.on("closed", function () {
+    pyshell.end(function (err: any) {
+      if (err) throw err;
+      console.log("finished");
+    });
     mainWindow = null;
   });
 
@@ -118,13 +120,6 @@ ipcMain.on(
     });
   }
 );
-
-ipcMain.on("before-quit", () => {
-  pyshell.end(function (err: any) {
-    if (err) throw err;
-    console.log("finished");
-  });
-});
 
 ipcMain.on("quit-app", () => {
   app.quit();

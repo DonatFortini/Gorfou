@@ -142,4 +142,4 @@ class Notebook:
 
         repr_path = str(self.path_notebook)
         repr_content = pprint.pformat(self.content)
-        return f"path = {repr_path}\n\ncontent =\n\n{repr_content}\n\n"
+        return f"path = {repr_path}\n\ncontent =\n\n{repr_content}"

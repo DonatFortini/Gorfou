@@ -3,109 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="css/tailwind.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
 
+    <link href="css/index.css" rel="stylesheet" />
     <title>Gorfou-IA</title>
   </head>
 
-  <body class="mocha flex h-screen flex-col bg-base font-ubuntu text-text">
-    <!--Header-->
-    <header
-      class="flex h-14 shrink-0 flex-row justify-evenly border-b-2 border-text bg-crust"
-    >
-      <h1 class="my-auto">Gorfou-IA</h1>
+  <body>
+    <header>
+      <h1>Gorfou-IA</h1>
     </header>
 
-    <main class="flex grow flex-col place-items-center bg-base">
-      <img
-        src="./resources/logo_gorfou.svg"
-        class="h-auto w-40 object-scale-down"
-        alt="logo_penguin"
-      />
+    <main>
+      <img src="./resources/logo_gorfou.svg" class="logo" alt="logo_penguin" />
 
-      <!--menu accueil-->
-      <nav class="grid grid-flow-row-dense gap-1">
-        <button
-          class="mx-1 my-1 rounded-md bg-red/70 px-2 text-white duration-100 ease-in-out hover:bg-red/75 hover:shadow-lg active:bg-red/80 active:shadow-lg"
-          id="import"
-        >
-          importer des données
-        </button>
-        <button
-          class="mx-1 my-1 rounded-md bg-red/50 px-2 text-white duration-100 ease-in-out hover:bg-red/60 hover:shadow-lg active:bg-red/70 active:shadow-lg"
-          id="transf"
-        >
-          Transformation des données
-        </button>
-        <button
-          class="mx-1 my-1 rounded-md bg-red/50 px-2 text-white duration-100 ease-in-out hover:bg-red/60 hover:shadow-lg active:bg-red/70 active:shadow-lg"
-          id="creati"
-        >
-          Création de modèle
-        </button>
-        <button
-          class="mx-1 my-1 rounded-md bg-red/50 px-2 text-white duration-100 ease-in-out hover:bg-red/60 hover:shadow-lg active:bg-red/70 active:shadow-lg"
-          id="visual"
-        >
-          Visualisation des données
-        </button>
+      <nav class="menu">
+        <button id="import">importer des données</button>
+        <button id="transf">Transformation des données</button>
+        <button id="creati">Création de modèle</button>
+        <button id="visual">Visualisation des données</button>
       </nav>
     </main>
 
-    <footer
-      class="flex h-24 flex-row justify-between border-t-2 border-text bg-base"
-    >
-      <!--bouton paramètres-->
-      <button
+    <footer>
+      <img
+        class="settings"
         id="settings"
-        class="my-auto mr-4 rounded-lg bg-surface0/50 duration-100 ease-in-out hover:bg-surface0/60 hover:shadow-lg active:bg-surface0/70 active:shadow-lg"
-      >
-        <img
-          src="./resources/icon/logo_reglage.svg"
-          class="hover; object-scale-downs h-auto w-20"
-          alt="logo paramètres"
-        />
-      </button>
-
-      <!--affichage fichier-->
-      <div
-        class="mx-2 my-auto flex flex-col justify-items-center rounded-md bg-overlay0/70 px-2 py-2"
-      >
-        <div>
-          <label for="file" class="mx-auto">dernier fichier importé:</label>
-          <label class="fichier w-10" id="fichier"></label>
-        </div>
-      </div>
-
-      <!--choix profile-->
-      <div
-        class="mx-2 flex flex-col justify-items-center rounded-md bg-overlay0/70 py-4"
-      >
-        <label for="profile" class="mx-auto">profile :</label>
-        <div class="relative mx-1 inline-block rounded-md bg-surface0">
-          <select
-            class="focus:shadow-outline block w-full appearance-none rounded border border-gray-400 bg-surface0 px-4 py-2 pr-8 leading-tight shadow hover:border-gray-500 focus:outline-none"
-          >
-            <option value="1">default</option>
-            <option value="2">profile 2</option>
-            <option value="3">profile 3</option>
-            <option value="4">profile 4</option>
-            <option value="5">profile 5</option>
-          </select>
-          <div
-            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-text"
-          >
-            <svg
-              class="h-4 w-4 fill-current"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-            >
-              <path
-                d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-              />
-            </svg>
-          </div>
-        </div>
+        src="./resources/icon/gear.png"
+        alt="logo paramètre"
+      />
+      <div class="container-fichierprofil">
+        <label class="fichier" id="fichier"></label>
+        <button class="profil">profil</button>
       </div>
     </footer>
   </body>
