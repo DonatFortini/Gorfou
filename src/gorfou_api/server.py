@@ -1,7 +1,7 @@
 
 import jupyter_interaction.JupyterServer as JupyterServer
 import jupyter_interaction.Notebook as Notebook
-from flask import Flask, request, session
+from flask import Flask, request
 from flask_session import Session
 import sys
 import logging
