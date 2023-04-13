@@ -12,6 +12,8 @@ const axios = require("axios");
 const path = require("path");
 const { PythonShell } = require("python-shell");
 
+let pyshell: any;
+
 /* permet de désactiver les warning de sécurité, à supprimer et étudier avant l'éventuelle mise en production*/
 process.env["ELECTRON_DISABLE_SECURITY_WARNINGS"] = "true";
 
@@ -46,8 +48,23 @@ function closeFlaskServer() {
  */
 function createWindow() {
 
+  // création de l'objet contenant les options pour le shell python
+  let options: any = {
+    mode: "text",
+  };
+
+  // on créer l'objet shell python et on récupère les messages envoyés par le script python qui lance le serveur local flask
+  let pyshell: any = new PythonShell("src/gorfou_api/server.py", options);
+
+  pyshell.on("message", function (message: string) {
+    // les messages reçus sont printés dans la console par flask
+    console.log("from flask : " + message);
+  });
+
   // on crée la fenêtre
   mainWindow = new BrowserWindow({
+    minWidth: 700,
+    minHeight: 500,
     width: 800,
     height: 600,
     icon: path.join(__dirname, "../resources/logo_gorfou.png"),
@@ -61,10 +78,6 @@ function createWindow() {
   mainWindow!.loadFile(path.join(__dirname, "../index.html"));
 
   mainWindow!.on("closed", function () {
-    pyshell.end(function (err: any) {
-      if (err) throw err;
-      console.log("finished");
-    });
     mainWindow = null;
   });
 
@@ -120,6 +133,13 @@ ipcMain.on(
     });
   }
 );
+
+ipcMain.on("before-quit", () => {
+  pyshell.end(function (err: any) {
+    if (err) throw err;
+    console.log("finished");
+  });
+});
 
 ipcMain.on("quit-app", () => {
   app.quit();

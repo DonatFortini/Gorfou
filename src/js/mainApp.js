@@ -4,6 +4,7 @@ const { app, BrowserWindow, ipcMain, Menu, MenuItem, dialog, } = require("electr
 const axios = require("axios");
 const path = require("path");
 const { PythonShell } = require("python-shell");
+
 /* permet de désactiver les warning de sécurité, à supprimer et étudier avant l'éventuelle mise en production*/
 process.env["ELECTRON_DISABLE_SECURITY_WARNINGS"] = "true";
 // on crée la fenêtre principale
@@ -27,6 +28,8 @@ function closeFlaskServer() {
 function createWindow() {
     // on crée la fenêtre
     mainWindow = new BrowserWindow({
+        minWidth: 700,
+        minHeight: 500,
         width: 800,
         height: 600,
         icon: path.join(__dirname, "../resources/logo_gorfou.png"),
@@ -85,6 +88,11 @@ ipcMain.on("show-message-box", (event, arg) => {
     });
 });
 ipcMain.on("quit-app", () => {
+    pyshell.end(function (err) {
+        if (err)
+            throw err;
+        console.log("finished");
+    });
     app.quit();
 });
 //on crée un menu sur l'appel de main.ts

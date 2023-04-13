@@ -2,41 +2,208 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/main.css" />
-    <title>Gorfou-IA</title>
+    <link rel="stylesheet" href="css/autre.css" />
+    <link rel="stylesheet" href="css/tailwind.css" />
+    <title>Document</title>
   </head>
 
-  <body>
-    <header>
-      <img
-        src="./resources/logo_gorfou.svg"
-        class="logo"
-        alt="logo logo_penguin"
-      />
-      <h1>Gorfou-IA</h1>
-      <label class="fichier" id="fichier"></label>
-      <button class="import" id="import">import</button>
-      <button class="preview" id="preview">preview</button>
-    </header>
+  <body class="mocha flex h-screen flex-col bg-base font-ubuntu text-text">
+    <!-- HEADER -->
 
-    <main>
-      <div class="colonne">
-        <nav class="menu">
-          <button id="menu_1" class="active">Transformation des données</button>
-          <button id="menu_2">Création de modèle</button>
-          <button id="menu_3">Visualisation des données</button>
-        </nav>
+    <header
+      class="flex h-full max-h-16 flex-row justify-between border-b-2 border-text bg-crust"
+    >
+      <button
+        class="rounded-md duration-100 ease-in-out hover:bg-overlay0/60 hover:shadow-lg active:bg-overlay0/70 active:shadow-lg"
+      >
         <img
-          src="./resources/icon/gear.png"
-          id="settings"
-          class="settings"
-          alt="logo paramètre"
+          src="./resources/icon/container.svg"
+          class="h-16 w-auto object-scale-down"
+          alt="logo_penguin"
+        />
+      </button>
+
+      <div class="flex flex-col">
+        <img
+          src="./resources/logo_gorfou.svg"
+          class="h-auto w-24 object-scale-down"
+          alt="logo_penguin"
         />
       </div>
+      <div
+        class="mx-2 my-auto flex flex-col justify-items-center rounded-md bg-overlay0/70 px-2 py-2"
+      >
+        <div>
+          <label for="file" class="mx-auto">fichier :</label>
+          <label class="fichier w-10" id="fichier"></label>
+        </div>
+      </div>
+      <div class="flex flex-col justify-evenly">
+        <button
+          id="preview"
+          class="mx-1 my-1 rounded-md bg-red/50 px-2 text-white duration-100 ease-in-out hover:bg-red/60 hover:shadow-lg active:bg-red/70 active:shadow-lg"
+        >
+          preview
+        </button>
+        <button
+          id="import"
+          class="mx-1 my-1 rounded-md bg-red/50 px-2 text-white duration-100 ease-in-out hover:bg-red/60 hover:shadow-lg active:bg-red/70 active:shadow-lg"
+        >
+          Importation données
+        </button>
+      </div>
+    </header>
 
-      <div class="content"></div>
-    </main>
+    <div class="flex grow flex-row border-slate-400">
+      <!-- SIDE BAR -->
+
+      <side class="flex w-40 flex-col justify-between border-r-2 border-text">
+        <div class="flex flex-col">
+          <button
+            id="menu_1"
+            class="active mx-1 my-1 rounded-md bg-red/50 px-2 text-white duration-100 ease-in-out hover:bg-red/60 hover:shadow-lg active:bg-red/70 active:shadow-lg"
+          >
+            Traitement des données
+          </button>
+          <button
+            id="menu_2"
+            class="mx-1 my-1 rounded-md bg-red/50 px-2 text-white duration-100 ease-in-out hover:bg-red/60 hover:shadow-lg active:bg-red/70 active:shadow-lg"
+          >
+            Création modèle(s)
+          </button>
+          <button
+            id="menu_3"
+            class="mx-1 my-1 rounded-md bg-red/50 px-2 text-white duration-100 ease-in-out hover:bg-red/60 hover:shadow-lg active:bg-red/70 active:shadow-lg"
+          >
+            Visualisation
+          </button>
+        </div>
+        <div class="flex flex-col justify-items-end">
+          <div
+            class="mx-2 flex flex-col justify-items-center rounded-md bg-overlay0/70 py-4"
+          >
+            <label for="profile" class="mx-auto">profile :</label>
+            <div class="relative mx-1 inline-block rounded-md bg-surface0">
+              <select
+                class="focus:shadow-outline block w-full appearance-none rounded border border-gray-400 bg-surface0 px-4 py-2 pr-8 leading-tight shadow hover:border-gray-500 focus:outline-none"
+              >
+                <option value="1">default</option>
+                <option value="2">profile 2</option>
+                <option value="3">profile 3</option>
+                <option value="4">profile 4</option>
+                <option value="5">profile 5</option>
+              </select>
+              <div
+                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-text"
+              >
+                <svg
+                  class="h-4 w-4 fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <button
+            class="mx-auto w-16 rounded-lg duration-100 ease-in-out hover:bg-overlay0/60 hover:shadow-lg active:bg-overlay0/70 active:shadow-lg"
+          >
+            <img
+              src="./resources/icon/logo_reglage.svg"
+              class="h-auto object-scale-down"
+              alt="logo_reglage"
+            />
+          </button>
+        </div>
+      </side>
+
+      <!-- MAIN -->
+      <main class="overflow-y h-48 grow content-center overflow-y-scroll">
+        <div class="mx-2 my-2 flex flex-col rounded-lg bg-overlay1/70">
+          <img
+            src="./resources/icon/Frame.svg"
+            class="mx-auto h-auto w-24 object-scale-down"
+            alt="logo_penguin"
+          />
+
+          <div>
+            Votre fichier à bien été enregistré dans le dossier download !
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Modals -->
+    <div
+      data-te-modal-init
+      class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+      id="exampleModalScrollable"
+      tabindex="-1"
+      aria-labelledby="exampleModalScrollableLabel"
+      aria-hidden="true"
+    >
+      <div
+        data-te-modal-dialog-ref
+        class="pointer-events-none relative h-[calc(100%-1rem)] w-auto translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]"
+      >
+        <div
+          class="pointer-events-auto relative flex max-h-[100%] w-full flex-col overflow-hidden rounded-md border-none bg-mantle bg-clip-padding text-current shadow-lg outline-none"
+        >
+          <div
+            class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-text border-opacity-100 p-4 dark:border-opacity-50"
+          >
+            <h5
+              class="text-xl font-medium leading-normal text-text"
+              id="exampleModalScrollableLabel"
+            >
+              Modal title
+            </h5>
+            <button
+              type="button"
+              class="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+              data-te-modal-dismiss
+              aria-label="Close"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-6 w-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="relative overflow-y-auto p-4">
+            <p>
+              This is some placeholder content to show the scrolling behavior
+              for modals. We use repeated line breaks to demonstrate how content
+              can exceed minimum inner height, thereby showing inner scrolling.
+              When content becomes longer than the predefined max-height of
+              modal, content will be cropped and scrollable within the modal.
+            </p>
+            <div style="height: 800px"></div>
+            <p>This content should appear at the bottom after you scroll.</p>
+          </div>
+          <div
+            class="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-text border-opacity-100 p-4"
+          ></div>
+        </div>
+      </div>
+    </div>
+    <script src="../node_modules/tw-elements/dist/js/index.min.js"></script>
+    <script src="./js/fonctionalite.js"></script>
+    <script src="./js/main.js"></script>
   </body>
-  <script src="./js/main.js"></script>
 </html>
