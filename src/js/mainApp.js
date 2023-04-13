@@ -4,7 +4,6 @@ const { app, BrowserWindow, ipcMain, Menu, MenuItem, dialog, } = require("electr
 const axios = require("axios");
 const path = require("path");
 const { PythonShell } = require("python-shell");
-
 /* permet de désactiver les warning de sécurité, à supprimer et étudier avant l'éventuelle mise en production*/
 process.env["ELECTRON_DISABLE_SECURITY_WARNINGS"] = "true";
 // on crée la fenêtre principale
@@ -41,11 +40,6 @@ function createWindow() {
     });
     mainWindow.loadFile(path.join(__dirname, "../index.html"));
     mainWindow.on("closed", function () {
-        pyshell.end(function (err) {
-            if (err)
-                throw err;
-            console.log("finished");
-        });
         mainWindow = null;
     });
     mainWindow.webContents.openDevTools();
@@ -87,12 +81,14 @@ ipcMain.on("show-message-box", (event, arg) => {
         event.sender.send("message-box-closed", result.response);
     });
 });
-ipcMain.on("quit-app", () => {
+ipcMain.on("before-quit", () => {
     pyshell.end(function (err) {
         if (err)
             throw err;
         console.log("finished");
     });
+});
+ipcMain.on("quit-app", () => {
     app.quit();
 });
 //on crée un menu sur l'appel de main.ts
