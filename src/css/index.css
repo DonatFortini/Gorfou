@@ -1,68 +1,175 @@
-html,
 body {
-    height: 100vh;
-    margin: 0;
     font-family: 'Ubuntu', sans-serif;
-    color: #CDD6F4;
-    background: #1E1E2E;
+    color: white;
+    background-color: #11111b;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    line-height: inherit;
+    margin: 0;
 }
 
 header {
-    height: 10vh;
-    background-color: #11111b;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 3.5rem;
+    flex-shrink: 0;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-bottom-width: 2px;
+    border-color: white;
+    background-color: #11111b;
 }
 
 main {
-    height: 80vh;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #1E1E2E;
 }
 
 footer {
-    height: 10vh;
     display: flex;
+    height: 6rem;
     flex-direction: row;
-    align-items: center;
-    width: 100vw;
-}
-
-button{
-    border-radius: 20px;
-    background-color: #F38BA8;
-    margin: 5px;
+    justify-content: space-between;
+    border-top-width: 2px;
+    border-color: white;
+    background-color: #1E1E2E;
 }
 
 .logo {
-    display: block;
-    margin: auto;
-    width: 20%;
     height: auto;
+    width: 10rem;
+    object-fit: scale-down;
 }
 
-.menu{
+.menu {
     display: grid;
-    margin: auto;
-    width: 25%;
-    height: 30%;
+    grid-auto-flow: row dense;
+    grid-gap: 0.25rem;
 }
 
-.settings{
-    margin-left: 5%;
+.menu button {
+    margin: 0.5rem;
+    border-radius: 0.375rem;
+    background-color: #F38BA8;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    color: #fff;
+    transition-duration: 100ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.settings {
+    margin: 0.5rem;
+    border-radius: 0.375rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition-duration: 100ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.settings_logo {
+    height: auto;
+    width: 5rem;
+    transition: object-fit 0.3s ease-in-out;
+}
+
+.display_fichier {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.375rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 0.5rem;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fichier {
+    width: 2.5rem;
+}
+
+.profil {
     display: block;
-    width: 64px;
-    height:auto; 
+    width: 100%;
+    appearance: none;
+    border-radius: 0.375rem;
+    border: 1px solid #CBD5E0;
+    background-color: rgba(255, 255, 255, 0.224);
+    padding-left: 1rem;
+    padding-right: 2rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    line-height: 1.25;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.profil{
-    margin: auto;
-    float: right;
+.profil:hover {
+    border-color: #CBD5E0;
 }
 
-.fichier{
-    float: right;
+.profil:focus:hover {
+    border-color: #409EFF;
 }
 
-.container-fichierprofil {
-    margin-left: 70vw;
+.profil:focus:not(:hover) {
+    border-color: #4299E1;
 }
+
+.profil:focus {
+    box-shadow: 0 0 0 2px rgba(41, 156, 219, 0.5);
+    outline: none;
+}
+
+.div_profil {
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.375rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.div_select {
+    position: relative;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+    display: inline-block;
+    border-radius: 0.375rem;
+    background-color: var(--surface-0);
+}
+
+.pointer {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    color: var(--text);
+}
+
+.pointer_svg {
+    height: 1rem;
+    width: 1rem;
+    fill: currentColor;
+}
+
+  

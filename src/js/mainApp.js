@@ -27,17 +27,23 @@ function closeFlaskServer() {
 function createWindow() {
     // on crée la fenêtre
     mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 1000,
+        height: 800,
         icon: path.join(__dirname, "../resources/logo_gorfou.png"),
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
             enableRemoteModule: true,
-        },
+        }
     });
+    mainWindow.setMinimumSize(640, 480);
     mainWindow.loadFile(path.join(__dirname, "../index.html"));
     mainWindow.on("closed", function () {
+        pyshell.end(function (err) {
+            if (err)
+                throw err;
+            console.log("finished");
+        });
         mainWindow = null;
     });
     mainWindow.webContents.openDevTools();
@@ -80,11 +86,6 @@ ipcMain.on("show-message-box", (event, arg) => {
     });
 });
 ipcMain.on("quit-app", () => {
-    pyshell.end(function (err) {
-        if (err)
-            throw err;
-        console.log("finished");
-    });
     app.quit();
 });
 //on crée un menu sur l'appel de main.ts

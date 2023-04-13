@@ -16,11 +16,7 @@ const { PythonShell } = require("python-shell");
 process.env["ELECTRON_DISABLE_SECURITY_WARNINGS"] = "true";
 
 // on crée la fenêtre principale
-let mainWindow: {
-  webContents: any;
-  loadFile: (arg0: any) => void;
-  on: (arg0: string, arg1: () => void) => void;
-} | null;
+let mainWindow: any;
 
 
 let pyshell = new PythonShell('src/gorfou_api/server.py');
@@ -48,19 +44,21 @@ function createWindow() {
 
   // on crée la fenêtre
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1000,
+    height: 800,
     icon: path.join(__dirname, "../resources/logo_gorfou.png"),
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
       enableRemoteModule: true,
-    },
+    }
   });
 
-  mainWindow!.loadFile(path.join(__dirname, "../index.html"));
+  mainWindow.setMinimumSize(640, 480);
 
-  mainWindow!.on("closed", function () {
+  mainWindow.loadFile(path.join(__dirname, "../index.html"));
+
+  mainWindow.on("closed", function () {
     pyshell.end(function (err: any) {
       if (err) throw err;
       console.log("finished");
@@ -68,7 +66,7 @@ function createWindow() {
     mainWindow = null;
   });
 
-  mainWindow!.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 }
 
 app.on("ready", createWindow);
