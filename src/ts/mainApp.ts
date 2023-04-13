@@ -34,9 +34,10 @@ function closeFlaskServer() {
     .post("http://127.0.0.1:5000/suppres", {})
     .then(function (response: any) {
       console.log("It says: ", response.data);
+      pyshell.childProcess.kill();
+      console.log('server shutdown..');
     });
-  pyshell.childProcess.kill();
-  console.log('server shutdown..');
+
 }
 
 
