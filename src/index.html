@@ -1,47 +1,47 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
-      rel="stylesheet"
-    />
 
-    <link href="css/index.css" rel="stylesheet" />
-    <title>Gorfou-IA</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet" />
+  <link href="css/index.css" rel="stylesheet" />
+  <title>Gorfou-IA</title>
+</head>
 
-  <body>
-    <header>
-      <h1>Gorfou-IA</h1>
-    </header>
+<body>
+  <header>
+    <h1>Gorfou-IA</h1>
+  </header>
 
-    <main>
-      <img src="./resources/logo_gorfou.svg" class="logo" alt="logo_penguin" />
+  <main>
+    <img src="./resources/logo_gorfou.svg" class="logo" alt="logo_penguin" />
 
-      <nav class="menu">
-        <button id="import">importer des données</button>
-        <button id="transf">Transformation des données</button>
-        <button id="creati">Création de modèle</button>
-        <button id="visual">Visualisation des données</button>
-      </nav>
-    </main>
+    <nav class="menu">
+      <button id="import">importer des données</button>
+      <button id="transf">Transformation des données</button>
+      <button id="creati">Création de modèle</button>
+      <button id="visual">Visualisation des données</button>
+    </nav>
+  </main>
 
-    <footer>
-      <img
-        class="settings"
-        id="settings"
-        src="./resources/icon/gear.png"
-        alt="logo paramètre"
-      />
-      <div class="container-fichierprofil">
-        <label class="fichier" id="fichier"></label>
-        <button class="profil">profil</button>
-      </div>
-    </footer>
-  </body>
-  <script src="./js/index.js"></script>
+  <footer>
+    <img class="settings" id="settings" src="./resources/icon/gear.png" alt="logo paramètre" />
+    <div class="container-fichierprofil">
+      <label class="fichier" id="fichier"></label>
+      <select
+        class="focus:shadow-outline block w-full appearance-none rounded border border-gray-400 bg-surface0 px-4 py-2 pr-8 leading-tight shadow hover:border-gray-500 focus:outline-none">
+        <option value="1">default</option>
+        <option value="2">profile 2</option>
+        <option value="3">profile 3</option>
+        <option value="4">profile 4</option>
+        <option value="5">profile 5</option>
+      </select>
+    </div>
+  </footer>
+</body>
+<script src="./js/index.js"></script>
+
 </html>
