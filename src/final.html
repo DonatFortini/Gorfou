@@ -1,42 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/main.css" />
-    <title>Gorfou-IA</title>
-  </head>
 
-  <body>
-    <header>
-      <img
-        src="./resources/logo_gorfou.svg"
-        class="logo"
-        alt="logo logo_penguin"
-      />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/main.css" />
+  <title>Gorfou-IA</title>
+</head>
+
+<body>
+  <header>
+
+    <!--bouton autres options-->
+    <div class="svg_button">
+      <img src="./resources/icon/container.svg" class="svg_container" />
+    </div>
+
+    <!--logo gorfou-->
+    <div class="div_logo">
+      <img src="./resources/logo_gorfou.svg" class="logo" alt="logo_penguin" />
+    </div>
+
+    <div class="titre">
       <h1>Gorfou-IA</h1>
-      <label class="fichier" id="fichier"></label>
-      <button class="import" id="import">import</button>
-      <button class="preview" id="preview">preview</button>
-    </header>
+    </div>
 
-    <main>
-      <div class="colonne">
-        <nav class="menu">
-          <button id="menu_1" class="active">Transformation des données</button>
-          <button id="menu_2">Création de modèle</button>
-          <button id="menu_3">Visualisation des données</button>
-        </nav>
-        <img
-          src="./resources/icon/gear.png"
-          id="settings"
-          class="settings"
-          alt="logo paramètre"
-        />
+    <!--affichage dernier fichier importé-->
+    <div class="div_fichier">
+      <div class="cont">
+        <label for="file" class="mx-auto">dernier fichier importé:</label>
+        <label class="fichier" id="fichier"></label>
+      </div>
+    </div>
+
+    <!--preview import-->
+    <div class="div_button">
+      <button id="preview" class="preview">
+        preview
+      </button>
+      <button id="import" class="import">
+        Importation données
+      </button>
+    </div>
+
+  </header>
+
+  <main>
+    <!--menu colonne-->
+    <side class="colonne">
+      <!-- Boutons de navigation -->
+
+      <div class="menu">
+        <button id="menu_1" class="active">
+          Traitement des données
+        </button>
+        <button id="menu_2">
+          Création modèle(s)
+        </button>
+        <button id="menu_3">
+          Visualisation
+        </button>
       </div>
 
-      <div class="content"></div>
-    </main>
-  </body>
-  <script src="./js/main.js"></script>
+      <!-- choix du profil -->
+      <div class="div_profil">
+        <div class="profil">
+          <label for="profil" class="mx-auto">profil :</label>
+          <div class="select_div">
+            <select class="select_profil">
+              <option value="1">default</option>
+              <option value="2">profile 2</option>
+              <option value="3">profile 3</option>
+              <option value="4">profile 4</option>
+              <option value="5">profile 5</option>
+            </select>
+            <div class="pointer_div">
+              <svg class="pointer_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- bouton de réglage -->
+        <div class="div_setting">
+          <div class="settings" id="settings">
+            <img src="./resources/icon/logo_reglage.svg" class="settings_logo" alt="logo_reglage" />
+          </div>
+        </div>
+
+      </div>
+    </side>
+
+    <!--contenu principal-->
+    <div class="content">
+      <div class="carte_final">
+        <h1 class="final_titre">
+          Votre notebook est prêt!!
+        </h1>
+        <p class="final_text">
+          votre fichier ipynb et vos datasets vous attendent dans votre dossier télechargement
+        </p>
+        <img src="./resources/icon/checkmark.svg" class="checkmark" />
+      </div>
+    </div>
+  </main>
+  <footer>
+
+  </footer>
+</body>
+
 </html>

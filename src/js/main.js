@@ -172,7 +172,7 @@ function finaliser() {
     });
 }
 // event listener pour le bouton finaliser
-const button_final = document.getElementById("final");
+const button_final = document.getElementById("finaliser");
 if (button_final) {
     button_final.addEventListener("click", () => {
         finaliser();

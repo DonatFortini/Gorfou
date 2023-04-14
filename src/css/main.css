@@ -5,22 +5,22 @@ body {
     display: flex;
     height: 100vh;
     flex-direction: column;
-    line-height: inherit;
     margin: 0;
 }
 
 header {
     display: flex;
-    height: 3.5rem;
+    height: 10%;
     flex-shrink: 0;
     flex-direction: row;
-    justify-content: space-evenly;
-    border-bottom-style: solid;
-    border-bottom-color: white;
-    border-bottom-width: 2px;
+    border-bottom: solid 2px white;
     background-color: #11111b;
+    justify-content: space-between;
 }
 
+button{
+    background-color: #F38BA8;
+}
 
 /* header */
 .div_logo {
@@ -29,51 +29,60 @@ header {
 }
 
 .logo {
-    height: auto;
+    height: 6rem;
     width: 6rem;
     object-fit: scale-down;
 
 }
 
 .svg_button {
+    margin: 5px;
+    height: auto;
+    width: auto;
+    background-color: #11111b;
     border-radius: 0.375rem;
     transition-duration: 100ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.svg_button:hover {
-    background-color: rgba(255, 255, 255, 0.6);
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 3px 1px rgba(0, 0, 0, 0.1);
-}
 
+.svg_button:hover,
 .svg_button:active {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(11, 6, 57, 0.7);
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05), 0 3px 6px 2px rgba(0, 0, 0, 0.1);
 }
 
 .svg_container {
-    height: 4rem;
-    width: auto;
-    object-fit: scale-down;
+    height: 2rem;
+    width: 2rem;
 }
 
 .div_fichier {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont {
     margin-left: 2rem;
-    margin-top: auto;
+    width: 11rem;
+    height: 2rem;
+    border-radius: 0.375rem;
+    background-color: rgb(128, 128, 128);
+    padding: 0.375rem;
+    font-size: 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: items-center;
-    border-radius: 0.375rem;
-    background-color: rgba(18, 18, 18, 0.7);
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-
 }
 
 .fichier {
-    width: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
 }
 
 .mx-auto {
@@ -89,10 +98,7 @@ header {
 
 .import,
 .preview {
-    margin-left: 0.25rem;
-    margin-right: 0.25rem;
-    margin-top: 0.25rem;
-    margin-bottom: 0.25rem;
+    margin: 0.15rem;
     border-radius: 0.375rem;
     background-color: #F38BA8;
     padding-left: 0.5rem;
@@ -100,6 +106,9 @@ header {
     color: #fff;
     transition-duration: 0.1s;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    width: 8rem;
+    height: 1.5rem;
+    font-size: 0.7rem;
 }
 
 .import:hover,
@@ -108,43 +117,171 @@ header {
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 3px 1px rgba(0, 0, 0, 0.1);
 }
 
-header h1 {
-    margin: 0;
-    flex: 1;
-    text-align: center;
+.titre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titre h1 {
+    font-size: 1rem;
+}
+
+/*fin header*/
+
+/* main */
+main {
+    display: flex;
+    height: 80%;
+    background-color: #1E1E2E;
 }
 
 /* colonne */
 .colonne {
-    width: 20%;
-    background: #1E1E2E;
-    align-items: center;
-    justify-content: center;
+    display: flex;
+    width: 10rem;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 2px solid white;
+    height: auto;
 }
 
-nav.menu button {
-    margin: 10%;
-    width: auto;
-    height: 50px;
+.menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu button {
+    margin-left: 0.25rem;
+    margin-top: 0.25rem;
+    border-radius: 0.375rem;
+    
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    color: #fff;
+    transition-duration: 100ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu button:hover {
+    background-color: #cf728cd8;
+}
+
+.div_profil {
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-end;
+    margin-bottom: 2rem;
+}
+
+.profil {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    display: flex;
+    height: 75px;
+    color: black;
+    flex-direction: column;
+    justify-items: center;
+    border-radius: 0.375rem;
+    background-color: rgb(128, 128, 128);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.select_div {
+    position: relative;
+    display: inline-block;
+    border-radius: 0.375rem;
+    background-color: #1E1E2E;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+}
+
+.select_profil {
     display: block;
+    width: 100%;
+    appearance: none;
+    border-radius: 0.25rem;
+    border: 1px solid #CBD5E0;
+    color: white;
+    background-color: #1E1E2E;
+    padding: 0.5rem 1rem;
+    line-height: 1.25rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.select_profil:hover,
+.select_profil:focus {
+    border-color: #718096;
+}
+
+.select_profil:focus {
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(164, 202, 254, 0.45);
+}
+
+.pointer_div {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    color: black;
+}
+
+.pointer_svg {
+    height: 10px;
+    width: 10px;
+    fill: white;
+}
+
+.div_setting {
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .settings {
-    position: relative;
-    width: 64px;
-    margin: 50px;
-    top: 55%;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 0.375rem;
+    transition-duration: 100ms;
+    transition-timing-function: ease-in-out;
+    background-color: #1E1E2E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.settings:hover,
+.settings:active {
+    background-color: rgb(45, 44, 44);
+}
+
+.settings_logo {
+    height: 3rem;
+    width: 3rem;
 }
 
 /* contenu*/
+
 .content {
-    width: 80%;
-    background-color: #1E1E2E;
-    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .page_active {
     width: 100%;
+    overflow-y: scroll;
+    flex-grow: 1;
 }
 
 .page_ {
@@ -152,94 +289,133 @@ nav.menu button {
 }
 
 .active {
-    background-color: #f76a92;
+    background-color: #eb4977;
 }
+
+/* carte  */
 
 .contenu {
-    background-color: #11111b;
-    width: 95%;
+    margin: 10px;
+    background-color: rgb(128, 128, 128);
+    width: 80%;
+    height: 20%;
     border-radius: 20px;
-    height: 200px;
-    margin: 20px;
-}
-
-.contenu:hover {
-    background-color: #11111b34;
-}
-
-.option,
-.titre-fonction {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 10px;
-}
-
-p {
-    margin: 10px;
-}
-
-.icon {
-    width: 100px;
-    background-color: #CDD6F4;
-    float: right;
-    margin-top: -50px;
-    margin-right: 30px;
-}
-
-/*container*/
-
-.bouton-container {
-    position: fixed;
-    top: 90%;
-    left: 75%;
     display: flex;
 }
 
-div.bouton-container button {
-    background-color: green;
-    width: 100px;
+.contenu:hover {
+    background-color: rgb(103, 103, 103);
 }
 
-/* tout les reglage précedant s'applique quand l'ecran est a moitié*/
+.container_text {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
 
-/*responsive -> plein ecran */
-@media screen and (min-width: 952px) {
-    .settings {
-        position: relative;
-        top: 50%;
-        width: 64px;
-        height: auto;
-        left: 10%;
-    }
+.container_text h1 {
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    margin-bottom: 0;
+}
 
-    .bouton-container {
-        position: fixed;
-        top: 90%;
-        left: 85%;
-    }
+.container_text p {
+    margin-top: 0.2rem;
+    font-size: 1rem;
+    margin-left: 1rem;
+    overflow: hidden;
+    text-overflow:ellipsis ;
+}
 
-    div.bouton-container button {
-        background-color: green;
-        width: 100px;
-    }
+.option_select {
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0.5rem;
+}
 
-    nav.menu button {
-        margin: 10%;
-        width: 200px;
-        height: 50px;
-        display: block;
-    }
+.option {
+    width: 4.5rem;
+}
 
-    .colonne {
-        width: 15%;
-        background: #1E1E2E;
-        align-items: center;
-        justify-content: center;
-    }
+.savoir_plus {
+    width: 4.5rem;
+    border-radius: 1.5rem;
+    background-color: rgb(103, 103, 103);
+}
 
-    .content {
-        width: 85%;
-        background-color: #1E1E2E;
-        overflow: auto;
-    }
+.dots_svg{
+    width: 1.5rem;
+}
+
+.icon_svg {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    width: 4rem;
+    background-color: #CDD6F4;
+}
+
+/*fin main*/
+
+/*footer*/
+
+footer {
+    height: 10%;
+    flex-direction: row-reverse;
+    border-top: 2px solid white;
+    background-color: #1E1E2E;
+}
+
+footer button {
+    float: right;
+    margin: 1rem;
+    border-radius: 0.375rem;
+    background-color: rgba(31, 193, 107, 0.5);
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    color: #fff;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+}
+
+footer button:hover {
+    background-color: rgba(31, 193, 107, 0.6);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/*fin footer*/
+
+
+/* page final*/
+
+.carte_final{
+    width: 95%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(99, 78, 137, 0.647);
+    border-radius: 2rem;
+    margin: 1rem;
+}
+
+.checkmark{
+    width: 5rem;
+}
+
+.final_titre{
+    color: black;
+}
+
+.final_text{
+    color: black;
+    margin-left: 2rem;
 }

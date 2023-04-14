@@ -12,20 +12,22 @@
   <header>
 
     <!--bouton autres options-->
-    <button class="svg_button">
-      <img src="./resources/icon/container.svg" class="svg_container" alt="logo_penguin" />
-    </button>
+    <div class="svg_button">
+      <img src="./resources/icon/container.svg" class="svg_container" />
+    </div>
 
     <!--logo gorfou-->
     <div class="div_logo">
       <img src="./resources/logo_gorfou.svg" class="logo" alt="logo_penguin" />
     </div>
 
-    <h1>Gorfou-IA</h1>
+    <div class="titre">
+      <h1>Gorfou-IA</h1>
+    </div>
 
     <!--affichage dernier fichier importé-->
     <div class="div_fichier">
-      <div>
+      <div class="cont">
         <label for="file" class="mx-auto">dernier fichier importé:</label>
         <label class="fichier" id="fichier"></label>
       </div>
@@ -45,138 +47,319 @@
 
   <main>
     <!--menu colonne-->
-    <div class="colonne">
-      <nav class="menu">
-        <button id="menu_1" class="active">Transformation des données</button>
-        <button id="menu_2">Création de modèle</button>
-        <button id="menu_3">Visualisation des données</button>
-      </nav>
-      <img src="./resources/icon/gear.png" id="settings" class="settings" alt="logo paramètre" />
-    </div>
+    <side class="colonne">
+      <!-- Boutons de navigation -->
+
+      <div class="menu">
+        <button id="menu_1" class="active">
+          Traitement des données
+        </button>
+        <button id="menu_2">
+          Création modèle(s)
+        </button>
+        <button id="menu_3">
+          Visualisation
+        </button>
+      </div>
+
+      <!-- choix du profil -->
+      <div class="div_profil">
+        <div class="profil">
+          <label for="profil" class="mx-auto">profil :</label>
+          <div class="select_div">
+            <select class="select_profil">
+              <option value="1">default</option>
+              <option value="2">profile 2</option>
+              <option value="3">profile 3</option>
+              <option value="4">profile 4</option>
+              <option value="5">profile 5</option>
+            </select>
+            <div class="pointer_div">
+              <svg class="pointer_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- bouton de réglage -->
+        <div class="div_setting">
+          <div class="settings" id="settings">
+            <img src="./resources/icon/logo_reglage.svg" class="settings_logo" alt="logo_reglage" />
+          </div>
+        </div>
+
+      </div>
+    </side>
 
     <!--contenu principal-->
     <div class="content">
       <div class="page_active" id="1">
         <div class="contenu">
-          <h1 class="titre-fonction">Intégrités des données</h1>
-          <select name="option" class="option">
-            <option>NaN</option>
-            <option>vide</option>
-          </select>
-          <p>description de la fonctionalitée</p>
-          <img src="./resources/traitement/integrite.svg" class="icon" id="integrite" alt="logo intégrité" />
+          <div class="container_text">
+            <h1 class="titre-fonction">Titre fonctionalitée</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat ab quisquam iure, tenetur nostrum alias,
+              deserunt dolores quae sint ipsa, ad pariatur excepturi recusandae quos fugit nisi debitis fugiat?
+              Praesentium.
+            </p>
+          </div>
+          <div class="option_select">
+            <select name="option" class="option">
+              <option>NaN</option>
+              <option>vide</option>
+              <option>correction</option>
+            </select>
+            <button class="savoir_plus">
+              <img class="dots_svg" src="./resources/icon/3point.svg">
+            </button>
+          </div>
+
+          <div class="icon_svg">
+            <img src="./resources/traitement/integrite.svg" class="icon" id="integrite" />
+          </div>
         </div>
 
         <div class="contenu">
-          <h1 class="titre-fonction">Titre fonctionalitée</h1>
-          <select name="option" class="option">
-            <option></option>
-            <option></option>
-            <option></option>
-          </select>
-          <p>description de la fonctionalitée</p>
-          <img src="./resources/traitement/integrite.svg" class="icon" id="integrite" alt="logo intégrité" />
+          <div class="container_text">
+            <h1 class="titre-fonction">Titre fonctionalitée</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat ab quisquam iure, tenetur nostrum alias,
+              deserunt dolores quae sint ipsa, ad pariatur excepturi recusandae quos fugit nisi debitis fugiat?
+              Praesentium.
+            </p>
+          </div>
+          <div class="option_select">
+            <select name="option" class="option">
+              <option>NaN</option>
+              <option>vide</option>
+              <option>correction</option>
+            </select>
+            <button class="savoir_plus">
+              <img class="dots_svg" src="./resources/icon/3point.svg">
+            </button>
+          </div>
+
+          <div class="icon_svg">
+            <img src="./resources/traitement/integrite.svg" class="icon" id="integrite" />
+          </div>
         </div>
 
         <div class="contenu">
-          <h1 class="titre-fonction">Titre fonctionalitée</h1>
-          <select name="option" class="option">
-            <option></option>
-            <option></option>
-            <option></option>
-          </select>
-          <p>description de la fonctionalitée</p>
-          <img src="./resources/traitement/integrite.svg" class="icon" id="integrite" alt="logo intégrité" />
+          <div class="container_text">
+            <h1 class="titre-fonction">Titre fonctionalitée</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat ab quisquam iure, tenetur nostrum alias,
+              deserunt dolores quae sint ipsa, ad pariatur excepturi recusandae quos fugit nisi debitis fugiat?
+              Praesentium.
+            </p>
+          </div>
+          <div class="option_select">
+            <select name="option" class="option">
+              <option>NaN</option>
+              <option>vide</option>
+              <option>correction</option>
+            </select>
+            <button class="savoir_plus">
+              <img class="dots_svg" src="./resources/icon/3point.svg">
+            </button>
+          </div>
+
+          <div class="icon_svg">
+            <img src="./resources/traitement/integrite.svg" class="icon" id="integrite" />
+          </div>
         </div>
 
         <div class="contenu">
-          <h1 class="titre-fonction">Titre fonctionalitée</h1>
-          <select name="option" class="option">
-            <option></option>
-            <option></option>
-            <option></option>
-          </select>
-          <p>description de la fonctionalitée</p>
-          <img src="./resources/icon.png" alt="" class="icon" />
+          <div class="container_text">
+            <h1 class="titre-fonction">Titre fonctionalitée</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat ab quisquam iure, tenetur nostrum alias,
+              deserunt dolores quae sint ipsa, ad pariatur excepturi recusandae quos fugit nisi debitis fugiat?
+              Praesentium.
+            </p>
+          </div>
+          <div class="option_select">
+            <select name="option" class="option">
+              <option>NaN</option>
+              <option>vide</option>
+              <option>correction</option>
+            </select>
+            <button class="savoir_plus">
+              <img class="dots_svg" src="./resources/icon/3point.svg">
+            </button>
+          </div>
+
+          <div class="icon_svg">
+            <img src="./resources/traitement/integrite.svg" class="icon" id="integrite" />
+          </div>
         </div>
 
         <div class="contenu">
-          <h1 class="titre-fonction">Titre fonctionalitée</h1>
-          <select name="option" class="option">
-            <option></option>
-            <option></option>
-            <option></option>
-          </select>
-          <p>description de la fonctionalitée</p>
-          <img src="./resources/icon.png" alt="" class="icon" />
+          <div class="container_text">
+            <h1 class="titre-fonction">Titre fonctionalitée</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat ab quisquam iure, tenetur nostrum alias,
+              deserunt dolores quae sint ipsa, ad pariatur excepturi recusandae quos fugit nisi debitis fugiat?
+              Praesentium.
+            </p>
+          </div>
+          <div class="option_select">
+            <select name="option" class="option">
+              <option>NaN</option>
+              <option>vide</option>
+              <option>correction</option>
+            </select>
+            <button class="savoir_plus">
+              <img class="dots_svg" src="./resources/icon/3point.svg">
+            </button>
+          </div>
+
+          <div class="icon_svg">
+            <img src="./resources/traitement/integrite.svg" class="icon" id="integrite" />
+          </div>
         </div>
 
         <div class="contenu">
-          <h1 class="titre-fonction">Titre fonctionalitée</h1>
-          <select name="option" class="option">
-            <option></option>
-            <option></option>
-            <option></option>
-          </select>
-          <p>description de la fonctionalitée</p>
-          <img src="./resources/icon.png" alt="" class="icon" />
+          <div class="container_text">
+            <h1 class="titre-fonction">Titre fonctionalitée</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat ab quisquam iure, tenetur nostrum alias,
+              deserunt dolores quae sint ipsa, ad pariatur excepturi recusandae quos fugit nisi debitis fugiat?
+              Praesentium.
+            </p>
+          </div>
+          <div class="option_select">
+            <select name="option" class="option">
+              <option>NaN</option>
+              <option>vide</option>
+              <option>correction</option>
+            </select>
+            <button class="savoir_plus">
+              <img class="dots_svg" src="./resources/icon/3point.svg">
+            </button>
+          </div>
+
+          <div class="icon_svg">
+            <img src="./resources/traitement/integrite.svg" class="icon" id="integrite" />
+          </div>
         </div>
       </div>
 
       <div class="page_" id="2">
         <div class="contenu">
-          <h1 class="titre-fonction">Random Forest</h1>
-          <select name="option" class="option">
-            <option></option>
-            <option></option>
-            <option></option>
-          </select>
-          <p>description de la fonctionalitée</p>
-          <img src="./resources/modele/randomForest.svg" alt="" class="icon" id="randforest" />
+          <div class="container_text">
+            <h1 class="titre-fonction">Titre fonctionalitée</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat ab quisquam iure, tenetur nostrum alias,
+              deserunt dolores quae sint ipsa, ad pariatur excepturi recusandae quos fugit nisi debitis fugiat?
+              Praesentium.
+            </p>
+          </div>
+          <div class="option_select">
+            <select name="option" class="option">
+              <option>NaN</option>
+              <option>vide</option>
+              <option>correction</option>
+            </select>
+            <button class="savoir_plus">
+              <img class="dots_svg" src="./resources/icon/3point.svg">
+            </button>
+          </div>
+
+          <div class="icon_svg">
+            <img src="./resources/traitement/integrite.svg" class="icon" id="integrite" />
+          </div>
         </div>
 
         <div class="contenu">
-          <h1 class="titre-fonction">Titre fonctionalitée</h1>
-          <select name="option" class="option">
-            <option></option>
-            <option></option>
-            <option></option>
-          </select>
-          <p>description de la fonctionalitée</p>
-          <img src="./resources/icon.png" alt="" class="icon" />
+          <div class="container_text">
+            <h1 class="titre-fonction">Titre fonctionalitée</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat ab quisquam iure, tenetur nostrum alias,
+              deserunt dolores quae sint ipsa, ad pariatur excepturi recusandae quos fugit nisi debitis fugiat?
+              Praesentium.
+            </p>
+          </div>
+          <div class="option_select">
+            <select name="option" class="option">
+              <option>NaN</option>
+              <option>vide</option>
+              <option>correction</option>
+            </select>
+            <button class="savoir_plus">
+              <img class="dots_svg" src="./resources/icon/3point.svg">
+            </button>
+          </div>
+
+          <div class="icon_svg">
+            <img src="./resources/traitement/integrite.svg" class="icon" id="integrite" />
+          </div>
         </div>
       </div>
 
       <div class="page_" id="3">
         <div class="contenu">
-          <h1 class="titre-fonction">Courbe</h1>
-          <select name="option" class="option">
-            <option></option>
-            <option></option>
-            <option></option>
-          </select>
-          <p>description de la fonctionalitée</p>
-          <img src="./resources/visualisation/courbe.svg" alt="" class="icon" />
+          <div class="container_text">
+            <h1 class="titre-fonction">Titre fonctionalitée</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat ab quisquam iure, tenetur nostrum alias,
+              deserunt dolores quae sint ipsa, ad pariatur excepturi recusandae quos fugit nisi debitis fugiat?
+              Praesentium.
+            </p>
+          </div>
+          <div class="option_select">
+            <select name="option" class="option">
+              <option>NaN</option>
+              <option>vide</option>
+              <option>correction</option>
+            </select>
+            <button class="savoir_plus">
+              <img class="dots_svg" src="./resources/icon/3point.svg">
+            </button>
+          </div>
+
+          <div class="icon_svg">
+            <img src="./resources/traitement/integrite.svg" class="icon" id="integrite" />
+          </div>
         </div>
 
         <div class="contenu">
-          <h1 class="titre-fonction">Histogramme</h1>
-          <select name="option" class="option">
-            <option></option>
-            <option></option>
-            <option></option>
-          </select>
-          <p>description de la fonctionalitée</p>
-          <img src="./resources/visualisation/histograme.svg" alt="" class="icon" />
-        </div>
-      </div>
+          <div class="container_text">
+            <h1 class="titre-fonction">Titre fonctionalitée</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat ab quisquam iure, tenetur nostrum alias,
+              deserunt dolores quae sint ipsa, ad pariatur excepturi recusandae quos fugit nisi debitis fugiat?
+              Praesentium.
+            </p>
+          </div>
+          <div class="option_select">
+            <select name="option" class="option">
+              <option>NaN</option>
+              <option>vide</option>
+              <option>correction</option>
+            </select>
+            <button class="savoir_plus">
+              <img class="dots_svg" src="./resources/icon/3point.svg">
+            </button>
+          </div>
 
-      <div class="bouton-container">
-        <button class="suite" id="suite">suite</button>
-        <button class="final" id="final">finaliser</button>
+          <div class="icon_svg">
+            <img src="./resources/traitement/integrite.svg" class="icon" id="integrite" />
+          </div>
+        </div>
+
       </div>
     </div>
   </main>
+  <footer>
+    <button id="finaliser">
+      Finaliser
+    </button>
+    <button id="suite">
+      Suite
+    </button>
+  </footer>
 </body>
 <script src="./js/fonctionalite.js"></script>
 <script src="./js/main.js"></script>

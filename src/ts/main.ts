@@ -177,19 +177,19 @@ function finaliser() {
   ipcRenderer.send("show-message-box");
   ipcRenderer.on("yes", () => {
     axios
-    .post("http://127.0.0.1:5000/finaliser", {})
-    .then(function (response: any) {
-      console.log("It says: ", response.data);
-    })
-    .catch(function (error: any) {
-      console.log(error);
-    });
+      .post("http://127.0.0.1:5000/finaliser", {})
+      .then(function (response: any) {
+        console.log("It says: ", response.data);
+      })
+      .catch(function (error: any) {
+        console.log(error);
+      });
     window.location.assign("./final.html");
   });
 }
 
 // event listener pour le bouton finaliser
-const button_final = document.getElementById("final");
+const button_final = document.getElementById("finaliser");
 if (button_final) {
   button_final.addEventListener("click", () => {
     finaliser();
