@@ -7,7 +7,7 @@
   "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "tsc && electron ."
   },
   "author": "Fortini Donat,Piacentini Théo,Grazietti Livia",
   "license": "GPL",
