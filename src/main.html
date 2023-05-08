@@ -95,6 +95,7 @@
     <!--contenu principal-->
     <div class="content">
       <div class="page_active" id="1">
+
         <div class="contenu">
           <div class="container_text">
             <h1 class="titre-fonction">Titre fonctionalitée</h1>
@@ -246,21 +247,25 @@
         </div>
       </div>
 
+
       <div class="page_" id="2">
+
         <div class="contenu">
           <div class="container_text">
-            <h1 class="titre-fonction">Titre fonctionalitée</h1>
+            <h1 class="titre-fonction">Random forest</h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat ab quisquam iure, tenetur nostrum alias,
-              deserunt dolores quae sint ipsa, ad pariatur excepturi recusandae quos fugit nisi debitis fugiat?
-              Praesentium.
+              Une Random forest est un méta estimateur qui adapte un certain nombre de classificateurs d'arbre de
+              décision sur divers sous-échantillons de l'ensemble de données et utilise la moyenne pour améliorer la
+              précision prédictive et contrôler le surajustement. La taille du sous-échantillon est contrôlée avec le
+              paramètre max_samples si bootstrap=True (par défaut), sinon l'ensemble de données entier est utilisé pour
+              construire chaque arbre.
             </p>
           </div>
           <div class="option_select">
             <select name="option" class="option">
-              <option>NaN</option>
-              <option>vide</option>
-              <option>correction</option>
+              <option>n_estimators</option>
+              <option>max_depth</option>
+              <option>random_state</option>
             </select>
             <button class="savoir_plus">
               <img class="dots_svg" src="./resources/icon/3point.svg">
@@ -268,7 +273,7 @@
           </div>
 
           <div class="icon_svg">
-            <img src="./resources/traitement/integrite.svg" class="icon" id="integrite" />
+            <img src="./resources/modele/randomForest.svg" class="icon" id="randforest" />
           </div>
         </div>
 
